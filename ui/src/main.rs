@@ -1,0 +1,40 @@
+#[path = "../db/mod.rs"]
+pub mod db;
+
+#[path = "../handlers/mod.rs"]
+pub mod handlers;
+
+#[path = "../models/mod.rs"]
+pub mod models;
+
+#[path = "../routes/mod.rs"]
+pub mod routes;
+
+use axum::Router;
+use db::{
+    bootstrap::run_grants,
+    connection::{admin_pool, app_pool},
+};
+use routes::users::user_routes;
+
+#[tokio::main]
+async fn main() {
+    let admin_pool = admin_pool().await;
+    let app_pool = app_pool().await;
+
+    sqlx::migrate!("../migrations")
+        .run(&admin_pool)
+        .await
+        .expect("migrations failed");
+
+    run_grants(&admin_pool).await;
+
+    let app = Router::new()
+        .nest("/users", user_routes())
+        .with_state(app_pool);
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+
+    println!("Server running on port: 3000");
+
+    axum::serve(listener, app).await.unwrap();
+}
