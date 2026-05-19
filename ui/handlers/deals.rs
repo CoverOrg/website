@@ -1,5 +1,4 @@
-use crate::models::deals::DealStatuses;
-use crate::models::deals::{DealsRequest, DealsResponse};
+use crate::models::deals::{DealStatuses, DealsRequest, DealsResponse};
 use axum::extract::{Json, State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};
