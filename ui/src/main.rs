@@ -10,12 +10,12 @@ pub mod models;
 #[path = "../routes/mod.rs"]
 pub mod routes;
 
+use crate::routes::{deals::deal_routes, sellers::seller_routes, users::user_routes};
 use axum::Router;
 use db::{
     bootstrap::run_grants,
     connection::{admin_pool, app_pool},
 };
-use routes::users::user_routes;
 
 #[tokio::main]
 async fn main() {
@@ -31,6 +31,8 @@ async fn main() {
 
     let app = Router::new()
         .nest("/users", user_routes())
+        .nest("/sellers", seller_routes())
+        .nest("/deals", deal_routes())
         .with_state(app_pool);
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 
