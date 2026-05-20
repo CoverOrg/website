@@ -11,8 +11,8 @@ pub mod models;
 pub mod routes;
 
 use crate::routes::{
-    deal_timeline::deal_timeline_routes, deals::deal_routes, payment::payment_routes,
-    sellers::seller_routes, users::user_routes,
+    deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
+    payment::payment_routes, sellers::seller_routes, users::user_routes,
 };
 use axum::Router;
 use db::{
@@ -38,6 +38,7 @@ async fn main() {
         .nest("/deals", deal_routes())
         .nest("/deal_timeline", deal_timeline_routes())
         .nest("/payment", payment_routes())
+        .nest("/disputes", dispute_routes())
         .with_state(app_pool);
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 

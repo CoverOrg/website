@@ -22,10 +22,16 @@ CREATE TYPE verdicts as ENUM (
     'return_refund'
 );
 
+CREATE TYPE role_typess as ENUM (
+    'buyer',
+    'seller',
+    'admin'
+);
+
 CREATE TABLE IF NOT EXISTS disputes (
     id UUID PRIMARY KEY,
     deal_id UUID REFERENCES deals(id) NOT NULL,
-    raised_by UUID REFERENCES users(id) NOT NULL,
+    raised_by role_typess NOT NULL,
     admin_id UUID REFERENCES users(id),
     issue_type issue_types NOT NULL,
     description TEXT NOT NULL,
