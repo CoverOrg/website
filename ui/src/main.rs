@@ -14,7 +14,7 @@ use crate::routes::{
     deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
     notifications::notification_routes, otp_sessions::otp_routes, payment::payment_routes,
     risk_reports::risk_report_routes, scam_alerts::scam_alert_routes, sellers::seller_routes,
-    sessions::session_routes, users::user_routes,
+    sessions::session_routes, users::user_routes, verification::verification_routes,
 };
 use axum::Router;
 use db::{
@@ -46,6 +46,7 @@ async fn main() {
         .nest("/scams", scam_alert_routes())
         .nest("/otp", otp_routes())
         .nest("/sessions", session_routes())
+        .nest("/verification", verification_routes())
         .with_state(app_pool);
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 

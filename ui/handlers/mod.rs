@@ -9,3 +9,4 @@ pub mod scam_alerts;
 pub mod sellers;
 pub mod sessions;
 pub mod users;
+pub mod verification;
