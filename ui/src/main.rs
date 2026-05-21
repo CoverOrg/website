@@ -13,7 +13,7 @@ pub mod routes;
 use crate::routes::{
     deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
     notifications::notification_routes, payment::payment_routes, risk_reports::risk_report_routes,
-    sellers::seller_routes, users::user_routes,
+    scam_alerts::scam_alert_routes, sellers::seller_routes, users::user_routes,
 };
 use axum::Router;
 use db::{
@@ -42,6 +42,7 @@ async fn main() {
         .nest("/disputes", dispute_routes())
         .nest("/report", risk_report_routes())
         .nest("/notifications", notification_routes())
+        .nest("/scams", scam_alert_routes())
         .with_state(app_pool);
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 

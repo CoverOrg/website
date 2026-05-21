@@ -2,7 +2,8 @@ use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "severity", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum Severity {
     Low,
@@ -11,7 +12,8 @@ pub enum Severity {
     Critical,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "scam_platform", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum ScamPlatform {
     Facebook,
@@ -22,7 +24,8 @@ pub enum ScamPlatform {
     Other,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "scam_city", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum ScamCity {
     Islamabad,
@@ -41,8 +44,8 @@ pub struct ScamAlerts {
     pub platform: ScamPlatform,
     pub description: String,
     pub scammer_phone: Option<String>,
-    pub amount_lost: Option<u64>,
-    pub victim_count: u32,
+    pub amount_lost: Option<i64>,
+    pub victim_count: Option<i32>,
     pub severity: Severity,
     pub is_published: bool,
     pub published_at: Option<DateTime<Utc>>,
@@ -56,8 +59,8 @@ pub struct ScamAlertsRequest {
     pub platform: ScamPlatform,
     pub description: String,
     pub scammer_phone: Option<String>,
-    pub amount_lost: Option<u64>,
-    pub victim_count: Option<u32>,
+    pub amount_lost: Option<i64>,
+    pub victim_count: Option<i32>,
     pub severity: Severity,
 }
 
@@ -69,8 +72,8 @@ pub struct ScamAlertsResponse {
     pub platform: ScamPlatform,
     pub description: String,
     pub scammer_phone: Option<String>,
-    pub amount_lost: Option<u64>,
-    pub victim_count: u32,
+    pub amount_lost: Option<i64>,
+    pub victim_count: Option<i32>,
     pub severity: Severity,
     pub is_published: bool,
     pub published_at: Option<DateTime<Utc>>,

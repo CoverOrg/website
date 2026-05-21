@@ -4,5 +4,6 @@ pub mod disputes;
 pub mod notifications;
 pub mod payments;
 pub mod risk_reports;
+pub mod scam_alerts;
 pub mod sellers;
 pub mod users;
