@@ -2,15 +2,17 @@ use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "channels", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
-pub enum Channel {
+pub enum Channels {
     InApp,
     WhatsApp,
     SMS,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "types", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum Types {
     DealUpdate,
@@ -25,7 +27,7 @@ pub struct Notifications {
     pub title: String,
     pub notification_type: Types,
     pub message: String,
-    pub channel: Channel,
+    pub channel: Channels,
     pub is_read: bool,
     pub sent_at: Option<DateTime<Utc>>,
     pub created_at: DateTime<Utc>,
@@ -43,7 +45,7 @@ pub struct NotificationsResponse {
     pub title: String,
     pub notification_type: Types,
     pub message: String,
-    pub channel: Channel,
+    pub channel: Channels,
     pub is_read: bool,
     pub sent_at: Option<DateTime<Utc>>,
     pub created_at: DateTime<Utc>,
