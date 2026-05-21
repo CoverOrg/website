@@ -1,5 +1,5 @@
 use chrono::{DateTime, Utc};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 #[derive(Debug)]
@@ -11,8 +11,14 @@ pub struct Sessions {
     pub expires_at: DateTime<Utc>,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct SessionsRequest {
+    pub user_id: Uuid,
+}
+
 #[derive(Debug, Serialize)]
 pub struct SessionsResponse {
+    pub id: Uuid,
     pub token: String,
     pub expires_at: DateTime<Utc>,
 }
