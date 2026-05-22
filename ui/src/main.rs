@@ -10,22 +10,26 @@ pub mod models;
 #[path = "../routes/mod.rs"]
 pub mod routes;
 
-use crate::routes::{
-    deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
-    notifications::notification_routes, otp_sessions::otp_routes, payment::payment_routes,
-    risk_reports::risk_report_routes, scam_alerts::scam_alert_routes, sellers::seller_routes,
-    sessions::session_routes, users::user_routes, verification::verification_routes,
+#[path = "../pages/mod.rs"]
+pub mod pages;
+
+use crate::{
+    db::{bootstrap::run_grants, connection::load_pool},
+    pages::home::home,
+    routes::{
+        deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
+        notifications::notification_routes, otp_sessions::otp_routes, payment::payment_routes,
+        risk_reports::risk_report_routes, scam_alerts::scam_alert_routes, sellers::seller_routes,
+        sessions::session_routes, users::user_routes, verification::verification_routes,
+    },
 };
-use axum::Router;
-use db::{
-    bootstrap::run_grants,
-    connection::{admin_pool, app_pool},
-};
+use axum::{Router, routing::get};
+use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() {
-    let admin_pool = admin_pool().await;
-    let app_pool = app_pool().await;
+    let admin_pool = load_pool("ADMIN_URL").await;
+    let app_pool = load_pool("APP_URL").await;
 
     sqlx::migrate!("../migrations")
         .run(&admin_pool)
@@ -35,6 +39,9 @@ async fn main() {
     run_grants(&admin_pool).await;
 
     let app = Router::new()
+        // Pages
+        .route("/", get(home))
+        // APIs
         .nest("/users", user_routes())
         .nest("/sellers", seller_routes())
         .nest("/deals", deal_routes())
@@ -47,6 +54,10 @@ async fn main() {
         .nest("/otp", otp_routes())
         .nest("/sessions", session_routes())
         .nest("/verification", verification_routes())
+        .nest_service(
+            "/static",
+            ServeDir::new(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),
+        )
         .with_state(app_pool);
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 
