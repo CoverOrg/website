@@ -25,12 +25,6 @@ body {
         0 20px 60px -15px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(0, 0, 0, 0.04);
 }
-.seller-img {
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.card:hover .seller-img {
-    transform: scale(1.08);
-}
 .btn-primary {
     background: #0a0a0a;
     color: #fff;
@@ -51,23 +45,23 @@ body {
     background: #ebebeb;
     transform: translateY(-1px);
 }
-.btn-green {
-    background: #16a34a;
+.btn-gray {
+    background: #0a0a0a;
     color: #fff;
     transition: all 0.2s ease;
 }
-.btn-green:hover {
-    background: #15803d;
+.btn-gray:hover {
+    background: #1a1a1a;
     transform: translateY(-1px);
     box-shadow: 0 4px 20px rgba(22, 163, 74, 0.3);
 }
 @keyframes wa-ring {
     0%,
     100% {
-        box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.35);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.35);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
     }
 }
 .wa-pulse {
@@ -214,8 +208,7 @@ details.faq-item[open] .faq-body {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Modals */
-input[name="shop-toggle"],
+/* Modals — Policy only */
 input[name="policy-toggle"] {
     position: fixed;
     width: 1px;
@@ -226,11 +219,10 @@ input[name="policy-toggle"] {
     border: 0;
     pointer-events: none;
 }
-.shop-overlay,
 .policy-overlay {
     position: fixed;
     inset: 0;
-    z-index: 9000;
+    z-index: 9500;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,10 +234,6 @@ input[name="policy-toggle"] {
         opacity 0.3s ease,
         visibility 0.3s ease;
 }
-.policy-overlay {
-    z-index: 9500;
-}
-.shop-overlay .backdrop-label,
 .policy-overlay .policy-backdrop {
     position: absolute;
     inset: 0;
@@ -255,14 +243,14 @@ input[name="policy-toggle"] {
     cursor: pointer;
     z-index: 0;
 }
-.shop-modal-panel,
 .policy-modal-panel {
     position: relative;
     z-index: 10;
     background: #fff;
     border-radius: 1.25rem;
     width: 100%;
-    max-height: 90vh;
+    max-width: 620px;
+    max-height: 85vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -272,137 +260,41 @@ input[name="policy-toggle"] {
     transform: translateY(20px) scale(0.97);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.shop-modal-panel {
-    max-width: 540px;
-}
-.policy-modal-panel {
-    max-width: 620px;
-    max-height: 85vh;
-}
-.shop-modal-scroll,
 .policy-modal-scroll {
     overflow-y: auto;
     flex: 1;
     -webkit-overflow-scrolling: touch;
 }
-.shop-modal-scroll::-webkit-scrollbar,
 .policy-modal-scroll::-webkit-scrollbar {
     width: 4px;
 }
-.shop-modal-scroll::-webkit-scrollbar-thumb,
 .policy-modal-scroll::-webkit-scrollbar-thumb {
     background: #e5e5e5;
     border-radius: 4px;
 }
-.shop-modal-banner {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-.shop-modal-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.shop-modal-close-label,
 .policy-modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    background: rgba(0, 0, 0, 0.45);
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 34px;
+    height: 34px;
+    background: #f5f5f5;
     backdrop-filter: blur(8px);
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: #fff;
+    color: #737373;
     z-index: 2;
 }
-.policy-modal-close {
-    position: relative;
-    top: auto;
-    right: auto;
-    background: #f5f5f5;
-    color: #737373;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    width: 34px;
-    height: 34px;
-}
-.shop-modal-close-label:hover,
 .policy-modal-close:hover {
-    background: rgba(0, 0, 0, 0.7);
+    background: #ebebeb;
+    color: #0a0a0a;
     transform: scale(1.08);
 }
-.policy-modal-close:hover {
-    background: #ebebeb;
-    color: #0a0a0a;
-}
-.shop-modal-item {
-    aspect-ratio: 1;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    background: #f5f5f5;
-}
-.shop-modal-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.shop-modal-item:hover img {
-    transform: scale(1.06);
-}
-.shop-modal-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #525252;
-    background: #f5f5f5;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 6px 12px;
-    border-radius: 9999px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-.shop-modal-link:hover {
-    background: #ebebeb;
-    color: #0a0a0a;
-}
-.btn-view-shop {
-    background: #f5f5f5;
-    color: #0a0a0a;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all 0.2s ease;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    width: 100%;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px 16px;
-    border-radius: 10px;
-}
-.btn-view-shop:hover {
-    background: #ebebeb;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-#shop-0:checked ~ [data-overlay="0"],
-#shop-1:checked ~ [data-overlay="1"],
-#shop-2:checked ~ [data-overlay="2"],
-#shop-3:checked ~ [data-overlay="3"],
-#shop-4:checked ~ [data-overlay="4"],
 #policy-privacy:checked ~ [data-policy="privacy"],
 #policy-returns:checked ~ [data-policy="returns"],
 #policy-terms:checked ~ [data-policy="terms"] {
@@ -410,37 +302,24 @@ input[name="policy-toggle"] {
     visibility: visible;
     pointer-events: auto;
 }
-#shop-0:checked ~ [data-overlay="0"] .shop-modal-panel,
-#shop-1:checked ~ [data-overlay="1"] .shop-modal-panel,
-#shop-2:checked ~ [data-overlay="2"] .shop-modal-panel,
-#shop-3:checked ~ [data-overlay="3"] .shop-modal-panel,
-#shop-4:checked ~ [data-overlay="4"] .shop-modal-panel,
 #policy-privacy:checked ~ [data-policy="privacy"] .policy-modal-panel,
 #policy-returns:checked ~ [data-policy="returns"] .policy-modal-panel,
 #policy-terms:checked ~ [data-policy="terms"] .policy-modal-panel {
     transform: translateY(0) scale(1);
 }
-body:has(input[name="shop-toggle"]:checked),
 body:has(input[name="policy-toggle"]:checked) {
     overflow: hidden;
 }
 @media (max-width: 639px) {
-    .shop-overlay,
     .policy-overlay {
         align-items: flex-end;
         padding: 0;
     }
-    .shop-modal-panel,
     .policy-modal-panel {
         max-height: 92vh;
         border-radius: 1.25rem 1.25rem 0 0;
         transform: translateY(100%);
     }
-    #shop-0:checked ~ [data-overlay="0"] .shop-modal-panel,
-    #shop-1:checked ~ [data-overlay="1"] .shop-modal-panel,
-    #shop-2:checked ~ [data-overlay="2"] .shop-modal-panel,
-    #shop-3:checked ~ [data-overlay="3"] .shop-modal-panel,
-    #shop-4:checked ~ [data-overlay="4"] .shop-modal-panel,
     #policy-privacy:checked ~ [data-policy="privacy"] .policy-modal-panel,
     #policy-returns:checked ~ [data-policy="returns"] .policy-modal-panel,
     #policy-terms:checked ~ [data-policy="terms"] .policy-modal-panel {
@@ -560,5 +439,5 @@ body:has(input[name="policy-toggle"]:checked) {
         0 0 0 1px rgba(0, 0, 0, 0.04),
         0 4px 6px -1px rgba(0, 0, 0, 0.04),
         0 20px 50px -12px rgba(0, 0, 0, 0.12),
-        0 0 80px -20px rgba(22, 163, 74, 0.08);
+        0 0 80px -20px rgba(0, 0, 0, 0.08);
 }
