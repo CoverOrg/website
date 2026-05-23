@@ -15,7 +15,7 @@ pub mod pages;
 
 use crate::{
     db::{bootstrap::run_grants, connection::load_pool},
-    pages::home::home,
+    pages::{dashboard::dashboard, home::home},
     routes::{
         deal_timeline::deal_timeline_routes, deals::deal_routes, disputes::dispute_routes,
         notifications::notification_routes, otp_sessions::otp_routes, payment::payment_routes,
@@ -41,6 +41,7 @@ async fn main() {
     let app = Router::new()
         // Pages
         .route("/", get(home))
+        .route("/dashboard", get(dashboard))
         // APIs
         .nest("/users", user_routes())
         .nest("/sellers", seller_routes())

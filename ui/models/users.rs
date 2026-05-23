@@ -3,15 +3,6 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 #[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "role_types", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum RoleTypes {
-    Buyer,
-    Seller,
-    Admin,
-}
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
 #[sqlx(type_name = "user_city", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum UserCity {
@@ -23,36 +14,50 @@ pub enum UserCity {
     Peshawar,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Users {
     pub id: Uuid,
-    pub name: String,
+    pub full_name: String,
+    pub username: String,
     pub phone: String,
+    pub email: String,
     pub city: UserCity,
-    pub role: RoleTypes,
+    pub bio: String,
+    pub avatar_url: Option<String>,
     pub trust_score: u32,
-    pub deal_count: u64,
-    pub dispute_count: u64,
-    pub created_at: DateTime<Utc>,
-    pub last_active: Option<DateTime<Utc>>,
+    pub kyc_level: u32,
+    pub is_seller: bool,
+    pub is_verified: bool,
+    pub deals_completed: u32,
+    pub created_at: Option<DateTime<Utc>>,
 }
 
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 pub struct UsersRequest {
-    pub name: String,
+    pub full_name: String,
+    pub username: String,
     pub phone: String,
+    pub email: String,
     pub city: UserCity,
+    pub bio: String,
+    pub avatar_url: Option<String>,
+    pub is_seller: bool,
 }
 
-#[derive(Serialize)]
+#[derive(Debug, Serialize)]
 pub struct UsersResponse {
     pub id: Uuid,
-    pub name: String,
+    pub full_name: String,
+    pub username: String,
+    pub phone: String,
+    pub email: String,
     pub city: UserCity,
-    pub role: RoleTypes,
+    pub bio: String,
+    pub avatar_url: Option<String>,
     pub trust_score: u32,
-    pub deal_count: u64,
-    pub dispute_count: u64,
-    pub created_at: DateTime<Utc>,
-    pub last_active: Option<DateTime<Utc>>,
+    pub kyc_level: u32,
+    pub is_seller: bool,
+    pub is_verified: bool,
+    pub deals_completed: u32,
+    pub created_at: Option<DateTime<Utc>>,
 }

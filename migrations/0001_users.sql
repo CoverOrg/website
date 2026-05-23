@@ -1,9 +1,3 @@
-CREATE TYPE role_types AS ENUM (
-    'buyer',
-    'seller',
-    'admin'
-);
-
 CREATE TYPE user_city AS ENUM (
     'islamabad',
     'lahore',
@@ -15,13 +9,17 @@ CREATE TYPE user_city AS ENUM (
 
 CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY,
-    name TEXT NOT NULL,
+    full_name TEXT NOT NULL,
+    username TEXT UNIQUE NOT NULL,
     phone TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
     city user_city NOT NULL,
-    role role_types NOT NULL,
+    bio TEXT NOT NULL,
+    avatar_url TEXT,
     trust_score INTEGER DEFAULT 0,
-    deal_count INTEGER DEFAULT 0,
-    dispute_count INTEGER DEFAULT 0,
-    created_at TIMESTAMPTZ DEFAULT now(),
-    last_active TIMESTAMPTZ
+    kyc_level INTEGER DEFAULT 0,
+    is_seller BOOL NOT NULL,
+    is_verified BOOL DEFAULT FALSE,
+    deals_completed INTEGER DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT now()
 );

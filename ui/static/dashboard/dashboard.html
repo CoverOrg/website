@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover — Pay safe. Every time.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+<!-- STATE INPUTS -->
+<input type="radio" name="nav" id="nav-deals">
+<input type="radio" name="nav" id="nav-shops">
+<input type="radio" name="nav" id="nav-stories">
+<input type="radio" name="nav" id="nav-profile">
+<input type="radio" name="df" id="df-all" checked>
+<input type="radio" name="df" id="df-active">
+<input type="radio" name="df" id="df-completed">
+<input type="radio" name="df" id="df-disputed">
+<input type="radio" name="sf" id="sf-all" checked>
+<input type="radio" name="sf" id="sf-tech">
+<input type="radio" name="sf" id="sf-food">
+<input type="radio" name="sf" id="sf-jewellery">
+<input type="radio" name="deal" id="deal-none" checked>
+<input type="radio" name="deal" id="deal-1">
+<input type="radio" name="deal" id="deal-2">
+<input type="radio" name="deal" id="deal-3">
+<input type="radio" name="deal" id="deal-4">
+<input type="radio" name="shop" id="shop-none" checked>
+<input type="radio" name="shop" id="shop-1">
+<input type="radio" name="shop" id="shop-2">
+<input type="radio" name="shop" id="shop-3">
+<input type="radio" name="story" id="story-none" checked>
+<input type="radio" name="story" id="story-1">
+<input type="radio" name="story" id="story-2">
+<input type="radio" name="story" id="story-3">
+<input type="radio" name="pm" id="pm-none" checked>
+<input type="radio" name="pm" id="pm-edit">
+<input type="radio" name="pm" id="pm-seller">
+<input type="radio" name="pm" id="pm-shop">
+<input type="radio" name="pm" id="pm-story">
+<input type="radio" name="pm" id="pm-pay">
+<input type="radio" name="pm" id="pm-help">
+<input type="radio" name="pm" id="pm-contact">
+<input type="radio" name="pm" id="pm-policies">
+<input type="checkbox" id="om-d1">
+<input type="checkbox" id="om-d2">
+<input type="checkbox" id="om-d3">
+<input type="checkbox" id="om-d4">
+<input type="checkbox" id="om-s1">
+<input type="checkbox" id="om-s2">
+<input type="checkbox" id="om-s3">
+<input type="checkbox" id="disp-1">
+<input type="checkbox" id="faq1">
+<input type="checkbox" id="faq2">
+<input type="checkbox" id="faq3">
+<input type="checkbox" id="faq4">
+<input type="checkbox" id="faq5">
+<input type="checkbox" id="faq6">
+<input type="radio" name="st" id="st-b2c" checked>
+<input type="radio" name="st" id="st-b2b">
+<input type="radio" name="pm-accordion" id="pma-none" checked>
+<input type="radio" name="pm-accordion" id="pma-none-2">
+<input type="checkbox" id="logout-open">
+<!-- Individual backdrops — one per menu for reliable close-on-outside-click -->
+<label class="backdrop bd-d1" for="om-d1"></label>
+<label class="backdrop bd-d2" for="om-d2"></label>
+<label class="backdrop bd-d3" for="om-d3"></label>
+<label class="backdrop bd-d4" for="om-d4"></label>
+<label class="backdrop bd-s1" for="om-s1"></label>
+<label class="backdrop bd-s2" for="om-s2"></label>
+<label class="backdrop bd-s3" for="om-s3"></label>
+<label class="backdrop-logout" for="logout-open"></label>
+
+<div class="app">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">🛡</div>
+  <div class="sidebar-divider"></div>
+  <nav class="sidebar-nav">
+    <label class="nav-icon" for="nav-deals" title="Deals">🤝</label>
+    <label class="nav-icon" for="nav-shops" title="Shops">🏪</label>
+    <label class="nav-icon" for="nav-stories" title="Stories">⚡</label>
+  </nav>
+  <label class="sidebar-avatar" for="nav-profile" title="Profile">AH</label>
+</aside>
+
+<!-- ═══ DEALS ═══ -->
+<div class="sec sec-deals">
+  <div class="list-panel">
+    <div class="list-head">
+      <div class="list-title">Deals <div class="list-title-action">+</div></div>
+      <div class="search-wrap"><span>🔍</span><input type="text" placeholder="Search deals…"></div>
+      <div class="chips">
+        <label class="chip" for="df-all">All</label>
+        <label class="chip" for="df-active">Active</label>
+        <label class="chip" for="df-completed">Completed</label>
+        <label class="chip" for="df-disputed">Disputed</label>
+      </div>
+    </div>
+    <div class="list-scroll">
+      <div class="d-transit">
+        <label class="row" for="deal-1">
+          <div class="row-avi">📱</div>
+          <div class="row-body">
+            <div class="row-top"><span class="row-name">Samsung Galaxy A54</span><span class="pill p-transit"><i></i>In Transit</span></div>
+            <div class="row-sub">Ali Khan · <span style="font-family:var(--m)">CVR-2025-041</span></div>
+          </div>
+          <div class="row-right"><span class="row-time">2h ago</span><span class="row-badge">2</span></div>
+          <label class="row-overflow" for="om-d1" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label>
+        </label>
+        <div class="overflow-drop" id="od1" style="top:152px;right:calc(100% - var(--list-w) + 8px)">
+          <div class="drop-item">📌 Pin deal</div>
+          <div class="drop-item">⭐ Favourite</div>
+          <div class="drop-item sep red">🗑 Delete deal</div>
+          <div class="drop-item sep close-item"><label for="om-d1" style="cursor:pointer;width:100%;display:block">✕ Close</label></div>
+        </div>
+        </label>
+      </div>
+      <div class="d-pending">
+        <label class="row" for="deal-2">
+          <div class="row-avi">👟</div>
+          <div class="row-body">
+            <div class="row-top"><span class="row-name">Nike Sneakers</span><span class="pill p-pending"><i></i>Pending</span></div>
+            <div class="row-sub">SneakerHead PK · <span style="font-family:var(--m)">CVR-2025-039</span></div>
+          </div>
+          <div class="row-right"><span class="row-time">1d ago</span><span class="row-udot"></span></div>
+          <label class="row-overflow" for="om-d2" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label>
+        </label>
+        <div class="overflow-drop" id="od2" style="top:224px;right:calc(100% - var(--list-w) + 8px)">
+          <div class="drop-item">📌 Pin deal</div><div class="drop-item">⭐ Favourite</div><div class="drop-item sep red">🗑 Delete deal</div>
+          <div class="drop-item sep close-item"><label for="om-d2" style="cursor:pointer;width:100%;display:block">✕ Close</label></div>
+        </div>
+      </div>
+      <div class="d-disputed">
+        <label class="row" for="deal-3">
+          <div class="row-avi">📲</div>
+          <div class="row-body">
+            <div class="row-top"><span class="row-name">iPhone 13</span><span class="pill p-disputed"><i></i>Disputed</span></div>
+            <div class="row-sub">Ali Mobile · <span style="font-family:var(--m)">CVR-2025-037</span></div>
+          </div>
+          <div class="row-right"><span class="row-time">3d ago</span></div>
+          <label class="row-overflow" for="om-d3" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label>
+        </label>
+        <div class="overflow-drop" id="od3" style="top:296px;right:calc(100% - var(--list-w) + 8px)">
+          <div class="drop-item">📌 Pin deal</div><div class="drop-item">⭐ Favourite</div><div class="drop-item sep red">🗑 Delete deal</div>
+          <div class="drop-item sep close-item"><label for="om-d3" style="cursor:pointer;width:100%;display:block">✕ Close</label></div>
+        </div>
+      </div>
+      <div class="d-completed" style="opacity:.5">
+        <label class="row" for="deal-4">
+          <div class="row-avi">🎧</div>
+          <div class="row-body">
+            <div class="row-top"><span class="row-name">JBL Earbuds</span><span class="pill p-completed"><i></i>Completed</span></div>
+            <div class="row-sub">AudioShop · <span style="font-family:var(--m)">CVR-2025-028</span></div>
+          </div>
+          <div class="row-right"><span class="row-time">2w ago</span></div>
+          <label class="row-overflow" for="om-d4" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label>
+        </label>
+        <div class="overflow-drop" id="od4" style="top:368px;right:calc(100% - var(--list-w) + 8px)">
+          <div class="drop-item">📌 Pin deal</div><div class="drop-item">⭐ Favourite</div><div class="drop-item sep red">🗑 Delete deal</div>
+          <div class="drop-item sep close-item"><label for="om-d4" style="cursor:pointer;width:100%;display:block">✕ Close</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail">
+    <div class="deal-pane deal-empty empty-state"><div class="empty-icon">🔐</div><div class="empty-ttl">Select a deal</div><div class="empty-sub">Choose a deal to view the conversation and manage your escrow.</div></div>
+
+    <!-- Deal 1: In Transit -->
+    <div class="deal-pane dp1">
+      <div class="dh">
+        <label class="back-btn" for="deal-none">← Back</label>
+        <div class="dh-avi">📱</div>
+        <div class="dh-info">
+          <div class="dh-title">Samsung Galaxy A54 <span class="pill p-transit"><i></i>In Transit</span></div>
+          <div class="dh-sub">Ali Khan · CVR-2025-041 · Rs. 18,000</div>
+        </div>
+      </div>
+      <div class="chat-bg">
+
+        <!-- STAGE 1 — Deal created -->
+        <div class="date-divider">19 May 2025</div>
+        <div class="sys-msg">🔒 Deal created · Funds locked in escrow</div>
+        <div class="escrow-card">
+          <div class="ec-top"><div class="ec-label">Held in Escrow</div><div class="ec-amount"><span class="ec-curr">Rs.</span>18,180</div><div class="ec-ref">REF: CVR-2025-041 · Fee: Rs. 180 · TCS Courier</div></div>
+          <div class="ec-bottom"><span class="ec-dot" style="background:#2e7d32"></span><span class="ec-status" style="color:#2e7d32">Protected</span><span class="ec-extra">Awaiting payment</span></div>
+        </div>
+
+        <!-- STAGE 2 — Payment pending -->
+        <div class="bubble sys-in">Please complete your payment to lock in the deal. Choose a saved method below.</div>
+        <div class="pay-card">
+          <div class="pay-card-head"><div class="pay-card-label">Cover · Payment Required</div><div class="pay-card-msg">Select a payment method for Rs. 18,180</div></div>
+          <div class="pay-card-methods">
+            <div class="pay-method-row"><div class="pay-method-row-icon">📱</div><div class="pay-method-row-info"><div class="pay-method-row-name">Easypaisa</div><div class="pay-method-row-id">0300-0000000</div></div><div class="pay-method-row-radio"></div></div>
+            <div class="pay-method-row"><div class="pay-method-row-icon">💜</div><div class="pay-method-row-info"><div class="pay-method-row-name">NayaPay</div><div class="pay-method-row-id">0300-0000000</div></div><div class="pay-method-row-radio"></div></div>
+            <div class="pay-method-row"><div class="pay-method-row-icon">🏦</div><div class="pay-method-row-info"><div class="pay-method-row-name">Bank Transfer</div><div class="pay-method-row-id">HBL · PK36SCBL…6702</div></div><div class="pay-method-row-radio"></div></div>
+          </div>
+          <div class="pay-card-footer"><button class="btn-pay-now">Pay Rs. 18,180 now →</button></div>
+        </div>
+
+        <!-- STAGE 3 — Payment received -->
+        <div class="date-divider">19 May 2025 · 11:05 AM</div>
+        <div class="sys-msg">✅ Payment received · Rs. 18,180 locked in escrow</div>
+        <span class="inline-chip chip-green">💳 Paid via Easypaisa · 11:05 AM</span>
+
+        <!-- STAGE 4 — Seller notified -->
+        <div class="bubble sys-in">Ali Khan has been notified. The seller has 3 business days to ship and upload dispatch proof.</div>
+
+        <!-- STAGE 5 — Seller confirmed order -->
+        <div class="date-divider">19 May 2025 · 3:40 PM</div>
+        <div class="sup-card">
+          <div class="sup-head"><span style="font-size:15px">✅</span><span class="sup-name">Ali Khan</span><span class="sup-time">3:40 PM</span></div>
+          <div class="sup-note">Order confirmed. I have the Samsung A54 sealed box ready. Will dispatch within 24 hours via TCS with full tracking.</div>
+        </div>
+
+        <!-- STAGE 6 — Dispatched -->
+        <div class="date-divider">20 May 2025</div>
+        <div class="sup-card">
+          <div class="sup-head"><span style="font-size:15px">📦</span><span class="sup-name">Ali Khan</span><span class="sup-time">9:12 AM</span></div>
+          <div class="sup-note">Dispatched via TCS · Tracking: <strong>TCS-8821934</strong>. Dispatch proof uploaded and on file with Cover. 📸</div>
+        </div>
+        <div class="sys-msg">Dispatch proof verified by Cover ✓</div>
+
+        <!-- STAGE 7 — In transit + timeline -->
+        <div class="bubble sys-in">Your package is on its way. TCS-8821934 · Expected delivery: 21 May 2025.</div>
+        <div class="timeline">
+          <div class="tl-title">Order Timeline · CVR-2025-041</div>
+          <div class="tl-step"><div class="tl-side"><div class="tl-dot done">✓</div><div class="tl-line done"></div></div><div class="tl-info"><div class="tl-label">Deal created & escrow locked</div><div class="tl-time">19 May · 11:02 AM</div></div></div>
+          <div class="tl-step"><div class="tl-side"><div class="tl-dot done">✓</div><div class="tl-line done"></div></div><div class="tl-info"><div class="tl-label">Payment received · Rs. 18,180</div><div class="tl-time">19 May · 11:05 AM</div></div></div>
+          <div class="tl-step"><div class="tl-side"><div class="tl-dot done">✓</div><div class="tl-line done"></div></div><div class="tl-info"><div class="tl-label">Dispatched · TCS-8821934</div><div class="tl-time">20 May · 9:12 AM</div></div></div>
+          <div class="tl-step"><div class="tl-side"><div class="tl-dot done">✓</div><div class="tl-line"></div></div><div class="tl-info"><div class="tl-label">In transit</div><div class="tl-time">20 May · 10:00 AM</div></div></div>
+          <div class="tl-step"><div class="tl-side"><div class="tl-dot">5</div></div><div class="tl-info"><div class="tl-label dim">Awaiting delivery confirmation</div><div class="tl-time">Pending</div></div></div>
+        </div>
+
+        <!-- STAGE 8 — Delivery action prompt -->
+        <div class="date-divider">21 May 2025 · Estimated delivery</div>
+        <div class="bubble sys-in">The expected delivery date has passed. Please confirm receipt of your order or raise a dispute.</div>
+        <div class="action-card">
+          <div class="action-card-head"><div class="action-card-from">Cover · Action Required</div><div class="action-card-msg">Did your order arrive as described? Confirm delivery to release Rs. 18,000 to Ali Khan.</div></div>
+          <div class="action-card-body">
+            <button class="btn-confirm">✓ Confirm delivery — release Rs. 18,000</button>
+            <label class="btn-dispute-link" for="disp-1">Raise a dispute instead</label>
+          </div>
+        </div>
+
+        <!-- STAGE 9 — Dispute form (expands inline) -->
+        <div class="dispute-form-card dispute-form-1">
+          <div class="dfc-head"><div class="dfc-head-label">Dispute · CVR-2025-041</div><div class="dfc-head-title">Rs. 18,180 will be frozen</div></div>
+          <div class="dfc-body">
+            <div><div class="df-label">Issue type</div><select class="df-select"><option>Not delivered</option><option>Wrong item received</option><option>Item damaged</option><option>Counterfeit / fake</option><option>Not as described</option><option>Other</option></select></div>
+            <div><div class="df-label">Describe the issue</div><textarea class="df-textarea" placeholder="What went wrong? Be as specific as possible…"></textarea></div>
+            <label class="upload-strip"><input type="file" accept="image/*,video/*" multiple><div class="upload-strip-icon">📎</div><div class="upload-strip-text">Tap to attach photos, video, or screenshots</div></label>
+            <div class="notice danger" style="font-size:12px">⚠️ A Rs. 250 dispute handling fee applies if the dispute is found frivolous after review.</div>
+            <button class="btn-submit-red">Submit dispute →</button>
+          </div>
+        </div>
+
+        <!-- STAGE 10 — Dispute submitted, funds frozen -->
+        <div class="date-divider">21 May 2025 · 2:18 PM</div>
+        <div class="sys-msg">⚠️ Dispute submitted · Funds frozen · Seller has 48h to respond</div>
+        <div class="escrow-card">
+          <div class="ec-top frozen"><div class="ec-label">Funds Frozen — Dispute Open</div><div class="ec-amount"><span class="ec-curr">Rs.</span>18,180</div><div class="ec-ref">REF: CVR-2025-041 · Dispute ID: DSP-4412</div></div>
+          <div class="ec-bottom"><span class="ec-dot" style="background:var(--red)"></span><span class="ec-status" style="color:var(--red)">Frozen · Under Review</span><span class="ec-extra">Seller notified</span></div>
+        </div>
+
+        <!-- STAGE 11 — Under review -->
+        <div class="date-divider">22 May 2025</div>
+        <div class="bubble sys-in">Both parties have submitted evidence. Our team is reviewing all materials. Expected verdict: within 48 hours. You will be notified via SMS and WhatsApp.</div>
+        <span class="inline-chip chip-blue">🔍 Under review · Evidence received from both parties</span>
+
+        <!-- STAGE 12 — Verdict: buyer wins -->
+        <div class="date-divider">23 May 2025 · 10:00 AM</div>
+        <div class="verdict-card">
+          <div class="vc-green"><div class="vc-label">Cover · Verdict</div><div class="vc-title">Buyer wins — Full refund</div><div class="vc-sub">Evidence confirmed item was not as described. Rs. 18,000 will be returned within 24 hours.</div></div>
+          <div class="vc-bottom">Dispute fee: Rs. 180 absorbed by Cover · Seller account flagged</div>
+        </div>
+        <span class="inline-chip chip-green">✅ Refund of Rs. 18,000 processing · ETA 24h</span>
+
+        <!-- STAGE 13 — Alternative: confirmed delivery, funds released -->
+        <div class="date-divider">— Alternative path: buyer confirms delivery —</div>
+        <div class="sys-msg">✅ Delivery confirmed by Ahmed Hassan · 21 May · 11:42 AM</div>
+        <div class="released-card">
+          <div class="released-label">Funds Released to Seller</div>
+          <div class="released-amount">Rs. 18,000</div>
+          <div class="released-meta">TCS-8821934 · Ali Khan · 21 May 2025 · 11:42 AM · 0.3s settlement</div>
+        </div>
+        <div class="sys-msg">🎉 Deal completed · Thank you for using Cover</div>
+
+      </div>
+      <div class="chat-input-bar"><input class="chat-inp" placeholder="Message Cover support…"><button class="chat-send-btn">➤</button></div>
+    </div>
+
+    <!-- Deal 2: Pending -->
+    <div class="deal-pane dp2">
+      <div class="dh">
+        <label class="back-btn" for="deal-none">← Back</label>
+        <div class="dh-avi">👟</div>
+        <div class="dh-info"><div class="dh-title">Nike Sneakers <span class="pill p-pending"><i></i>Pending</span></div><div class="dh-sub">SneakerHead PK · CVR-2025-039 · Rs. 7,500</div></div>
+      </div>
+      <div class="chat-bg">
+        <div class="sys-msg">Deal created 21 May 2025 · Awaiting seller shipment</div>
+        <div class="escrow-card">
+          <div class="ec-top"><div class="ec-label">Held in Escrow</div><div class="ec-amount"><span class="ec-curr">Rs.</span>7,500</div><div class="ec-ref">REF: CVR-2025-039 · Fee: Rs. 100</div></div>
+          <div class="ec-bottom"><span class="ec-dot" style="background:var(--amber)"></span><span class="ec-status">Awaiting Shipment</span><span class="ec-extra">Seller notified</span></div>
+        </div>
+        <div class="bubble sys-in">Funds are safely held in escrow. The seller has been notified and has 48 hours to ship. You'll be updated as soon as they confirm dispatch.</div>
+        <div class="bubble in">When will you ship the sneakers?</div>
+        <div class="bubble out">Will ship tomorrow via TCS, will send tracking number. <div class="btime">Yesterday · 6:45 PM</div></div>
+        <div class="sys-msg">⏳ Waiting for seller to confirm shipment</div>
+      </div>
+      <div class="chat-input-bar"><input class="chat-inp" placeholder="Message Cover support…"><button class="chat-send-btn">➤</button></div>
+    </div>
+
+    <!-- Deal 3: Disputed -->
+    <div class="deal-pane dp3">
+      <div class="dh">
+        <label class="back-btn" for="deal-none">← Back</label>
+        <div class="dh-avi">📲</div>
+        <div class="dh-info"><div class="dh-title">iPhone 13 <span class="pill p-disputed"><i></i>Disputed</span></div><div class="dh-sub">Ali Mobile · CVR-2025-037 · Rs. 65,000</div></div>
+      </div>
+      <div class="chat-bg">
+        <div class="sys-msg">⚠️ Dispute opened 18 May · Funds frozen</div>
+        <div class="escrow-card">
+          <div class="ec-top frozen"><div class="ec-label">Funds Frozen — Under Review</div><div class="ec-amount"><span class="ec-curr">Rs.</span>65,000</div><div class="ec-ref">REF: CVR-2025-037</div></div>
+          <div class="ec-bottom"><span class="ec-dot" style="background:var(--red)"></span><span class="ec-status" style="color:var(--red)">Disputed — Frozen</span><span class="ec-extra">Under review</span></div>
+        </div>
+        <div class="bubble sys-in">Cover has frozen Rs. 65,000 and is reviewing evidence from both parties. Decision within 3–5 business days. You will be notified via WhatsApp and SMS.</div>
+        <div class="bubble in">Phone received has a different IMEI than what was shown in the listing. Box appears tampered.</div>
+        <div class="bubble out" style="background:#fce8e6;color:var(--text-primary);border-radius:7.5px 0 7.5px 7.5px;box-shadow:0 1px 1px rgba(0,0,0,.07)">I sent the exact item. Check the IMEI sticker on the bottom of the box. <div class="btime dark">18 May · 9:42 AM</div></div>
+        <div class="sys-msg">Cover is awaiting seller evidence · Due 25 May</div>
+        <div class="fcard" style="max-width:340px;align-self:center;border-color:var(--border)">
+          <div style="background:#1a2734;padding:12px 14px;color:#fff"><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:2px">Dispute Filed</div><div style="font-size:13px;font-weight:700">Wrong item received · 18 May</div></div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:12.5px;color:var(--text-secondary);line-height:1.5">Buyer received a phone with a different IMEI. Box appears to have been opened and resealed. Photos attached.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span class="pill p-disputed"><i></i>Under Review</span><span style="font-size:11px;color:var(--text-dim);font-family:var(--m)">Decision by 25 May</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-bar"><input class="chat-inp" placeholder="Message Cover support…"><button class="chat-send-btn">➤</button></div>
+    </div>
+
+    <!-- Deal 4: Completed -->
+    <div class="deal-pane dp4">
+      <div class="dh">
+        <label class="back-btn" for="deal-none">← Back</label>
+        <div class="dh-avi">🎧</div>
+        <div class="dh-info"><div class="dh-title">JBL Earbuds <span class="pill p-completed"><i></i>Completed</span></div><div class="dh-sub">AudioShop · CVR-2025-028 · Rs. 4,500</div></div>
+      </div>
+      <div class="chat-bg">
+        <div class="sys-msg">Deal created 2 May 2025</div>
+        <div class="escrow-card">
+          <div class="ec-top done"><div class="ec-label">Payment Released</div><div class="ec-amount"><span class="ec-curr">Rs.</span>4,500</div><div class="ec-ref">REF: CVR-2025-028 · Completed 5 May 2025</div></div>
+          <div class="ec-bottom"><span class="ec-dot" style="background:var(--green)"></span><span class="ec-status" style="color:var(--green)">Completed</span><span class="ec-extra">AudioShop paid ✓</span></div>
+        </div>
+        <div class="bubble sys-in">You confirmed delivery on 5 May. Rs. 4,500 has been released to AudioShop. Thank you for using Cover. 🎉</div>
+        <div class="sys-msg">✅ Deal completed — no further action needed</div>
+      </div>
+      <div class="chat-input-bar"><input class="chat-inp" placeholder="Message Cover support…"><button class="chat-send-btn">➤</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SHOPS ═══ -->
+<div class="sec sec-shops">
+  <div class="list-panel">
+    <div class="list-head">
+      <div class="list-title">Shops</div>
+      <div class="search-wrap"><span>🔍</span><input type="text" placeholder="Search shops…"></div>
+      <div class="chips">
+        <label class="chip" for="sf-all">All</label>
+        <label class="chip" for="sf-tech">Tech</label>
+        <label class="chip" for="sf-food">Food</label>
+        <label class="chip" for="sf-jewellery">Jewellery</label>
+      </div>
+    </div>
+    <div class="list-scroll">
+      <div class="s-tech"><label class="row" for="shop-1"><div class="row-avi">💻</div><div class="row-body"><div class="row-top"><span class="row-name">Tech Hub</span><span class="vbadge">✓</span></div><div class="row-sub">Electronics · Karachi</div></div><div class="row-right"><span style="font-size:12px;font-weight:600;color:var(--text-secondary)">⭐ 4.8</span></div><label class="row-overflow" for="om-s1" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label></label><div class="overflow-drop" id="os1" style="top:152px;right:calc(100% - var(--list-w) + 8px)"><div class="drop-item">⭐ Save shop</div><div class="drop-item">🔗 Share</div><div class="drop-item sep close-item"><label for="om-s1" style="cursor:pointer;width:100%;display:block">✕ Close</label></div></div></div>
+      <div class="s-food"><label class="row" for="shop-2"><div class="row-avi">🍯</div><div class="row-body"><div class="row-top"><span class="row-name">Kaleemi Foods</span><span class="vbadge">✓</span></div><div class="row-sub">Organic Food · Karachi</div></div><div class="row-right"><span style="font-size:12px;font-weight:600;color:var(--text-secondary)">⭐ 4.9</span></div><label class="row-overflow" for="om-s2" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label></label><div class="overflow-drop" id="os2" style="top:224px;right:calc(100% - var(--list-w) + 8px)"><div class="drop-item">⭐ Save shop</div><div class="drop-item">🔗 Share</div><div class="drop-item sep close-item"><label for="om-s2" style="cursor:pointer;width:100%;display:block">✕ Close</label></div></div></div>
+      <div class="s-jewellery"><label class="row" for="shop-3"><div class="row-avi">💍</div><div class="row-body"><div class="row-top"><span class="row-name">Taab Store</span><span class="vbadge">✓</span></div><div class="row-sub">Jewellery · Karachi</div></div><div class="row-right"><span style="font-size:12px;font-weight:600;color:var(--text-secondary)">⭐ 4.8</span></div><label class="row-overflow" for="om-s3" onclick="event.stopPropagation()"><div class="row-overflow-dots"><span></span><span></span><span></span></div></label></label><div class="overflow-drop" id="os3" style="top:296px;right:calc(100% - var(--list-w) + 8px)"><div class="drop-item">⭐ Save shop</div><div class="drop-item">🔗 Share</div><div class="drop-item sep close-item"><label for="om-s3" style="cursor:pointer;width:100%;display:block">✕ Close</label></div></div></div>
+    </div>
+  </div>
+  <div class="detail">
+    <div class="shop-pane shop-empty empty-state"><div class="empty-icon">🏪</div><div class="empty-ttl">Select a shop</div><div class="empty-sub">Browse verified sellers and start a protected deal.</div></div>
+
+    <!-- Shop 1: Tech Hub -->
+    <div class="shop-pane sp1">
+      <div class="page-header"><label class="back-btn" for="shop-none">← Back</label><div class="dh-avi">💻</div><div class="dh-info"><div class="dh-title">Tech Hub <span class="vbadge">✓ Verified</span></div><div class="dh-sub">Electronics · Karachi</div></div></div>
+      <div class="shop-scroll">
+        <div class="shop-container">
+          <div class="shop-card">
+            <div class="shop-hero" style="background:linear-gradient(135deg,#03101f,#0d2d5e)">💻</div>
+            <div class="shop-card-body">
+              <div class="shop-name-row"><span class="shop-name">Tech Hub</span><span class="vbadge">✓ Verified</span></div>
+              <p class="shop-desc">Pakistan's most trusted electronics seller. Genuine items with manufacturer warranty. 142 successful Cover deals, zero disputes.</p>
+              <div class="stats-grid"><div class="stat-cell"><div class="stat-n">4.8</div><div class="stat-l">Rating</div></div><div class="stat-cell"><div class="stat-n">142</div><div class="stat-l">Deals</div></div><div class="stat-cell"><div class="stat-n">0</div><div class="stat-l">Disputes</div></div><div class="stat-cell"><div class="stat-n" style="font-size:14px">28,500</div><div class="stat-l">Avg. Rs.</div></div></div>
+              <div class="meta-grid"><div class="meta-item"><div class="mk">City</div><div class="mv">Karachi</div></div><div class="meta-item"><div class="mk">Ships to</div><div class="mv">All Pakistan</div></div><div class="meta-item"><div class="mk">Response</div><div class="mv">Under 1 hour</div></div><div class="meta-item"><div class="mk">Member since</div><div class="mv">Jan 2024</div></div></div>
+              <button class="start-deal-btn-shop">+ Start Deal with Tech Hub</button>
+              <div class="products-title">Products</div>
+              <div class="products-grid g3">
+                <div class="prod-card"><div class="prod-img" style="background:#eff6ff">📱</div><div class="prod-body"><div class="prod-name">Samsung A54</div><div class="prod-price">Rs. 18,000</div><div class="prod-cond">New · Sealed</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#f0f9ff">📲</div><div class="prod-body"><div class="prod-name">iPhone 13</div><div class="prod-price">Rs. 65,000</div><div class="prod-cond">Used · Excellent</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#f8fafc">💻</div><div class="prod-body"><div class="prod-name">MacBook Air M1</div><div class="prod-price">Rs. 145,000</div><div class="prod-cond">New</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#fff7ed">📱</div><div class="prod-body"><div class="prod-name">Xiaomi 13T</div><div class="prod-price">Rs. 55,000</div><div class="prod-cond">New</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#faf5ff">⌚</div><div class="prod-body"><div class="prod-name">Apple Watch S9</div><div class="prod-price">Rs. 38,000</div><div class="prod-cond">New</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#f0fdf4">🎧</div><div class="prod-body"><div class="prod-name">AirPods Pro</div><div class="prod-price">Rs. 22,000</div><div class="prod-cond">New</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shop 2: Kaleemi Foods -->
+    <div class="shop-pane sp2">
+      <div class="page-header"><label class="back-btn" for="shop-none">← Back</label><div class="dh-avi">🍯</div><div class="dh-info"><div class="dh-title">Kaleemi Foods <span class="vbadge">✓ Verified</span></div><div class="dh-sub">Organic Food · Karachi</div></div></div>
+      <div class="shop-scroll">
+        <div class="shop-container">
+          <div class="shop-card">
+            <div class="shop-hero" style="background:linear-gradient(135deg,#1c0a02,#5c2a0a)">🍯</div>
+            <div class="shop-card-body">
+              <div class="shop-name-row"><span class="shop-name">Kaleemi Foods</span><span class="vbadge">✓ Verified</span></div>
+              <p class="shop-desc">Premium organic and natural food products sourced directly from farms. Lab-tested honey, pure desi ghee, and authentic Himalayan shilajit. 31 happy customers, zero disputes.</p>
+              <div class="stats-grid"><div class="stat-cell"><div class="stat-n">4.9</div><div class="stat-l">Rating</div></div><div class="stat-cell"><div class="stat-n">31</div><div class="stat-l">Deals</div></div><div class="stat-cell"><div class="stat-n">0</div><div class="stat-l">Disputes</div></div><div class="stat-cell"><div class="stat-n" style="font-size:14px">3,200</div><div class="stat-l">Avg. Rs.</div></div></div>
+              <div class="meta-grid"><div class="meta-item"><div class="mk">City</div><div class="mv">Karachi</div></div><div class="meta-item"><div class="mk">Ships to</div><div class="mv">All Pakistan</div></div><div class="meta-item"><div class="mk">Response</div><div class="mv">Same day</div></div><div class="meta-item"><div class="mk">Member since</div><div class="mv">Mar 2024</div></div></div>
+              <button class="start-deal-btn-shop">+ Start Deal with Kaleemi Foods</button>
+              <div class="products-title">Products</div>
+              <div class="products-grid g2" style="max-width:420px">
+                <div class="prod-card"><div class="prod-img" style="background:#fef3c7">🍯</div><div class="prod-body"><div class="prod-name">Organic Wild Honey</div><div class="prod-price">Rs. 1,800/kg</div><div class="prod-cond">Lab tested · No additives</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#fef9c3">🧈</div><div class="prod-body"><div class="prod-name">Desi Ghee</div><div class="prod-price">Rs. 2,400/kg</div><div class="prod-cond">Farm fresh · Pure</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#f1f5f9">🪨</div><div class="prod-body"><div class="prod-name">Shilajit (Pure)</div><div class="prod-price">Rs. 3,500</div><div class="prod-cond">Himalayan · Authentic</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shop 3: Taab Store -->
+    <div class="shop-pane sp3">
+      <div class="page-header"><label class="back-btn" for="shop-none">← Back</label><div class="dh-avi">💍</div><div class="dh-info"><div class="dh-title">Taab Store <span class="vbadge">✓ Verified</span></div><div class="dh-sub">Jewellery & Accessories · Karachi</div></div></div>
+      <div class="shop-scroll">
+        <div class="shop-container">
+          <div class="shop-card">
+            <div class="shop-hero" style="background:linear-gradient(135deg,#120820,#30106a)">💍</div>
+            <div class="shop-card-body">
+              <div class="shop-name-row"><span class="shop-name">Taab Store</span><span class="vbadge">✓ Verified</span></div>
+              <p class="shop-desc">Premium jewellery, smart accessories, and imported footwear. All gold items come with authenticity certificates. 47 completed Cover deals, zero disputes.</p>
+              <div class="stats-grid"><div class="stat-cell"><div class="stat-n">4.8</div><div class="stat-l">Rating</div></div><div class="stat-cell"><div class="stat-n">47</div><div class="stat-l">Deals</div></div><div class="stat-cell"><div class="stat-n">0</div><div class="stat-l">Disputes</div></div><div class="stat-cell"><div class="stat-n" style="font-size:14px">15,400</div><div class="stat-l">Avg. Rs.</div></div></div>
+              <div class="meta-grid"><div class="meta-item"><div class="mk">City</div><div class="mv">Karachi</div></div><div class="meta-item"><div class="mk">Ships to</div><div class="mv">All Pakistan</div></div><div class="meta-item"><div class="mk">Response</div><div class="mv">Under 2 hours</div></div><div class="meta-item"><div class="mk">Member since</div><div class="mv">Feb 2024</div></div></div>
+              <button class="start-deal-btn-shop">+ Start Deal with Taab Store</button>
+              <div class="products-title">Products</div>
+              <div class="products-grid g2" style="max-width:420px">
+                <div class="prod-card"><div class="prod-img" style="background:#fef9c3">💛</div><div class="prod-body"><div class="prod-name">Gold Necklace</div><div class="prod-price">Rs. 12,500</div><div class="prod-cond">22K · Certified</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#f0f9ff">⌚</div><div class="prod-body"><div class="prod-name">Smart Watch</div><div class="prod-price">Rs. 8,500</div><div class="prod-cond">Imported · New</div></div></div>
+                <div class="prod-card"><div class="prod-img" style="background:#fdf4ff">👠</div><div class="prod-body"><div class="prod-name">Imported Heels</div><div class="prod-price">Rs. 4,200</div><div class="prod-cond">Size 37–40</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STORIES ═══ -->
+<div class="sec sec-stories">
+  <div class="list-panel">
+    <div class="list-head"><div class="list-title">Stories</div></div>
+    <div class="story-bubbles">
+      <label class="sbub" for="story-1">
+        <div class="sbub-tile st-tech"><div class="sbub-tile-emoji">💻</div><div class="sbub-tile-bar"><div class="sbub-tile-name">Tech Hub</div></div></div>
+        <div class="sbub-name">Tech Hub</div>
+      </label>
+      <label class="sbub" for="story-2">
+        <div class="sbub-tile st-food"><div class="sbub-tile-emoji">🍯</div><div class="sbub-tile-bar"><div class="sbub-tile-name">Kaleemi</div></div></div>
+        <div class="sbub-name">Kaleemi</div>
+      </label>
+      <label class="sbub viewed" for="story-3">
+        <div class="sbub-tile st-jewel"><div class="sbub-tile-emoji">💍</div><div class="sbub-tile-bar"><div class="sbub-tile-name">Taab Store</div></div></div>
+        <div class="sbub-name viewed">Taab Store</div>
+      </label>
+    </div>
+    <div class="list-scroll">
+      <label class="row" for="story-1"><div class="row-avi" style="border-radius:50%;background:var(--text-primary);padding:2.5px;font-size:16px;width:50px;height:50px;display:flex;align-items:center;justify-content:center">💻</div><div class="row-body"><div class="row-name" style="font-size:13px;font-weight:700">Tech Hub</div><div class="row-sub">Samsung A54 · Rs. 18,000</div></div><div class="row-right"><span class="row-time">2h ago</span><span class="row-udot"></span></div></label>
+      <label class="row" for="story-2"><div class="row-avi" style="border-radius:50%;background:var(--text-primary);padding:2.5px;font-size:16px;width:50px;height:50px;display:flex;align-items:center;justify-content:center">🍯</div><div class="row-body"><div class="row-name" style="font-size:13px;font-weight:700">Kaleemi Foods</div><div class="row-sub">Organic Honey · Rs. 1,800/kg</div></div><div class="row-right"><span class="row-time">5h ago</span><span class="row-udot"></span></div></label>
+      <label class="row" style="opacity:.55" for="story-3"><div class="row-avi" style="border-radius:50%;background:var(--border);padding:2.5px;font-size:16px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;opacity:.6">💍</div><div class="row-body"><div class="row-name" style="font-size:13px;font-weight:400;color:var(--text-dim)">Taab Store</div><div class="row-sub">Gold Necklace · Rs. 12,500</div></div><div class="row-right"><span class="row-time">1d ago</span></div></label>
+    </div>
+  </div>
+  <div class="detail">
+    <div class="story-pane story-empty empty-state"><div class="empty-icon">⚡</div><div class="empty-ttl">Select a story</div><div class="empty-sub">View seller stories and buy safely with Cover.</div></div>
+    <div class="story-pane stp1"><div class="story-viewer sv-1">
+      <div class="sv-prog"><div class="sv-seg done"></div><div class="sv-seg active"></div><div class="sv-seg"></div></div>
+      <div class="sv-topbar"><label class="back-sv" for="story-none">←</label><div class="sv-seller-avi">💻</div><span class="sv-seller-name">Tech Hub</span><span class="sv-time">2h ago</span></div>
+      <div class="sv-content"><div class="sv-emoji">📱</div></div>
+      <div class="sv-product-panel"><div class="sv-pname">Samsung Galaxy A54</div><div class="sv-price">Rs. 18,000</div><div class="sv-desc">Brand new sealed box. Official Samsung warranty. 6.4″ Super AMOLED · 128GB · 5000mAh</div></div>
+      <div class="sv-cta-area"><label class="sv-cta-btn" for="nav-deals">🔒 Buy safely with Cover</label></div>
+    </div></div>
+    <div class="story-pane stp2"><div class="story-viewer sv-2">
+      <div class="sv-prog"><div class="sv-seg active"></div><div class="sv-seg"></div></div>
+      <div class="sv-topbar"><label class="back-sv" for="story-none">←</label><div class="sv-seller-avi">🍯</div><span class="sv-seller-name">Kaleemi Foods</span><span class="sv-time">5h ago</span></div>
+      <div class="sv-content"><div class="sv-emoji">🍯</div></div>
+      <div class="sv-product-panel"><div class="sv-pname">Organic Wild Honey</div><div class="sv-price">Rs. 1,800 / kg</div><div class="sv-desc">Pure, raw, unfiltered. From the mountains of KPK. Lab tested. No additives.</div></div>
+      <div class="sv-cta-area"><label class="sv-cta-btn" for="nav-deals">🔒 Buy safely with Cover</label></div>
+    </div></div>
+    <div class="story-pane stp3"><div class="story-viewer sv-3">
+      <div class="sv-prog"><div class="sv-seg done"></div></div>
+      <div class="sv-topbar"><label class="back-sv" for="story-none">←</label><div class="sv-seller-avi">💍</div><span class="sv-seller-name">Taab Store</span><span class="sv-time">1d ago · Viewed</span></div>
+      <div class="sv-content"><div class="sv-emoji">💛</div></div>
+      <div class="sv-product-panel"><div class="sv-pname">Gold Necklace</div><div class="sv-price">Rs. 12,500</div><div class="sv-desc">Handcrafted 22K gold. Authenticity certificate included. Ships nationwide.</div></div>
+      <div class="sv-cta-area"><label class="sv-cta-btn" for="nav-deals">🔒 Buy safely with Cover</label></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ═══ PROFILE ═══ -->
+<div class="sec sec-profile">
+  <div class="list-panel" style="display:flex;flex-direction:column">
+    <div class="profile-head">
+      <div class="profile-avi">AH</div>
+      <div class="p-name">Ahmed Hassan</div>
+      <div class="p-handle">@ahmedhassan</div>
+      <div class="p-bio">Verified buyer · 12 completed deals · Karachi</div>
+      <div class="trust-chip"><span style="font-size:12px">🛡</span><span class="trust-score">743</span><span class="trust-label">Trust Score</span></div>
+    </div>
+    <div class="p-menu">
+      <div class="menu-section">
+        <div class="menu-section-label">Account</div>
+        <label class="menu-row" for="pm-edit"><span class="menu-row-icon">✏️</span>Edit Profile<span class="menu-row-chev">›</span></label>
+        <label class="menu-row" for="pm-pay"><span class="menu-row-icon">💳</span>Payment Methods<span class="menu-row-chev">›</span></label>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-label">Seller</div>
+        <label class="menu-row" for="pm-seller"><span class="menu-row-icon">🎖</span>Become a Seller<span class="menu-row-chev">›</span></label>
+        <label class="menu-row" for="pm-shop"><span class="menu-row-icon">🏪</span>New Shop<span class="menu-row-chev">›</span></label>
+        <label class="menu-row" for="pm-story"><span class="menu-row-icon">⚡</span>New Story<span class="menu-row-chev">›</span></label>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-label">Support</div>
+        <label class="menu-row" for="pm-help"><span class="menu-row-icon">❓</span>Help Center<span class="menu-row-chev">›</span></label>
+        <label class="menu-row" for="pm-contact"><span class="menu-row-icon">💬</span>Contact Support<span class="menu-row-chev">›</span></label>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-label">Legal</div>
+        <label class="menu-row" for="pm-policies"><span class="menu-row-icon">📄</span>Policies & Terms<span class="menu-row-chev">›</span></label>
+      </div>
+      <label class="menu-row red" for="logout-open"><span class="menu-row-icon">🚪</span>Log out</label>
+    </div>
+    <div class="p-socials"><div class="social-btn">📸 Instagram</div><div class="social-btn">𝕏 Twitter</div><div class="social-btn">💬 WhatsApp</div></div>
+    <div class="p-footer"><div class="ver-str">cover v0.9.1-beta · cover.mom</div></div>
+  </div>
+
+  <div class="detail">
+    <div class="profile-pane profile-empty empty-state"><div class="empty-icon">👤</div><div class="empty-ttl">Ahmed Hassan</div><div class="empty-sub">Manage your account, get help, or read our policies.</div></div>
+
+    <!-- Edit Profile -->
+    <div class="profile-pane pp-edit">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">Edit Profile</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Profile photo</div></div><div class="fcard-body"><label class="fupload"><input type="file" accept="image/*"><div class="fupload-icon">🤳</div><div class="fupload-text">Upload profile photo</div><div class="fupload-sub">JPG or PNG · Max 5 MB</div></label></div></div>
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Basic info</div></div><div class="fcard-body">
+          <div><label class="flabel">Full name</label><input class="finput" value="Ahmed Hassan"></div>
+          <div><label class="flabel">Username</label><input class="finput" value="ahmedhassan" style="font-family:var(--m)"></div>
+          <div class="frow"><div><label class="flabel">City</label><input class="finput" value="Karachi"></div><div><label class="flabel">Phone</label><input class="finput" value="+92 300 0000000"></div></div>
+          <div><label class="flabel">Short bio</label><textarea class="ftextarea" style="min-height:60px">Verified buyer · 12 completed deals · Karachi</textarea></div>
+        </div></div>
+        <button class="btn-primary">Save changes</button>
+      </div></div>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="profile-pane pp-pay">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">Payment Methods</span></div>
+      <div class="form-page"><div class="form-page-inner">
+
+        <!-- Saved methods — Point 5: remove is disabled, contact support instead -->
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Saved Methods</div></div>
+          <div class="fcard-body">
+            <div class="pay-method-card">
+              <div class="pay-method-icon">📱</div>
+              <div class="pay-method-info"><div class="pay-method-name">Easypaisa</div><div class="pay-method-id">0300-0000000</div></div>
+              <!-- JS required to remove DOM element — shown as disabled per Point 5 -->
+              <span class="pay-method-remove" style="opacity:.35;cursor:not-allowed;font-size:12px" title="Contact support to remove">Contact support to remove</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add method accordion — Point 4: radio-driven, one open at a time -->
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Add payment method</div><div class="fcard-desc">Tap a method to expand and enter details</div></div>
+          <div class="fcard-body" style="gap:8px">
+
+            <!-- Easypaisa -->
+            <div class="pm-accordion-item">
+              <label class="pm-accordion-trigger" for="pma-easypaisa">
+                <input type="radio" name="pm-accordion" id="pma-easypaisa">
+                <span class="pm-acc-icon">📱</span>
+                <div class="pm-acc-info"><div class="pm-acc-name">Easypaisa</div><div class="pm-acc-desc">Mobile wallet · Enter phone number</div></div>
+                <span class="pm-acc-chev">⌄</span>
+              </label>
+              <div class="pm-accordion-body">
+                <div class="pm-accordion-fields">
+                  <div><label class="flabel">Easypaisa mobile number</label><input class="finput" placeholder="0300-0000000" type="tel" style="font-family:var(--m)"></div>
+                  <button class="btn-save-method">Save Easypaisa</button>
+                  <label for="pma-none" style="display:block;text-align:center;font-size:12.5px;color:var(--text-dim);cursor:pointer;padding:6px 0 2px">Collapse ↑</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- NayaPay -->
+            <div class="pm-accordion-item">
+              <label class="pm-accordion-trigger" for="pma-nayapay">
+                <input type="radio" name="pm-accordion" id="pma-nayapay">
+                <span class="pm-acc-icon">💜</span>
+                <div class="pm-acc-info"><div class="pm-acc-name">NayaPay</div><div class="pm-acc-desc">Digital wallet · Enter phone number</div></div>
+                <span class="pm-acc-chev">⌄</span>
+              </label>
+              <div class="pm-accordion-body">
+                <div class="pm-accordion-fields">
+                  <div><label class="flabel">NayaPay mobile number</label><input class="finput" placeholder="0300-0000000" type="tel" style="font-family:var(--m)"></div>
+                  <button class="btn-save-method">Save NayaPay</button>
+                  <label for="pma-none" style="display:block;text-align:center;font-size:12.5px;color:var(--text-dim);cursor:pointer;padding:6px 0 2px">Collapse ↑</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sadapay -->
+            <div class="pm-accordion-item">
+              <label class="pm-accordion-trigger" for="pma-sadapay">
+                <input type="radio" name="pm-accordion" id="pma-sadapay">
+                <span class="pm-acc-icon">💙</span>
+                <div class="pm-acc-info"><div class="pm-acc-name">Sadapay</div><div class="pm-acc-desc">Neo bank · Enter phone number</div></div>
+                <span class="pm-acc-chev">⌄</span>
+              </label>
+              <div class="pm-accordion-body">
+                <div class="pm-accordion-fields">
+                  <div><label class="flabel">Sadapay mobile number</label><input class="finput" placeholder="0300-0000000" type="tel" style="font-family:var(--m)"></div>
+                  <button class="btn-save-method">Save Sadapay</button>
+                  <label for="pma-none" style="display:block;text-align:center;font-size:12.5px;color:var(--text-dim);cursor:pointer;padding:6px 0 2px">Collapse ↑</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bank Transfer -->
+            <div class="pm-accordion-item">
+              <label class="pm-accordion-trigger" for="pma-bank">
+                <input type="radio" name="pm-accordion" id="pma-bank">
+                <span class="pm-acc-icon">🏦</span>
+                <div class="pm-acc-info"><div class="pm-acc-name">Bank Transfer</div><div class="pm-acc-desc">Enter bank name, title & IBAN</div></div>
+                <span class="pm-acc-chev">⌄</span>
+              </label>
+              <div class="pm-accordion-body">
+                <div class="pm-accordion-fields">
+                  <div class="frow">
+                    <div><label class="flabel">Bank name</label><input class="finput" placeholder="HBL, MCB, UBL…"></div>
+                    <div><label class="flabel">Account title</label><input class="finput" placeholder="Full name"></div>
+                  </div>
+                  <div><label class="flabel">IBAN</label><input class="finput" placeholder="PK36SCBL0000001123456702" style="font-family:var(--m)"></div>
+                  <button class="btn-save-method">Save bank account</button>
+                  <label for="pma-none" style="display:block;text-align:center;font-size:12.5px;color:var(--text-dim);cursor:pointer;padding:6px 0 2px">Collapse ↑</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- USDT -->
+            <div class="pm-accordion-item">
+              <label class="pm-accordion-trigger" for="pma-usdt">
+                <input type="radio" name="pm-accordion" id="pma-usdt">
+                <span class="pm-acc-icon">🔷</span>
+                <div class="pm-acc-info"><div class="pm-acc-name">USDT on Polygon</div><div class="pm-acc-desc">Crypto wallet address</div></div>
+                <span class="pm-acc-chev">⌄</span>
+              </label>
+              <div class="pm-accordion-body">
+                <div class="pm-accordion-fields">
+                  <div><label class="flabel">Polygon wallet address</label><input class="finput" placeholder="0x…" style="font-family:var(--m)"></div>
+                  <div class="notice warn" style="font-size:12px">⚠️ Double-check your wallet address. Incorrect addresses result in permanent loss of funds.</div>
+                  <button class="btn-save-method">Save USDT wallet</button>
+                  <label for="pma-none" style="display:block;text-align:center;font-size:12.5px;color:var(--text-dim);cursor:pointer;padding:6px 0 2px">Collapse ↑</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Become a Seller -->
+    <div class="profile-pane pp-seller">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">Become a Seller</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="notice info">🔐 Identity verification required by Pakistan's digital payment regulations. Data is encrypted and never shared.</div>
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Personal information</div><div class="fcard-desc">Must match your CNIC exactly</div></div><div class="fcard-body">
+          <div><label class="flabel">Full name (as on CNIC)</label><input class="finput" placeholder="Muhammad Ahmed Hassan"></div>
+          <div class="frow"><div><label class="flabel">Email</label><input class="finput" placeholder="you@example.com"></div><div><label class="flabel">CNIC number</label><input class="finput" placeholder="12345-1234567-1" style="font-family:var(--m)"></div></div>
+        </div></div>
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Document upload</div></div><div class="fcard-body">
+          <div class="frow">
+            <label class="fupload"><input type="file" accept="image/*"><div class="fupload-icon">🪪</div><div class="fupload-text">CNIC Front</div><div class="fupload-sub">Tap to upload · JPG or PNG</div></label>
+            <label class="fupload"><input type="file" accept="image/*"><div class="fupload-icon">🪪</div><div class="fupload-text">CNIC Back</div><div class="fupload-sub">Tap to upload · JPG or PNG</div></label>
+          </div>
+          <!-- Live verification replaces selfie upload per Point 6 -->
+          <div style="border:1.5px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:center;gap:14px">
+            <span style="font-size:28px;flex-shrink:0">📹</span>
+            <div style="flex:1">
+              <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:3px">Live verification</div>
+              <div style="font-size:12.5px;color:var(--text-secondary);line-height:1.5">A quick 5-minute video call with the Cover team. Schedule at your convenience — no walk-in required.</div>
+            </div>
+            <a href="#" style="display:inline-block;padding:9px 16px;background:var(--accent);color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0">Start →</a>
+          </div>
+        </div></div>
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">How you want to receive payments</div><div class="fcard-desc">Cover pays you here when deals complete</div></div><div class="fcard-body">
+          <div><label class="flabel">Preferred payout method</label><select class="fselect"><option>Easypaisa — mobile number</option><option>NayaPay — mobile number</option><option>Sadapay — mobile number</option><option>Bank transfer — IBAN</option><option>USDT on Polygon — wallet</option></select></div>
+          <div><label class="flabel">Account number / IBAN / wallet address</label><input class="finput" placeholder="Enter account details" style="font-family:var(--m)"></div>
+        </div></div>
+        <div style="font-size:12px;color:var(--text-dim);text-align:center">Our team reviews applications within 24 hours.</div>
+        <button class="btn-primary">Submit for review →</button>
+      </div></div>
+    </div>
+
+    <!-- New Shop -->
+    <div class="profile-pane pp-shop">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">New Shop</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Shop identity</div></div>
+          <div class="fcard-body">
+            <div><label class="flabel">Business name</label><input class="finput" placeholder="Your shop name"></div>
+            <div><label class="flabel">Category</label><select class="fselect"><option>Electronics</option><option>Food &amp; Organic</option><option>Clothing</option><option>Jewellery</option><option>Footwear</option><option>Freelance &amp; Services</option><option>Wholesale</option><option>Other</option></select></div>
+            <div><label class="flabel">Description</label><textarea class="ftextarea" placeholder="Describe your shop and what you sell…"></textarea></div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Branding</div></div>
+          <div class="fcard-body">
+            <div class="frow">
+              <label class="fupload"><input type="file" accept="image/*"><div class="fupload-icon">🖼</div><div class="fupload-text">Shop logo</div><div class="fupload-sub">Square · Min 200×200</div></label>
+              <label class="fupload"><input type="file" accept="image/*"><div class="fupload-icon">🖼</div><div class="fupload-text">Banner image</div><div class="fupload-sub">16:9 recommended</div></label>
+            </div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Contact &amp; location</div></div>
+          <div class="fcard-body">
+            <div class="frow">
+              <div><label class="flabel">City</label><select class="fselect"><option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Rawalpindi</option><option>Faisalabad</option><option>Other</option></select></div>
+              <div><label class="flabel">WhatsApp number</label><input class="finput" placeholder="+92 300 0000000"></div>
+            </div>
+            <div><label class="flabel">Website or social link (optional)</label><input class="finput" placeholder="https://instagram.com/yourshop"></div>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-head"><div class="fcard-title">Product images</div><div class="fcard-desc">Up to 5 product photos</div></div>
+          <div class="fcard-body">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+              <label class="fupload" style="padding:16px;min-height:80px"><input type="file" accept="image/*"><div class="fupload-icon">📷</div><div class="fupload-text" style="font-size:12px">Photo 1</div></label>
+              <label class="fupload" style="padding:16px;min-height:80px"><input type="file" accept="image/*"><div class="fupload-icon">📷</div><div class="fupload-text" style="font-size:12px">Photo 2</div></label>
+              <label class="fupload" style="padding:16px;min-height:80px"><input type="file" accept="image/*"><div class="fupload-icon">📷</div><div class="fupload-text" style="font-size:12px">Photo 3</div></label>
+              <label class="fupload" style="padding:16px;min-height:80px"><input type="file" accept="image/*"><div class="fupload-icon">📷</div><div class="fupload-text" style="font-size:12px">Photo 4</div></label>
+              <label class="fupload" style="padding:16px;min-height:80px"><input type="file" accept="image/*"><div class="fupload-icon">📷</div><div class="fupload-text" style="font-size:12px">Photo 5</div></label>
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary">Create shop →</button>
+      </div></div>
+    </div>
+
+    <!-- New Story -->
+    <div class="profile-pane pp-story">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">New Story</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Product media</div><div class="fcard-desc">Portrait format · 9:16 recommended</div></div><div class="fcard-body"><label class="fupload" style="padding:32px"><input type="file" accept="image/*,video/*"><div class="fupload-icon">📸</div><div class="fupload-text">Upload product photo or short video</div><div class="fupload-sub">JPG, PNG, MP4 · Max 50 MB</div></label></div></div>
+        <div class="fcard"><div class="fcard-head"><div class="fcard-title">Product details</div></div><div class="fcard-body">
+          <div><label class="flabel">Product name</label><input class="finput" placeholder="e.g. Samsung Galaxy A54"></div>
+          <div><label class="flabel">Price</label><input class="finput" placeholder="Rs. 18,000" style="font-family:var(--m)"></div>
+          <div><label class="flabel">Caption (optional)</label><textarea class="ftextarea" style="min-height:60px" placeholder="Short description…"></textarea></div>
+          <div><label class="flabel">Link to shop</label><select class="fselect"><option>— Select your shop —</option></select></div>
+        </div></div>
+        <button class="btn-primary">Post story →</button>
+      </div></div>
+    </div>
+
+    <!-- Help Center -->
+    <div class="profile-pane pp-help">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">Help Center</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="faq-item"><label class="faq-q" for="faq1">How does escrow work? <span>›</span></label><div class="faq-a fa1">When you start a deal, Cover holds your payment securely. The seller only receives the money after you confirm receiving the correct item. If something goes wrong, Cover mediates and decides who gets the money based on evidence.</div></div>
+        <div class="faq-item"><label class="faq-q" for="faq2">What if I receive the wrong item? <span>›</span></label><div class="faq-a fa2">Open a dispute from the deal chat before confirming delivery. Do not confirm delivery if the item is wrong. Attach photos or video as evidence. Cover will freeze funds and review your case within 3–5 business days.</div></div>
+        <div class="faq-item"><label class="faq-q" for="faq3">How do I become a seller? <span>›</span></label><div class="faq-a fa3">Go to Profile → Become a Seller. Submit CNIC documents and a selfie holding your CNIC. Our team reviews within 24 hours. Once approved, create a shop and start receiving fully protected deals.</div></div>
+        <div class="faq-item"><label class="faq-q" for="faq4">What does Cover charge? <span>›</span></label><div class="faq-a fa4">Cover charges 1% of the deal amount with a minimum of Rs. 100. Paid by the buyer when creating the deal. No hidden fees or monthly charges.</div></div>
+        <div class="faq-item"><label class="faq-q" for="faq5">Can I deal with someone not on Cover? <span>›</span></label><div class="faq-a fa5">Yes. Create a deal and share a payment link via WhatsApp or SMS. The other party can pay directly through the link without needing a Cover account. Both parties get full escrow protection.</div></div>
+        <div class="faq-item"><label class="faq-q" for="faq6">Where does my money go during escrow? <span>›</span></label><div class="faq-a fa6">Funds are held in a dedicated escrow account regulated under Pakistani banking rules. Cover cannot spend this money. It is disbursed to the seller only when you confirm delivery, or returned to you if the dispute is resolved in your favour.</div></div>
+      </div></div>
+    </div>
+
+    <!-- Contact Support -->
+    <div class="profile-pane pp-contact">
+      <div class="dh"><label class="back-btn" for="pm-none">← Back</label><div class="dh-avi">🛡</div><div class="dh-info"><div class="dh-title">Cover Support <span style="width:7px;height:7px;border-radius:50%;background:#25d366;display:inline-block;margin-left:4px;margin-bottom:1px"></span></div><div class="dh-sub">Online · Typically replies in minutes</div></div></div>
+      <div class="chat-bg" style="flex:1">
+        <div class="sys-msg">You are chatting with Cover Support</div>
+        <div class="bubble sys-in">👋 Hi Ahmed! How can we help you today? Ask anything about your deals, verification, or account.</div>
+        <div class="bubble sys-in">You can attach a screenshot or file if that helps explain your issue.</div>
+      </div>
+      <div class="chat-input-bar"><input class="chat-inp" placeholder="Type your message…"><button class="chat-send-btn">➤</button></div>
+    </div>
+
+    <!-- Policies -->
+    <div class="profile-pane pp-policies">
+      <div class="page-header"><label class="back-btn" for="pm-none">← Back</label><span class="page-title">Policies & Terms</span></div>
+      <div class="form-page"><div class="form-page-inner">
+        <div class="policy-section"><div class="policy-h">Privacy Policy</div><div class="policy-b">Cover collects only the information needed to provide the escrow service: your name, contact details, and CNIC for verification. We never sell your data to advertisers. Payment information is encrypted in transit and at rest using AES-256. You can request account deletion at any time by contacting support.<br><br>We may share information with our banking partners to process payments, and with law enforcement if legally required. All analytics data is anonymised before processing.</div></div>
+        <div class="policy-section"><div class="policy-h">Refund Policy</div><div class="policy-b">If a dispute is resolved in your favour, your escrow funds will be returned within 2–3 business days. Cover's service fee is non-refundable once a deal is created. If you cancel a deal before the seller ships, your funds will be returned minus the payment gateway processing fee (typically 1.5%).</div></div>
+        <div class="policy-section"><div class="policy-h">Terms & Conditions</div><div class="policy-b">By using Cover, you agree to use the platform only for lawful transactions. You must not use Cover to trade prohibited goods including weapons, controlled substances, counterfeit items, or stolen property.<br><br>Cover reserves the right to freeze funds if fraud is suspected and to report suspicious activity to relevant authorities. Both parties agree that Cover's dispute decisions are final and binding.<br><br>Cover is currently in private beta and features may change without notice.</div></div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<!-- LOGOUT MODAL -->
+<div class="modal"><div class="modal-box"><div class="modal-icon">🚪</div><div class="modal-title">Log out of Cover?</div><div class="modal-sub">You'll need to sign back in to access your deals and account.</div><div class="modal-btns"><label class="mb-cancel" for="logout-open">Cancel</label><button class="mb-logout">Log out</button></div></div></div>
+
+</body>
+</html>
