@@ -1,45 +1,40 @@
-const productInput = document.getElementById("amountInput");
+// Fee calculator — 5% of (product + delivery), min Rs. 100
+const amtInput = document.getElementById("amountInput");
 const deliveryInput = document.getElementById("deliveryInput");
-const rangeInput = document.getElementById("amountRange");
+const amtRange = document.getElementById("amountRange");
+const amtDisplay = document.getElementById("amountDisplay");
+const deliveryDisplay = document.getElementById("deliveryDisplay");
+const productBreakdown = document.getElementById("productBreakdown");
+const deliveryBreakdown = document.getElementById("deliveryBreakdown");
+const feeDisplay = document.getElementById("feeDisplay");
+const totalDisplay = document.getElementById("totalDisplay");
+const sellerDisplay = document.getElementById("sellerDisplay");
+const minBadge = document.getElementById("minBadge");
 
-function calculate() {
-  const productAmount = Math.max(0, parseInt(productInput.value) || 0);
-  const deliveryAmount = Math.max(0, parseInt(deliveryInput.value) || 0);
-
-  const totalBase = productAmount + deliveryAmount;
-  const fee = Math.max(100, totalBase * 0.05);
-  const seller = totalBase;
-  const buyerPays = totalBase + fee;
-
-  document.getElementById("amountDisplay").textContent =
-    "₨. " + productAmount.toLocaleString("en-IN");
-  document.getElementById("deliveryDisplay").textContent =
-    "₨. " + deliveryAmount.toLocaleString("en-IN");
-  document.getElementById("productBreakdown").textContent =
-    "₨. " + productAmount.toLocaleString("en-IN");
-  document.getElementById("deliveryBreakdown").textContent =
-    "₨. " + deliveryAmount.toLocaleString("en-IN");
-  document.getElementById("feeDisplay").textContent =
-    "₨. " + fee.toLocaleString("en-IN");
-  document.getElementById("sellerDisplay").textContent =
-    "₨. " + seller.toLocaleString("en-IN");
-  document.getElementById("totalDisplay").textContent =
-    "₨. " + buyerPays.toLocaleString("en-IN");
-
-  document.getElementById("minBadge").style.display =
-    totalBase <= 2000 ? "flex" : "none";
-
-  productInput.value = productAmount;
-  deliveryInput.value = deliveryAmount;
-  rangeInput.value = productAmount;
+function fmt(n) {
+  return "Rs. " + Math.round(n).toLocaleString("en-PK");
 }
-
-productInput.addEventListener("input", calculate);
-deliveryInput.addEventListener("input", calculate);
-rangeInput.addEventListener("input", (e) => {
-  productInput.value = e.target.value;
-  calculate();
+function calc() {
+  const amt = Math.max(0, parseFloat(amtInput.value) || 0);
+  const del = Math.max(0, parseFloat(deliveryInput.value) || 0);
+  const base = amt + del;
+  const rawFee = base * 0.05;
+  const fee = Math.max(100, rawFee);
+  const isMin = rawFee < 100 && base > 0;
+  amtDisplay.textContent = fmt(amt);
+  deliveryDisplay.textContent = fmt(del);
+  productBreakdown.textContent = fmt(amt);
+  deliveryBreakdown.textContent = fmt(del);
+  feeDisplay.textContent = fmt(fee);
+  totalDisplay.textContent = fmt(amt + del + fee);
+  sellerDisplay.textContent = fmt(amt + del);
+  minBadge.style.display = isMin ? "block" : "none";
+  amtRange.value = Math.min(amt, 200000);
+}
+amtInput.addEventListener("input", calc);
+deliveryInput.addEventListener("input", calc);
+amtRange.addEventListener("input", () => {
+  amtInput.value = amtRange.value;
+  calc();
 });
-
-// Initialize calculator on load
-calculate();
+calc();

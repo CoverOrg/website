@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <title>Cover</title>
+        <title>Cover — Pay safe. Every time.</title>
         <link
             rel="icon"
             type="image/png"
@@ -13,12 +13,11 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="/static/css/styles.css" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
             rel="stylesheet"
         />
-        <script src="/static/js/tailwind.js"></script>
+        <link rel="stylesheet" href="/static/css/styles.css" />
     </head>
     <body class="antialiased">
         <input type="checkbox" name="policy-toggle" id="policy-privacy" />
@@ -75,11 +74,11 @@
                     <a
                         href="https://chat.whatsapp.com/FyVV2yoKzwP6uDaTht5zoh"
                         target="_blank"
-                        class="wa-pulse btn-gray text-[12px] font-medium px-3.5 py-[7px] rounded-full flex items-center gap-1.5"
+                        class="btn-gray text-[12px] font-medium px-3.5 py-[7px] rounded-full flex items-center gap-1.5"
                     >
                         <svg
-                            width="14"
-                            height="14"
+                            width="13"
+                            height="13"
                             viewBox="0 0 24 24"
                             fill="currentColor"
                         >
@@ -117,9 +116,10 @@
                             class="inline-flex items-center gap-2 bg-white border border-black/[0.06] text-neutral-600 rounded-full px-4 py-[6px] text-[11px] font-medium tracking-wide uppercase mb-8 hr hr1"
                         >
                             <span
-                                class="w-[6px] h-[6px] rounded-full bg-gray-500 inline-block pulse-dot"
+                                class="w-[6px] h-[6px] rounded-full bg-neutral-400 inline-block pulse-dot"
                             ></span>
-                            Private beta · Manual processing · 100% secure
+                            Private beta &nbsp;&middot;&nbsp; App-powered
+                            &nbsp;&middot;&nbsp; 100% secure
                         </div>
                         <h1
                             class="text-[clamp(2.5rem,5vw,4rem)] text-black leading-[1.08] tracking-[-0.03em] font-extrabold mb-6 hr hr2"
@@ -131,16 +131,17 @@
                         <p
                             class="text-[16px] sm:text-[17px] text-neutral-500 leading-[1.7] max-w-[480px] mb-10 hr hr3"
                         >
-                            Cover holds your money until you get what you paid
-                            for. Browse verified sellers or bring your own —
-                            every transaction is protected.
+                            Cover holds your payment in escrow until you confirm
+                            receipt. Browse verified seller shops, follow
+                            stories, and manage every deal inside one clean
+                            interface.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-3 hr hr4">
                             <a
-                                href="https://forms.gle/ugHFWiyPXx7mHuLfA"
-                                target="_blank"
+                                href="https://cover.mom"
                                 class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px]"
-                                >Get Started
+                            >
+                                Open the app
                                 <svg
                                     width="15"
                                     height="15"
@@ -153,22 +154,23 @@
                                         stroke-width="1.5"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                    /></svg
-                            ></a>
+                                    />
+                                </svg>
+                            </a>
                         </div>
                         <div
                             class="mt-14 flex flex-wrap gap-x-8 gap-y-4 hr hr4"
                         >
                             <div>
                                 <div
-                                    class="text-[22px] font-bold text-black tracking-tight"
+                                    class="text-[22px] font-bold text-black tracking-tight mono"
                                 >
-                                    ₨. 0 lost
+                                    Rs. 0
                                 </div>
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
                                 >
-                                    By Cover users
+                                    Lost by Cover users
                                 </div>
                             </div>
                             <div
@@ -183,7 +185,7 @@
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
                                 >
-                                    Wrong item? Full refund
+                                    Wrong item — full refund
                                 </div>
                             </div>
                             <div
@@ -191,25 +193,26 @@
                             ></div>
                             <div>
                                 <div
-                                    class="text-[22px] font-bold text-black tracking-tight"
+                                    class="text-[22px] font-bold text-black tracking-tight mono"
                                 >
-                                    4 stages
+                                    5%
                                 </div>
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
                                 >
-                                    Payment · Dispatch · Delivery · Confirmation
+                                    Protection fee. Min Rs. 100
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- HERO MOCKUP — app deal conversation card -->
                     <div class="hero-mockup flex justify-center lg:justify-end">
                         <div
-                            class="w-full max-w-[420px] bg-white rounded-2xl mockup-shadow border border-black/[0.04] overflow-hidden"
+                            class="w-full max-w-[400px] mockup-shadow rounded-2xl overflow-hidden app-card"
                         >
-                            <div
-                                class="bg-[#0a0a0a] px-5 py-4 flex items-center justify-between"
-                            >
+                            <!-- app header bar -->
+                            <div class="app-header">
                                 <div class="flex items-center gap-2.5">
                                     <div
                                         class="w-6 h-6 bg-white rounded-md flex items-center justify-center overflow-hidden"
@@ -227,320 +230,156 @@
                                 </div>
                                 <div class="flex items-center gap-1.5">
                                     <span
-                                        class="w-[6px] h-[6px] rounded-full bg-gray-500 pulse-dot"
-                                    ></span
-                                    ><span
+                                        class="w-[6px] h-[6px] rounded-full bg-neutral-400 pulse-dot"
+                                    ></span>
+                                    <span
                                         class="text-[11px] text-neutral-400 font-medium"
-                                        >Live</span
+                                        >Escrow active</span
                                     >
                                 </div>
                             </div>
+                            <!-- deal header -->
                             <div
-                                class="px-5 pt-5 pb-4 border-b border-black/[0.04]"
+                                class="px-4 py-3 border-b border-black/[0.05] flex items-center gap-3 bg-white"
                             >
                                 <div
-                                    class="flex items-center justify-between mb-1"
+                                    class="w-9 h-9 rounded-full bg-neutral-100 flex items-center justify-center text-[11px] font-bold text-neutral-500"
                                 >
-                                    <span
-                                        class="text-[11px] text-neutral-400 font-medium uppercase tracking-wider"
-                                        >Deal Reference</span
-                                    ><span
-                                        class="text-[11px] font-mono text-neutral-500 bg-neutral-50 px-2 py-[2px] rounded-md"
-                                        >CV-28471</span
-                                    >
+                                    AH
                                 </div>
-                            </div>
-                            <div class="px-5 py-4 border-b border-black/[0.04]">
-                                <div class="flex items-center gap-3">
-                                    <div class="flex-1">
-                                        <div
-                                            class="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mb-1.5"
-                                        >
-                                            Buyer
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <div
-                                                class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center text-[11px] font-bold text-neutral-500"
-                                            >
-                                                A
-                                            </div>
-                                            <div>
-                                                <div
-                                                    class="text-[12.5px] font-semibold text-black leading-tight"
-                                                >
-                                                    Bilal Khan.
-                                                </div>
-                                                <div
-                                                    class="text-[10px] text-neutral-400"
-                                                >
-                                                    Quetta
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="flex-1">
+                                    <div
+                                        class="text-[13.5px] font-700 text-black font-bold leading-tight"
+                                    >
+                                        Samsung Galaxy A54
                                     </div>
                                     <div
-                                        class="flex flex-col items-center gap-0.5 flex-shrink-0"
+                                        class="text-[11px] text-neutral-400 mono"
                                     >
-                                        <svg
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 16 16"
-                                            fill="none"
-                                            class="text-neutral-300"
-                                        >
-                                            <path
-                                                d="M2 8h12M10 4l4 4-4 4"
-                                                stroke="currentColor"
-                                                stroke-width="1.3"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div class="flex-1 text-right">
-                                        <div
-                                            class="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mb-1.5"
-                                        >
-                                            Seller
-                                        </div>
-                                        <div
-                                            class="flex items-center gap-2 justify-end"
-                                        >
-                                            <div>
-                                                <div
-                                                    class="text-[12.5px] font-semibold text-black leading-tight"
-                                                >
-                                                    TechHub Elec.
-                                                </div>
-                                                <div
-                                                    class="text-[10px] text-neutral-400"
-                                                >
-                                                    Lahore
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center"
-                                            >
-                                                <svg
-                                                    width="12"
-                                                    height="12"
-                                                    viewBox="0 0 16 16"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M4 8l2.5 2.5L13 3"
-                                                        stroke="black"
-                                                        stroke-width="1.8"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    />
-                                                </svg>
-                                            </div>
-                                        </div>
+                                        Ali Khan &nbsp;·&nbsp; CVR-2025-041
                                     </div>
                                 </div>
-                            </div>
-                            <div class="px-5 py-4 border-b border-black/[0.04]">
-                                <div
-                                    class="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mb-3"
+                                <span
+                                    class="text-[10.5px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700"
+                                    >In Transit</span
                                 >
-                                    Amount Being Held
-                                </div>
-                                <div class="flex items-baseline gap-2">
-                                    <span
-                                        class="text-[28px] font-extrabold text-black tracking-tight leading-none"
-                                        >₨. 24,500</span
-                                    ><span class="text-[12px] text-neutral-400"
-                                        >.00</span
-                                    >
-                                </div>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <div
-                                        class="flex-1 h-px bg-neutral-100"
-                                    ></div>
-                                    <span
-                                        class="text-[10px] text-neutral-400 font-medium"
-                                        >for iPhone 14 Pro — 256GB</span
-                                    >
-                                    <div
-                                        class="flex-1 h-px bg-neutral-100"
-                                    ></div>
-                                </div>
                             </div>
+                            <!-- chat area -->
                             <div
-                                class="px-5 py-3.5 border-b border-black/[0.04] bg-gray-50/50"
+                                class="bg-[#efeae2] px-4 pt-4 pb-3 flex flex-col gap-2"
+                                style="
+                                    background-image: radial-gradient(
+                                        rgba(180, 160, 120, 0.1) 1px,
+                                        transparent 1px
+                                    );
+                                    background-size: 22px 22px;
+                                "
                             >
-                                <div class="flex items-center gap-2.5">
-                                    <div
-                                        class="w-8 h-8 rounded-lg bg-gray-500 flex items-center justify-center flex-shrink-0"
-                                    >
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                        >
-                                            <path
-                                                d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"
-                                                stroke="white"
-                                                stroke-width="1.8"
-                                            />
-                                            <path
-                                                d="M9 12l2 2 4-4"
-                                                stroke="white"
-                                                stroke-width="1.8"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div
-                                            class="text-[13px] font-bold text-black leading-tight"
-                                        >
-                                            Payment held securely
-                                        </div>
-                                        <div
-                                            class="text-[11px] text-gray-700/70"
-                                        >
-                                            Funds released only after your
-                                            confirmation
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-5 py-4 border-b border-black/[0.04]">
+                                <!-- escrow card -->
                                 <div
-                                    class="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mb-4"
+                                    class="rounded-xl overflow-hidden self-center w-full max-w-[280px] shadow-sm"
                                 >
-                                    Deal Progress
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex items-center gap-3">
+                                    <div class="escrow-top">
                                         <div
-                                            class="w-5 h-5 rounded-full bg-gray-500 flex items-center justify-center flex-shrink-0"
+                                            class="text-[9px] font-bold uppercase tracking-widest text-neutral-500 mb-2"
                                         >
-                                            <svg
-                                                width="10"
-                                                height="10"
-                                                viewBox="0 0 16 16"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M4 8l2.5 2.5L13 3"
-                                                    stroke="white"
-                                                    stroke-width="2.2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                />
-                                            </svg>
+                                            Held in Escrow
                                         </div>
-                                        <span
-                                            class="text-[12px] font-medium text-black flex-1"
-                                            >Deal submitted</span
-                                        ><span
-                                            class="text-[10px] text-neutral-400"
-                                            >Today, 10:23 AM</span
+                                        <div
+                                            class="text-[28px] font-black text-white tracking-tight leading-none mono"
                                         >
+                                            Rs. 18,180
+                                        </div>
+                                        <div
+                                            class="text-[10px] text-neutral-500 mt-1.5 mono"
+                                        >
+                                            CVR-2025-041 &nbsp;·&nbsp; Fee Rs.
+                                            180
+                                        </div>
                                     </div>
-                                    <div class="flex items-center gap-3">
+                                    <div class="escrow-bottom">
                                         <div
-                                            class="w-5 h-5 rounded-full bg-gray-500 flex items-center justify-center flex-shrink-0"
-                                        >
-                                            <svg
-                                                width="10"
-                                                height="10"
-                                                viewBox="0 0 16 16"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M4 8l2.5 2.5L13 3"
-                                                    stroke="white"
-                                                    stroke-width="2.2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                />
-                                            </svg>
-                                        </div>
+                                            class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"
+                                        ></div>
                                         <span
-                                            class="text-[12px] font-medium text-black flex-1"
-                                            >Seller verified</span
-                                        ><span
-                                            class="text-[10px] text-neutral-400"
-                                            >Today, 10:31 AM</span
+                                            class="text-[12px] font-semibold text-neutral-800"
+                                            >In Transit</span
                                         >
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-5 h-5 rounded-full bg-gray-500 flex items-center justify-center flex-shrink-0 pulse-dot"
-                                        >
-                                            <div
-                                                class="w-2 h-2 rounded-full bg-white"
-                                            ></div>
-                                        </div>
                                         <span
-                                            class="text-[12px] font-semibold text-gray-800 flex-1 flex pulse-dot"
-                                            >Payment held</span
-                                        ><span
-                                            class="text-[10px] text-gray-800 font-medium"
-                                            >Active now</span
-                                        >
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0"
-                                        >
-                                            <span
-                                                class="text-[9px] font-bold text-neutral-300"
-                                                >4</span
-                                            >
-                                        </div>
-                                        <span
-                                            class="text-[12px] font-medium text-neutral-300 flex-1"
-                                            >Seller ships</span
-                                        ><span
-                                            class="text-[10px] text-neutral-300"
-                                            >Waiting</span
-                                        >
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0"
-                                        >
-                                            <span
-                                                class="text-[9px] font-bold text-neutral-300"
-                                                >5</span
-                                            >
-                                        </div>
-                                        <span
-                                            class="text-[12px] font-medium text-neutral-300 flex-1"
-                                            >You confirm → pay seller</span
-                                        ><span
-                                            class="text-[10px] text-neutral-300"
-                                            >Waiting</span
+                                            class="text-[11px] text-neutral-400 ml-auto mono"
+                                            >TCS-8821934</span
                                         >
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="px-5 py-3.5 border-b border-black/[0.04]"
-                            >
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[12px] text-neutral-500"
-                                        >Cover protection fee</span
-                                    ><span
-                                        class="text-[12px] font-semibold text-black"
-                                        >₨. 1125.00
-                                        <span
-                                            class="text-neutral-400 font-normal"
-                                            >(5%)</span
-                                        ></span
-                                    >
-                                </div>
-                            </div>
-                            <div class="px-5 py-4 bg-neutral-50/50">
+                                <!-- system bubble -->
                                 <div
-                                    class="flex items-center gap-2 text-[11px] text-neutral-400 mb-3"
+                                    class="chat-bubble-in self-start"
+                                    style="
+                                        background: rgba(255, 255, 255, 0.85);
+                                        font-size: 11.5px;
+                                    "
+                                >
+                                    Seller confirmed dispatch via TCS. Expected
+                                    delivery: 21 May.
+                                </div>
+                                <!-- buyer message -->
+                                <div
+                                    class="chat-bubble-out"
+                                    style="font-size: 11.5px"
+                                >
+                                    Is the phone sealed box?
+                                </div>
+                                <!-- seller message -->
+                                <div
+                                    class="chat-bubble-in"
+                                    style="font-size: 11.5px"
+                                >
+                                    Yes, sealed box with Samsung warranty card
+                                    included.
+                                </div>
+                                <!-- action card -->
+                                <div
+                                    class="rounded-xl overflow-hidden self-center w-full max-w-[280px] bg-white shadow-sm border border-black/[0.06]"
+                                >
+                                    <div
+                                        class="px-4 py-3 border-b border-black/[0.05]"
+                                    >
+                                        <div
+                                            class="text-[9.5px] font-bold uppercase tracking-wider text-neutral-400 mb-1"
+                                        >
+                                            Cover &middot; Action Required
+                                        </div>
+                                        <div
+                                            class="text-[12px] text-neutral-700 leading-snug"
+                                        >
+                                            Did your order arrive as described?
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 flex flex-col gap-2">
+                                        <div
+                                            class="bg-neutral-900 text-white text-[11.5px] font-semibold py-2.5 rounded-lg text-center"
+                                        >
+                                            Confirm delivery
+                                        </div>
+                                        <div
+                                            class="text-center text-[11px] text-red-500 font-medium"
+                                        >
+                                            Raise a dispute
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- input bar -->
+                            <div
+                                class="bg-white border-t border-black/[0.05] px-4 py-3 flex items-center gap-2.5"
+                            >
+                                <div
+                                    class="flex-1 bg-neutral-100 rounded-full px-4 py-2 text-[12px] text-neutral-400"
+                                >
+                                    Message Cover support
+                                </div>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0"
                                 >
                                     <svg
                                         width="13"
@@ -549,42 +388,13 @@
                                         fill="none"
                                     >
                                         <path
-                                            d="M8 1.5C5.5 1.5 3 3.5 3 6.5c0 4 5 8 5 8s5-4 5-8c0-3-2.5-5-5-5z"
-                                            stroke="currentColor"
-                                            stroke-width="1.2"
-                                        />
-                                        <circle
-                                            cx="8"
-                                            cy="6.5"
-                                            r="1.5"
-                                            stroke="currentColor"
-                                            stroke-width="1.2"
-                                        /></svg
-                                    >Estimated delivery: Today — in seconds to
-                                    hours
-                                </div>
-                                <div
-                                    class="bg-[#0a0a0a] text-white text-[13px] font-semibold py-3 rounded-xl text-center flex items-center justify-center gap-2 cursor-default"
-                                >
-                                    <svg
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                    >
-                                        <path
-                                            d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                        />
-                                        <path
-                                            d="M9 12l2 2 4-4"
-                                            stroke="currentColor"
+                                            d="M3 8h10M9 4l4 4-4 4"
+                                            stroke="white"
                                             stroke-width="1.5"
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
-                                        /></svg
-                                    >Protected by Cover
+                                        />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -623,12 +433,12 @@
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
                     >
-                        Submit the deal form
+                        Create a deal in the app
                     </h3>
                     <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
-                        Click "Start Deal" and fill in the product, amount, and
-                        seller info. Your submission goes directly to Cover's
-                        team — completely private.
+                        Open Cover, tap New Deal, enter the item name, amount,
+                        and the seller's details. The app generates a secure
+                        deal reference and locks the escrow instantly.
                     </p>
                 </div>
                 <div class="card p-7 reveal rd1">
@@ -640,12 +450,12 @@
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
                     >
-                        Cover verifies & holds
+                        Pay into escrow — not the seller
                     </h3>
                     <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
-                        Our team reviews your deal, checks the seller, and sets
-                        up a secure payment hold. You get a confirmation on
-                        WhatsApp with your deal reference.
+                        Choose your saved payment method — Easypaisa, NayaPay,
+                        Sadapay, or bank transfer. Your money is held securely
+                        by Cover. The seller receives nothing until you confirm.
                     </p>
                 </div>
                 <div class="card p-7 reveal rd2">
@@ -670,12 +480,12 @@
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
                     >
-                        Confirm → seller gets paid
+                        Confirm delivery — funds release
                     </h3>
                     <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
-                        Item arrived and it's correct? Submit the "Confirm Deal"
-                        form. Payment releases to the seller. Any issue? Report
-                        it — Cover handles the dispute.
+                        Item arrived correctly? Tap Confirm. Payment releases to
+                        the seller immediately. Problem? Raise a dispute
+                        directly in the deal chat — Cover mediates and decides.
                     </p>
                 </div>
             </div>
@@ -721,12 +531,13 @@
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Scam intelligence
+                            Verified seller shops
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            AI scans Reddit, Facebook groups, Trustpilot and 6
-                            other sources daily. Flags known fraudsters before
-                            you pay.
+                            Every seller goes through KYC — CNIC verification
+                            and live video confirmation. Shops display real deal
+                            counts, dispute rates, and average transaction
+                            values.
                         </p>
                     </div>
                     <div class="feature-card p-6 reveal rd1">
@@ -757,12 +568,13 @@
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Real-time risk score
+                            Trust score system
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Every seller gets a live 0–100 risk score. Clear =
-                            go. Amber = caution. Red = Cover holds
-                            automatically.
+                            Both buyers and sellers build a 0–1000 trust score
+                            across every transaction. High-trust accounts get
+                            faster releases and priority support. Fraudsters
+                            cannot fake history.
                         </p>
                     </div>
                     <div class="feature-card p-6 reveal rd2">
@@ -787,11 +599,13 @@
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Instant restore
+                            Inline dispute resolution
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Paid the wrong amount? Wrong person? Cover's time
-                            window lets you cancel before any money moves.
+                            Raise a dispute directly inside the deal
+                            conversation. Attach photos, video, and screenshots
+                            as evidence. Cover's team reviews both sides and
+                            issues a binding verdict.
                         </p>
                     </div>
                     <div class="feature-card p-6 reveal rd1">
@@ -823,12 +637,13 @@
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Escrow with arbitration
+                            Full deal lifecycle in-app
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Cover holds money as a neutral third party. If
-                            something goes wrong, evidence-based arbitration
-                            decides fairly.
+                            Every stage — payment, seller confirmation, dispatch
+                            proof, tracking, delivery action, verdict — flows as
+                            a single conversation thread. No forms, no emails,
+                            no WhatsApp chasing.
                         </p>
                     </div>
                     <div class="feature-card p-6 reveal rd2">
@@ -841,30 +656,24 @@
                                 viewBox="0 0 24 24"
                                 fill="none"
                             >
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="9"
-                                    stroke="white"
-                                    stroke-width="1.3"
-                                />
                                 <path
-                                    d="M12 8v4l3 2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
                                     stroke="white"
                                     stroke-width="1.3"
                                     stroke-linecap="round"
+                                    stroke-linejoin="round"
                                 />
                             </svg>
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Trust score system
+                            Seller stories and shops
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Both buyers and sellers build a portable trust
-                            score. High scores earn faster releases. Fraudsters
-                            can't fake it.
+                            Browse seller shops and product stories directly in
+                            the app. Tap Buy safely with Cover on any story to
+                            start a protected deal with that seller in one step.
                         </p>
                     </div>
                     <div class="feature-card p-6 reveal rd3">
@@ -888,11 +697,13 @@
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
                         >
-                            Works everywhere
+                            Works across every platform
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            WhatsApp, Facebook, Instagram DMs, Vinted, eBay —
-                            Cover protects any transaction on any platform.
+                            Found a seller on OLX, Facebook Marketplace, or
+                            Instagram? Create a Cover deal for any transaction,
+                            with anyone, regardless of where you found the
+                            listing.
                         </p>
                     </div>
                 </div>
@@ -912,19 +723,17 @@
                 <h2
                     class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.02em] font-extrabold mb-4"
                 >
-                    How your deal gets
-                    <span class="text-gradient">processed</span>
+                    How a deal moves through
+                    <span class="text-gradient">Cover</span>
                 </h2>
                 <p class="text-[14px] text-neutral-500 leading-[1.7]">
-                    Every deal is handled manually by Cover's team right now.
-                    You submit, we verify, we protect.
+                    Every stage is tracked in a single conversation thread
+                    inside the app. Nothing falls through the cracks.
                 </p>
             </div>
             <div class="max-w-2xl mx-auto relative">
-                <div
-                    class="absolute left-[19px] top-8 bottom-8 w-px bg-gradient-to-b from-black/10 via-black/10 to-transparent hidden sm:block"
-                ></div>
-                <div class="relative flex gap-5 pb-11 reveal">
+                <div class="step-line"></div>
+                <div class="relative flex gap-5 pb-10 reveal">
                     <div
                         class="w-[38px] h-[38px] bg-black rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
@@ -934,33 +743,18 @@
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
                         >
-                            Submit the "Start Deal" form
+                            Create a deal — escrow locks instantly
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Fill in product details, amount, seller's WhatsApp,
-                            and protection type.
+                            Open the app, tap New Deal. Enter the item, amount,
+                            and seller. A deal reference is generated. Pay using
+                            any saved method — Easypaisa, NayaPay, Sadapay, bank
+                            transfer, or USDT. Funds go into escrow, not to the
+                            seller.
                         </p>
-                        <a
-                            href="https://forms.gle/ugHFWiyPXx7mHuLfA"
-                            target="_blank"
-                            class="inline-flex items-center gap-1 text-[13px] font-medium text-black mt-2.5 hover:underline underline-offset-2"
-                            >Open form<svg
-                                width="12"
-                                height="12"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                            >
-                                <path
-                                    d="M3 8h10M9 4l4 4-4 4"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                /></svg
-                        ></a>
                     </div>
                 </div>
-                <div class="relative flex gap-5 pb-11 reveal rd1">
+                <div class="relative flex gap-5 pb-10 reveal rd1">
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
@@ -970,15 +764,18 @@
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
                         >
-                            Cover verifies and responds on WhatsApp
+                            Seller confirms and ships
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Our team reviews your submission, checks the seller,
-                            and replies with your deal reference.
+                            The seller receives a notification and confirms the
+                            order inside the deal chat. They upload dispatch
+                            proof and the courier tracking number. Cover
+                            verifies the proof before marking the deal as in
+                            transit.
                         </p>
                     </div>
                 </div>
-                <div class="relative flex gap-5 pb-11 reveal rd2">
+                <div class="relative flex gap-5 pb-10 reveal rd2">
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
@@ -988,15 +785,17 @@
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
                         >
-                            You pay into the Cover hold
+                            Package arrives — you inspect
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Payment instructions sent on WhatsApp. Your money
-                            goes into a secure hold — not to the seller.
+                            Record an unboxing video before opening the package.
+                            Check the item matches what was agreed. The Cover
+                            app shows the expected delivery window and sends a
+                            reminder when delivery is due.
                         </p>
                     </div>
                 </div>
-                <div class="relative flex gap-5 pb-11 reveal rd3">
+                <div class="relative flex gap-5 pb-10 reveal rd3">
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
@@ -1006,11 +805,14 @@
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
                         >
-                            Seller ships, you receive
+                            Any problem — raise a dispute inline
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Seller ships the product. Cover monitors tracking.
-                            Inspect and confirm it matches what you ordered.
+                            Wrong item, damage, or not as described? Tap Raise a
+                            dispute in the deal chat. Select the issue type,
+                            describe it, and attach evidence. Escrow freezes
+                            immediately. Cover reviews within 3 to 5 business
+                            days.
                         </p>
                     </div>
                 </div>
@@ -1037,30 +839,14 @@
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
                         >
-                            Submit "Confirm Deal" to release payment
+                            Confirm delivery — seller is paid
                         </h3>
                         <p class="text-[13px] text-neutral-500 leading-[1.7]">
-                            Happy? Submit the confirm form. Have an issue?
-                            Describe it — Cover handles the dispute.
+                            Everything correct? Tap Confirm delivery in the
+                            action card inside the chat. Payment releases to the
+                            seller instantly. Your trust score increases. The
+                            deal is archived with a full timestamped record.
                         </p>
-                        <a
-                            href="https://forms.gle/zJ3a4kk76L6kseMQ6"
-                            target="_blank"
-                            class="inline-flex items-center gap-1 text-[13px] font-medium text-black mt-2.5 hover:underline underline-offset-2"
-                            >Open form<svg
-                                width="12"
-                                height="12"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                            >
-                                <path
-                                    d="M3 8h10M9 4l4 4-4 4"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                /></svg
-                        ></a>
                     </div>
                 </div>
             </div>
@@ -1068,7 +854,7 @@
 
         <hr class="sep" />
 
-        <!-- PRICING — Calculator -->
+        <!-- PRICING -->
         <section
             id="pricing"
             class="py-24 sm:py-28 bg-[#0A0A0A] text-white overflow-hidden"
@@ -1077,7 +863,6 @@
                 <div
                     class="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center"
                 >
-                    <!-- LEFT -->
                     <div class="max-w-[560px]">
                         <p
                             class="text-[11px] uppercase tracking-[0.12em] text-neutral-500 mb-3 font-medium"
@@ -1095,10 +880,11 @@
                         <p
                             class="text-[15px] text-neutral-500 leading-[1.75] mb-10"
                         >
-                            Just 5% of your total transaction amount (product +
-                            delivery) — with a minimum of ₨. 100. The seller
-                            gets the full product and delivery amount. That's
-                            it. No hidden charges.
+                            Just 5% of the total transaction amount — product
+                            plus delivery — with a minimum of Rs. 100. The
+                            seller receives the full product and delivery
+                            amount. Cover's fee is paid by the buyer at the time
+                            of creating the deal. No hidden charges.
                         </p>
                         <div
                             class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 mb-8"
@@ -1120,7 +906,7 @@
                                         />
                                         <path
                                             d="M9 12l2 2 4-4"
-                                            stroke="white"
+                                            stroke="black"
                                             stroke-width="1.5"
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
@@ -1129,14 +915,14 @@
                                 </div>
                                 <div>
                                     <div
-                                        class="text-[20px] font-extrabold tracking-tight leading-none"
+                                        class="text-[20px] font-extrabold tracking-tight leading-none mono"
                                     >
                                         5%
                                     </div>
                                     <div
                                         class="text-[12px] text-neutral-500 mt-0.5"
                                     >
-                                        Minimum ₨. 100 per transaction
+                                        Minimum Rs. 100 per transaction
                                     </div>
                                 </div>
                             </div>
@@ -1155,7 +941,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                         /></svg
-                                    >Secure payment hold
+                                    >Secure escrow hold
                                 </div>
                                 <div class="flex items-center gap-2.5">
                                     <svg
@@ -1171,7 +957,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                         /></svg
-                                    >Release after confirmation
+                                    >Funds released after buyer confirmation
                                 </div>
                                 <div class="flex items-center gap-2.5">
                                     <svg
@@ -1187,7 +973,7 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                         /></svg
-                                    >Manual dispute mediation
+                                    >Evidence-based dispute mediation
                                 </div>
                                 <div class="flex items-center gap-2.5">
                                     <svg
@@ -1203,15 +989,31 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                         /></svg
-                                    >Seller verification
+                                    >KYC seller verification
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <svg
+                                        width="15"
+                                        height="15"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M4 8l2.5 2.5L13 3"
+                                            stroke="white"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        /></svg
+                                    >Trust score tracking
                                 </div>
                             </div>
                         </div>
                         <a
-                            href="https://forms.gle/ugHFWiyPXx7mHuLfA"
-                            target="_blank"
+                            href="https://cover.mom"
                             class="inline-flex items-center gap-2 btn-gray font-medium px-7 py-3.5 rounded-full text-[14px]"
-                            >Start Protected Deal
+                        >
+                            Open Cover
                             <svg
                                 width="15"
                                 height="15"
@@ -1224,11 +1026,12 @@
                                     stroke-width="1.5"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                /></svg
-                        ></a>
+                                />
+                            </svg>
+                        </a>
                     </div>
 
-                    <!-- RIGHT — Calculator -->
+                    <!-- Calculator -->
                     <div
                         class="pricing-visual flex justify-center lg:justify-end"
                     >
@@ -1256,63 +1059,67 @@
                                 <p
                                     class="text-[12px] text-neutral-500 ml-[38px]"
                                 >
-                                    See exactly what you'll pay
+                                    See exactly what you pay
                                 </p>
                             </div>
-                            <div class="p-6 space-y-6">
-                                <!-- Product Amount Input -->
+                            <div class="p-6 space-y-5">
+                                <!-- Product amount -->
                                 <div>
                                     <div class="flex justify-between mb-2">
                                         <label
                                             class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
                                             >Product Amount</label
-                                        ><span
+                                        >
+                                        <span
                                             id="amountDisplay"
-                                            class="text-sm font-semibold text-white"
-                                            >₨. 24,500</span
+                                            class="text-sm font-semibold text-white mono"
+                                            >Rs. 18,000</span
                                         >
                                     </div>
                                     <div class="relative">
                                         <span
-                                            class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-xl font-semibold"
-                                            >₨. </span
-                                        ><input
+                                            class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                            >Rs.</span
+                                        >
+                                        <input
                                             type="number"
                                             id="amountInput"
-                                            value="24500"
+                                            value="18000"
                                             min="0"
                                             step="100"
-                                            class="calc-input w-full pl-10 text-2xl font-bold bg-transparent border border-white/10 focus:border-gray-500 rounded-2xl py-4 transition-all"
+                                            class="calc-input w-full pl-12 text-2xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-2xl py-4 transition-all text-white"
                                         />
                                     </div>
                                 </div>
-                                <!-- Delivery Charges Input -->
+                                <!-- Delivery charges -->
                                 <div>
                                     <div class="flex justify-between mb-2">
                                         <label
                                             class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
                                             >Delivery Charges</label
-                                        ><span
+                                        >
+                                        <span
                                             id="deliveryDisplay"
-                                            class="text-sm font-semibold text-white"
-                                            >₨. 0</span
+                                            class="text-sm font-semibold text-white mono"
+                                            >Rs. 0</span
                                         >
                                     </div>
                                     <div class="relative">
                                         <span
-                                            class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-lg font-semibold"
-                                            >₨. </span
-                                        ><input
+                                            class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                            >Rs.</span
+                                        >
+                                        <input
                                             type="number"
                                             id="deliveryInput"
                                             value="0"
                                             min="0"
                                             step="50"
-                                            class="calc-input w-full pl-10 text-xl font-bold bg-transparent border border-white/10 focus:border-gray-500 rounded-xl py-3 transition-all"
+                                            class="calc-input w-full pl-12 text-xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-xl py-3 transition-all text-white"
                                         />
                                     </div>
                                 </div>
-                                <!-- Range Slider -->
+                                <!-- Range slider -->
                                 <div>
                                     <input
                                         type="range"
@@ -1320,18 +1127,17 @@
                                         min="100"
                                         max="200000"
                                         step="100"
-                                        value="24500"
-                                        class="w-full accent-gray-200"
+                                        value="18000"
+                                        class="w-full accent-neutral-400"
                                     />
                                     <div
-                                        class="flex justify-between text-[10px] text-neutral-500 mt-1"
+                                        class="flex justify-between text-[10px] text-neutral-500 mt-1 mono"
                                     >
-                                        <span>₨. 100</span
-                                        ><span>₨. 2,00,000</span>
+                                        <span>Rs. 100</span
+                                        ><span>Rs. 2,00,000</span>
                                     </div>
                                 </div>
-
-                                <!-- Results Breakdown -->
+                                <!-- Breakdown -->
                                 <div
                                     class="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-5 space-y-4"
                                 >
@@ -1341,10 +1147,11 @@
                                         >
                                             <span class="text-neutral-400"
                                                 >Product Amount</span
-                                            ><span
+                                            >
+                                            <span
                                                 id="productBreakdown"
-                                                class="font-medium"
-                                                >₨. 24,500</span
+                                                class="font-medium mono"
+                                                >Rs. 18,000</span
                                             >
                                         </div>
                                         <div
@@ -1352,10 +1159,11 @@
                                         >
                                             <span class="text-neutral-400"
                                                 >Delivery Charges</span
-                                            ><span
+                                            >
+                                            <span
                                                 id="deliveryBreakdown"
-                                                class="font-medium"
-                                                >₨. 0</span
+                                                class="font-medium mono"
+                                                >Rs. 0</span
                                             >
                                         </div>
                                         <div
@@ -1363,15 +1171,16 @@
                                         >
                                             <span class="text-neutral-400"
                                                 >Cover Fee (5%)</span
-                                            ><span
+                                            >
+                                            <span
                                                 id="feeDisplay"
-                                                class="font-medium text-gray-400"
-                                                >₨. 1,225</span
+                                                class="font-medium text-neutral-400 mono"
+                                                >Rs. 900</span
                                             >
                                         </div>
                                     </div>
                                     <div
-                                        class="border-t border-white/10 pt-4 space-y-4"
+                                        class="border-t border-white/10 pt-4 space-y-3"
                                     >
                                         <div
                                             class="flex justify-between items-center"
@@ -1379,10 +1188,11 @@
                                             <span
                                                 class="text-white font-semibold"
                                                 >Buyer Pays</span
-                                            ><span
+                                            >
+                                            <span
                                                 id="totalDisplay"
-                                                class="text-xl font-bold text-white"
-                                                >₨. 25,725</span
+                                                class="text-xl font-bold text-white mono"
+                                                >Rs. 18,900</span
                                             >
                                         </div>
                                         <div
@@ -1391,21 +1201,21 @@
                                             <span
                                                 class="text-neutral-500 text-xs"
                                                 >Seller Receives</span
-                                            ><span
+                                            >
+                                            <span
                                                 id="sellerDisplay"
-                                                class="font-medium text-neutral-400 text-xs"
-                                                >₨. 24,500</span
+                                                class="font-medium text-neutral-400 text-xs mono"
+                                                >Rs. 18,000</span
                                             >
                                         </div>
                                     </div>
                                 </div>
-
                                 <div
                                     id="minBadge"
-                                    class="min-fee-badge visible text-amber-400 text-xs"
+                                    class="text-amber-400 text-xs"
                                     style="display: none"
                                 >
-                                    <span>Minimum fee of ₨. 100 applied</span>
+                                    Minimum fee of Rs. 100 applied
                                 </div>
                             </div>
                         </div>
@@ -1436,11 +1246,13 @@
             <div class="grid md:grid-cols-2 gap-3 items-start max-w-5xl">
                 <div class="space-y-3">
                     <details class="faq-item reveal">
-                        <summary>How do I start a deal right now?</summary>
+                        <summary>How do I start a deal?</summary>
                         <div class="faq-body">
-                            Click any "Start Deal" button — it opens a Google
-                            Form. Fill in the product details, amount, seller's
-                            WhatsApp number, and choose a protection type.
+                            Open Cover, tap New Deal, enter the item name,
+                            amount, and the seller's phone number or username.
+                            The app generates a deal reference and locks the
+                            escrow. Pay using any saved payment method — the
+                            seller receives nothing until you confirm.
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
@@ -1448,39 +1260,43 @@
                             How do I confirm that I received my item?
                         </summary>
                         <div class="faq-body">
-                            Click "Confirm Deal" to open the confirmation form.
-                            Enter the deal reference, confirm the item arrived
-                            as described, and submit.
+                            Inside the deal conversation, a Cover action card
+                            appears once the seller marks the order as shipped.
+                            Tap Confirm delivery on that card. Payment releases
+                            to the seller immediately and the deal is closed.
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
                         <summary>
-                            How will I know what's happening with my deal?
+                            How will I know what is happening with my deal?
                         </summary>
                         <div class="faq-body">
-                            Everything is communicated on WhatsApp. You'll get
-                            updates when payment is received, when the seller
-                            ships, and when payment is released.
+                            Every stage appears as a message or card inside the
+                            deal conversation — payment received, seller
+                            confirmed, dispatched with tracking number, delivery
+                            expected. No separate WhatsApp chasing required.
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
                         <summary>
-                            Can I start a deal with a seller not listed here?
+                            Can I use Cover with a seller not on the app?
                         </summary>
                         <div class="faq-body">
-                            Yes. You can start a protected deal with anyone —
-                            someone from Facebook, Instagram, or WhatsApp. Just
-                            fill the Start Deal form with their details.
+                            Yes. You can create a protected deal with anyone — a
+                            seller from OLX, Facebook Marketplace, or Instagram.
+                            Enter their details in the New Deal form. Both
+                            parties interact through the Cover deal
+                            conversation.
                         </div>
                     </details>
                     <details class="faq-item reveal rd3">
-                        <summary>
-                            How long does the manual process take?
-                        </summary>
+                        <summary>What payment methods are supported?</summary>
                         <div class="faq-body">
-                            Our team typically responds within 2–4 hours during
-                            waking hours. The whole process from submission to
-                            active hold is usually same-day.
+                            Easypaisa, NayaPay, Sadapay, bank transfer via IBAN,
+                            and USDT on Polygon. Add and save your preferred
+                            methods in the Payment Methods section of your
+                            profile. The seller sets their own payout method
+                            separately.
                         </div>
                     </details>
                 </div>
@@ -1490,47 +1306,54 @@
                             What if I receive a damaged or wrong item?
                         </summary>
                         <div class="faq-body">
-                            Don't confirm — submit the Confirm Deal form but
-                            describe the issue instead. Send the video of
-                            unboxing the package on WhatsApp. Our team will
-                            review and decide fairly.
+                            Do not confirm delivery. In the deal chat, tap Raise
+                            a dispute on the action card. Choose the issue type,
+                            describe it, and attach your unboxing video and
+                            photos as evidence. Escrow freezes immediately.
+                            Cover reviews within 3 to 5 business days and issues
+                            a binding verdict.
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
-                        <summary>Is the process really manual?</summary>
+                        <summary>Is an unboxing video required?</summary>
                         <div class="faq-body">
-                            Yes, currently everything is handled manually by our
-                            team. This is intentional for the beta phase.
-                            Automation is in development.
+                            Yes. Record a continuous unboxing video before
+                            opening any package. This is your primary evidence
+                            for any dispute. Claims submitted without an
+                            unboxing video may not be upheld regardless of the
+                            issue.
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
-                        <summary>
-                            Where does my money go during the hold?
-                        </summary>
+                        <summary>Where does my money go during escrow?</summary>
                         <div class="faq-body">
-                            Your money goes into a dedicated Cover hold account
-                            — separate from operating funds. It's not invested
-                            or used. Ask for proof anytime.
+                            Into a dedicated Cover escrow account, completely
+                            separate from operating funds. It is not invested or
+                            used. The full amount is held until you confirm
+                            delivery or a dispute is resolved. You can request a
+                            balance proof at any time by contacting support.
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
                         <summary>How do I list my shop as a seller?</summary>
                         <div class="faq-body">
-                            You can simply click on the List your shop button
-                            above, and enter all the required details to be
-                            listed. No listing fee is required during beta.
+                            Complete KYC in your profile — CNIC front and back,
+                            plus a live video verification call with Cover's
+                            team. Once approved, go to Profile, tap New Shop,
+                            and fill in your shop details. Your shop appears in
+                            the Shops section immediately.
                         </div>
                     </details>
                     <details class="faq-item reveal rd3">
-                        <summary>Who will pay the delivery charges?</summary>
+                        <summary>
+                            Who pays delivery charges in a dispute?
+                        </summary>
                         <div class="faq-body">
-                            There are 3 scenarios. No. 1: You need to pay the
-                            delivery + product amount to cover to order the
-                            product. No.2: If the product is fine but you
-                            changed your mind to choose another variant then you
-                            also have to pay for return. No.3: If the product is
-                            faulty then the seller has to pay.
+                            If the item is correct but you changed your mind,
+                            you pay return shipping. If the item is wrong,
+                            damaged, or counterfeit, the seller pays return
+                            shipping. If the seller never shipped, you receive a
+                            full refund including Cover's fee.
                         </div>
                     </details>
                 </div>
@@ -1552,14 +1375,15 @@
                     >
                 </h2>
                 <p class="text-[14px] text-neutral-500 leading-[1.7] mb-10">
-                    Private beta · Manual processing · 100% secure
+                    Private beta &nbsp;&middot;&nbsp; App-powered
+                    &nbsp;&middot;&nbsp; 100% secure
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <a
-                        href="https://forms.gle/ugHFWiyPXx7mHuLfA"
-                        target="_blank"
+                        href="https://cover.mom"
                         class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px]"
-                        >Get Started
+                    >
+                        Open the app
                         <svg
                             width="15"
                             height="15"
@@ -1572,8 +1396,9 @@
                                 stroke-width="1.5"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                            /></svg
-                    ></a>
+                            />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1583,8 +1408,8 @@
             <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16 sm:py-20">
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
                     <div class="sm:col-span-2 lg:col-span-1">
-                        <a href="#" class="flex items-center gap-2.5 mb-5"
-                            ><div
+                        <a href="#" class="flex items-center gap-2.5 mb-5">
+                            <div
                                 class="w-8 h-8 bg-white rounded-[10px] flex items-center justify-center flex-shrink-0 overflow-hidden"
                             >
                                 <img
@@ -1596,13 +1421,14 @@
                             <span
                                 class="font-semibold text-[15px] text-white tracking-[-0.01em]"
                                 >Cover</span
-                            ></a
-                        >
+                            >
+                        </a>
                         <p
                             class="text-[13px] text-neutral-500 leading-[1.75] max-w-[260px] mb-6"
                         >
-                            Pay safe. Every time. Cover holds your money until
-                            you get exactly what you paid for.
+                            Pay safe. Every time. Cover holds your money in
+                            escrow until you confirm receipt of exactly what you
+                            ordered.
                         </p>
                         <div class="flex items-center gap-2.5">
                             <a
@@ -1709,9 +1535,11 @@
                         <div class="flex flex-col">
                             <label for="policy-privacy" class="footer-link"
                                 >Privacy Policy</label
-                            ><label for="policy-returns" class="footer-link"
+                            >
+                            <label for="policy-returns" class="footer-link"
                                 >Return / Refund / Shipping Policy</label
-                            ><label for="policy-terms" class="footer-link"
+                            >
+                            <label for="policy-terms" class="footer-link"
                                 >Terms &amp; Conditions</label
                             >
                         </div>
@@ -1723,21 +1551,12 @@
                             Quick Links
                         </h4>
                         <div class="flex flex-col">
-                            <a href="#how" class="footer-link">How it works</a
-                            ><a href="#sellers" class="footer-link"
-                                >Verified Sellers</a
-                            ><a href="#pricing" class="footer-link">Pricing</a
-                            ><a href="#faq" class="footer-link">FAQ</a
-                            ><a
-                                href="https://forms.gle/ugHFWiyPXx7mHuLfA"
-                                target="_blank"
-                                class="footer-link"
-                                >Start a Deal</a
-                            ><a
-                                href="https://forms.gle/gVg4ht1UuVDXMQMQ6"
-                                target="_blank"
-                                class="footer-link"
-                                >List Your Shop</a
+                            <a href="#how" class="footer-link">How it works</a>
+                            <a href="#features" class="footer-link">Features</a>
+                            <a href="#pricing" class="footer-link">Pricing</a>
+                            <a href="#faq" class="footer-link">FAQ</a>
+                            <a href="https://cover.mom" class="footer-link"
+                                >Open the app</a
                             >
                         </div>
                     </div>
@@ -1767,8 +1586,9 @@
                                         r="1.5"
                                         stroke="currentColor"
                                         stroke-width="1.2"
-                                    /></svg
-                                ><span
+                                    />
+                                </svg>
+                                <span
                                     class="text-[13px] text-neutral-400 leading-[1.7]"
                                     >Office #148, Hashmi Mohalla,<br />Near
                                     Hazara Mohalla,<br />Loralai, Balochistan,
@@ -1801,8 +1621,9 @@
                                         stroke-width="1.2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                    /></svg
-                                ><a
+                                    />
+                                </svg>
+                                <a
                                     href="tel:+923158105028"
                                     class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
                                     >+92 315 810 5028</a
@@ -1831,8 +1652,9 @@
                                         stroke-width="1.2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                    /></svg
-                                ><a
+                                    />
+                                </svg>
+                                <a
                                     href="mailto:help@cover.mom"
                                     class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
                                     >help@cover.mom</a
@@ -1847,8 +1669,8 @@
                     class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
                 >
                     <p class="text-[12px] text-neutral-600">
-                        © 2026 Cover · Private beta · Manual processing · All
-                        rights reserved.
+                        © 2026 Cover &nbsp;&middot;&nbsp; Private beta
+                        &nbsp;&middot;&nbsp; All rights reserved.
                     </p>
                     <div
                         class="flex items-center gap-4 text-[12px] text-neutral-600"
@@ -1857,13 +1679,15 @@
                             for="policy-privacy"
                             class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
                             >Privacy</label
-                        ><span class="text-neutral-800">·</span
-                        ><label
+                        >
+                        <span class="text-neutral-800">&middot;</span>
+                        <label
                             for="policy-returns"
                             class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
                             >Returns</label
-                        ><span class="text-neutral-800">·</span
-                        ><label
+                        >
+                        <span class="text-neutral-800">&middot;</span>
+                        <label
                             for="policy-terms"
                             class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
                             >Terms</label
@@ -1873,7 +1697,7 @@
             </div>
         </footer>
 
-        <!-- POLICY MODALS -->
+        <!-- POLICY MODALS (unchanged content from original) -->
         <div class="policy-overlay" data-policy="privacy">
             <label for="policy-privacy" class="policy-backdrop"></label>
             <div class="policy-modal-panel">
@@ -1903,9 +1727,9 @@
                         </p>
                         <h3>Information We Collect</h3>
                         <p>
-                            When you submit a deal form or contact us, we
-                            collect your name, WhatsApp number, email address
-                            (if provided), transaction details, product
+                            When you create a deal or contact us, we collect
+                            your name, phone number, email address (if
+                            provided), transaction details, product
                             descriptions, and deal references. We also collect
                             device information and IP address for security
                             purposes.
@@ -1913,9 +1737,7 @@
                         <h3>How We Use Your Information</h3>
                         <ul>
                             <li>To process and verify your protected deals</li>
-                            <li>
-                                To communicate deal status updates via WhatsApp
-                            </li>
+                            <li>To send deal status updates inside the app</li>
                             <li>To verify seller identity and prevent fraud</li>
                             <li>
                                 To resolve disputes between buyers and sellers
@@ -1929,17 +1751,17 @@
                             We do not sell, rent, or share your personal data
                             with third parties for marketing purposes. We may
                             share limited deal-related information with the
-                            counterparty (buyer or seller) involved in the same
-                            transaction to facilitate the deal. We may disclose
-                            data if required by Pakistani law.
+                            counterparty involved in the same transaction to
+                            facilitate the deal. We may disclose data if
+                            required by Pakistani law.
                         </p>
                         <h3>Data Security</h3>
                         <p>
                             All deal information is stored securely and accessed
                             only by authorized Cover team members. Payment hold
                             details are kept in separate, restricted-access
-                            systems. We use end-to-end encryption for WhatsApp
-                            communications where available.
+                            systems. CNIC and KYC documents are encrypted at
+                            rest using AES-256.
                         </p>
                         <h3>Data Retention</h3>
                         <p>
@@ -1954,19 +1776,13 @@
                             You have the right to access, correct, or delete
                             your personal data. You may opt out of non-essential
                             communications at any time. To exercise these
-                            rights, contact us via WhatsApp or email.
-                        </p>
-                        <h3>Cookies & Tracking</h3>
-                        <p>
-                            Our website uses minimal analytics cookies to
-                            understand usage patterns. We do not use advertising
-                            or tracking cookies. No third-party tracking scripts
-                            are loaded on our platform.
+                            rights, contact us via the app support chat or
+                            email.
                         </p>
                         <h3>Contact</h3>
                         <p>
                             For any privacy-related concerns, reach out to us at
-                            help@cover.mom or WhatsApp: +92 315 810 5028.
+                            help@cover.mom or call +92 315 810 5028.
                         </p>
                     </div>
                 </div>
@@ -2003,8 +1819,9 @@
                         <p>
                             You may initiate a return if the product received
                             does not match the description agreed upon at the
-                            time of deal submission. Returns must be reported
-                            within 24 hours of receiving the product. You must
+                            time of deal creation. Returns must be reported
+                            within 24 hours of receiving the product by raising
+                            a dispute inside the deal conversation. You must
                             provide an unboxing video as evidence. Cover does
                             not accept returns for buyer's remorse, change of
                             mind, or minor cosmetic differences clearly visible
@@ -2014,13 +1831,13 @@
                         <ul>
                             <li>
                                 <strong>Wrong item received:</strong> Full
-                                refund of the held amount (minus Cover's
-                                protection fee is non-refundable).
+                                refund of the held amount. Cover's protection
+                                fee is non-refundable.
                             </li>
                             <li>
                                 <strong>Damaged or defective item:</strong> Full
-                                refund of the held amount after verification of
-                                unboxing video evidence.
+                                refund after verification of unboxing video
+                                evidence.
                             </li>
                             <li>
                                 <strong>Seller fails to ship:</strong> Full
@@ -2032,27 +1849,23 @@
                                     held:</strong
                                 >
                                 Refund subject to Cover's review. If the seller
-                                has already incurred costs (e.g., shipping), a
-                                partial refund may apply.
+                                has already incurred costs, a partial refund may
+                                apply.
                             </li>
                             <li>
                                 <strong
-                                    >Dispute resolved in seller's favor:</strong
+                                    >Dispute resolved in seller's
+                                    favour:</strong
                                 >
                                 Payment released to seller; no refund to buyer.
                             </li>
                         </ul>
                         <p>
-                            Refunds are processed within 3–5 business days after
-                            dispute resolution. Refunds are sent via the same
-                            payment method used for the deal.
+                            Refunds are processed within 3 to 5 business days
+                            after dispute resolution, returned via the same
+                            payment method used.
                         </p>
                         <h3>Shipping Policy</h3>
-                        <p>
-                            Cover facilitates deal protection — shipping is
-                            handled between the buyer and seller. The following
-                            rules apply:
-                        </p>
                         <ul>
                             <li>
                                 <strong>Delivery charges:</strong> The buyer is
@@ -2061,52 +1874,39 @@
                             </li>
                             <li>
                                 <strong>Courier selection:</strong> Cover
-                                recommends using tracked courier services (e.g.,
-                                TCS, Leopards) for all shipments. Untracked
-                                shipments are at the parties' own risk.
+                                recommends tracked courier services (TCS,
+                                Leopards) for all shipments.
                             </li>
                             <li>
                                 <strong>Shipping timeline:</strong> The seller
                                 must ship within the timeframe specified in the
-                                deal. If no timeframe was set, the default is 3
-                                business days from payment hold confirmation.
+                                deal, or within 3 business days if no timeframe
+                                was set.
                             </li>
                             <li>
                                 <strong
                                     >Return shipping (buyer changed
                                     mind):</strong
                                 >
-                                If the product is correct but the buyer wants to
-                                return it (e.g., different variant preference),
-                                the buyer bears the return shipping cost.
+                                Buyer bears the return shipping cost.
                             </li>
                             <li>
                                 <strong>Return shipping (seller fault):</strong>
-                                If the product is damaged, defective, or wrong —
-                                the seller bears the return shipping cost.
+                                Seller bears the return shipping cost.
                             </li>
                         </ul>
                         <h3>Unboxing Video Requirement</h3>
                         <p>
-                            All buyers must record an unboxing video that
-                            clearly shows the package condition, product, and
-                            any defects. This video is mandatory for any return
-                            or refund claim. Claims without an unboxing video
-                            will not be accepted.
-                        </p>
-                        <h3>Dispute Resolution</h3>
-                        <p>
-                            If a dispute arises, both parties must submit
-                            evidence (photos, videos, chat screenshots) via
-                            WhatsApp. Cover's team reviews all evidence and
-                            makes a fair decision. Both parties agree to abide
-                            by Cover's dispute resolution outcome as part of
-                            using the service.
+                            All buyers must record an unboxing video showing the
+                            package condition, product, and any defects. This
+                            video is mandatory for any return or refund claim.
+                            Claims without an unboxing video will not be
+                            accepted.
                         </p>
                         <h3>Contact</h3>
                         <p>
-                            For return/refund/shipping queries, contact us at
-                            help@cover.mom or WhatsApp: +92 315 810 5028.
+                            For return, refund, or shipping queries, contact us
+                            at help@cover.mom or call +92 315 810 5028.
                         </p>
                     </div>
                 </div>
@@ -2141,36 +1941,29 @@
                         </p>
                         <h3>Acceptance of Terms</h3>
                         <p>
-                            By using Cover's services (including submitting deal
-                            forms, confirming deals, or communicating with our
-                            team), you agree to these Terms & Conditions. If you
-                            do not agree, please do not use our services.
+                            By using Cover's application or services, you agree
+                            to these Terms and Conditions. If you do not agree,
+                            please do not use our services.
                         </p>
                         <h3>Service Description</h3>
                         <p>
-                            Cover provides a payment hold and deal verification
-                            service. Cover acts as a neutral escrow agent and
+                            Cover provides a payment escrow and deal management
+                            platform. Cover acts as a neutral escrow agent and
                             does not directly sell, ship, or warranty any
                             products. Cover facilitates transactions between
                             independent buyers and sellers.
                         </p>
                         <h3>Beta Service Disclaimer</h3>
                         <p>
-                            Cover is currently in private beta. All deal
-                            processing is manual. Service availability, response
-                            times, and features may change without notice. Cover
-                            makes no guarantees of uninterrupted service during
-                            the beta period.
+                            Cover is currently in private beta. Features may
+                            change without notice. Cover makes no guarantees of
+                            uninterrupted service during the beta period.
                         </p>
                         <h3>User Responsibilities</h3>
                         <ul>
                             <li>
                                 Provide accurate and complete information in all
                                 deal forms
-                            </li>
-                            <li>
-                                Respond promptly to WhatsApp communications from
-                                Cover's team
                             </li>
                             <li>
                                 Record an unboxing video for every delivered
@@ -2187,20 +1980,18 @@
                         </ul>
                         <h3>Protection Fee</h3>
                         <p>
-                            Cover charges a protection fee based on the
-                            transaction value as listed in our Pricing section.
+                            Cover charges 5% of the total transaction amount
+                            (product plus delivery) with a minimum of Rs. 100.
                             This fee is non-refundable unless the seller fails
-                            to ship entirely. The fee is calculated on the total
-                            transaction amount (product + delivery).
+                            to ship entirely.
                         </p>
                         <h3>Payment Hold</h3>
                         <p>
-                            When you pay into a Cover hold, your money is held
-                            in a separate account and not released until: (a)
+                            When you pay into a Cover deal, your money is held
+                            in a separate escrow account and not released until
                             the buyer confirms receipt of the correct item, or
-                            (b) Cover resolves a dispute. Cover does not earn
-                            interest on held funds. Held funds are not
-                            guaranteed by any deposit insurance scheme.
+                            Cover resolves a dispute. Cover does not earn
+                            interest on held funds.
                         </p>
                         <h3>Dispute Resolution</h3>
                         <p>
@@ -2208,41 +1999,21 @@
                             process as the sole method for resolving transaction
                             disputes. Cover's decision is final and binding.
                             Evidence-based review is the standard — claims
-                            without supporting evidence (photos, videos, chat
-                            logs) may be denied.
+                            without supporting evidence may be denied.
                         </p>
                         <h3>Limitation of Liability</h3>
                         <p>
                             Cover's liability is limited to the amount held in
                             escrow for the specific deal in question. Cover is
                             not liable for indirect, consequential, or
-                            incidental damages. Cover is not responsible for
-                            delays caused by courier services, banking systems,
-                            or force majeure events.
+                            incidental damages.
                         </p>
                         <h3>Prohibited Transactions</h3>
                         <p>
-                            Cover may refuse to process deals involving: illegal
-                            goods/services, weapons, controlled substances,
-                            counterfeit products, stolen goods, or any
-                            transaction that violates Pakistani law. Cover
-                            reserves the right to block users who attempt such
-                            transactions.
-                        </p>
-                        <h3>Account Termination</h3>
-                        <p>
-                            Cover reserves the right to suspend or permanently
-                            ban users who violate these terms, attempt fraud, or
-                            abuse the system. Banned users' pending deals will
-                            be resolved before account closure.
-                        </p>
-                        <h3>Modifications</h3>
-                        <p>
-                            Cover may update these Terms & Conditions at any
-                            time. Continued use of the service after updates
-                            constitutes acceptance of the revised terms.
-                            Material changes will be communicated via WhatsApp
-                            for active users.
+                            Cover may refuse to process deals involving illegal
+                            goods, weapons, controlled substances, counterfeit
+                            products, stolen goods, or any transaction that
+                            violates Pakistani law.
                         </p>
                         <h3>Governing Law</h3>
                         <p>
@@ -2254,7 +2025,7 @@
                         <h3>Contact</h3>
                         <p>
                             For questions about these terms, contact us at
-                            help@cover.mom or WhatsApp: +92 315 810 5028.
+                            help@cover.mom or call +92 315 810 5028.
                         </p>
                     </div>
                 </div>
