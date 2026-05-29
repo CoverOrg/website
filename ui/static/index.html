@@ -11,13 +11,274 @@
             href="/static/assets/profile/logo.png"
         />
         <script src="https://cdn.tailwindcss.com"></script>
+        <!-- CHANGE 1: Replaced Inter with Syne + DM Sans + DM Mono to match dashboard -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Mono:wght@400;500&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/static/css/styles.css" />
+        <style>
+            /* ── Typography overrides to match dashboard ── */
+            body {
+                font-family: "DM Sans", sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-family: "Syne", sans-serif;
+            }
+            .mono,
+            code {
+                font-family: "DM Mono", monospace;
+            }
+
+            /* ── Dashboard hero mockup styles ── */
+            .dash-wrap {
+                background: #f8f8f7;
+                border-radius: 16px;
+                border: 1px solid rgba(0, 0, 0, 0.09);
+                overflow: hidden;
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            }
+            .dash-topbar {
+                background: #fff;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+                padding: 10px 16px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .dash-topbar-logo {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
+            .dash-topbar-logomark {
+                width: 26px;
+                height: 26px;
+                background: #0a0a0a;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                overflow: hidden;
+            }
+            .dash-topbar-brand {
+                font-family: "Syne", sans-serif;
+                font-size: 15px;
+                font-weight: 800;
+                letter-spacing: -0.04em;
+                color: #0a0a0a;
+            }
+            .dash-topbar-user {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .dash-avatar {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: #0a0a0a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-family: "Syne", sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                flex-shrink: 0;
+            }
+            .dash-user-name {
+                font-size: 12px;
+                font-weight: 600;
+                color: #0a0a0a;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-user-role {
+                font-size: 10px;
+                color: #6b6b6b;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-body {
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .dash-section-label {
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #a8a8a8;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-profile-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .dash-profile-avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #0a0a0a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-family: "Syne", sans-serif;
+                font-size: 16px;
+                font-weight: 800;
+                flex-shrink: 0;
+            }
+            .dash-profile-name {
+                font-family: "Syne", sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                color: #0a0a0a;
+            }
+            .dash-profile-sub {
+                font-size: 11px;
+                color: #6b6b6b;
+                margin-top: 1px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-badge-verified {
+                margin-left: auto;
+                background: #e8f5ed;
+                color: #1a7a4a;
+                font-size: 10px;
+                font-weight: 600;
+                padding: 3px 9px;
+                border-radius: 6px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .dash-stat {
+                background: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                border-radius: 12px;
+                padding: 12px 10px;
+                text-align: center;
+            }
+            .dash-stat-num {
+                font-family: "Syne", sans-serif;
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                color: #0a0a0a;
+            }
+            .dash-stat-lbl {
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: #a8a8a8;
+                margin-top: 3px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-order-card {
+                background: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                border-radius: 12px;
+                padding: 12px 14px;
+            }
+            .dash-order-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .dash-order-name {
+                font-size: 13px;
+                font-weight: 600;
+                color: #0a0a0a;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-order-seller {
+                font-size: 11px;
+                color: #6b6b6b;
+                margin-top: 2px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-order-amount {
+                font-family: "Syne", sans-serif;
+                font-size: 13px;
+                font-weight: 700;
+                color: #0a0a0a;
+            }
+            .dash-order-meta {
+                font-family: "DM Mono", monospace;
+                font-size: 10px;
+                color: #a8a8a8;
+                margin-top: 8px;
+            }
+            .dash-pill-shipped {
+                background: #0a0a0a;
+                color: #fff;
+                font-size: 10px;
+                font-weight: 600;
+                padding: 3px 8px;
+                border-radius: 5px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-pill-paid {
+                background: #fef3c7;
+                color: #b45309;
+                font-size: 10px;
+                font-weight: 600;
+                padding: 3px 8px;
+                border-radius: 5px;
+                font-family: "DM Sans", sans-serif;
+            }
+            .dash-actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .dash-btn-black {
+                background: #0a0a0a;
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                padding: 10px;
+                font-family: "DM Sans", sans-serif;
+                font-size: 12px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                cursor: pointer;
+            }
+            .dash-btn-ghost {
+                background: transparent;
+                color: #0a0a0a;
+                border: 1px solid rgba(0, 0, 0, 0.14);
+                border-radius: 10px;
+                padding: 10px;
+                font-family: "DM Sans", sans-serif;
+                font-size: 12px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body class="antialiased">
         <input type="checkbox" name="auth-toggle" id="login-step1" />
@@ -46,6 +307,11 @@
                     </div>
                     <span
                         class="font-semibold text-[15px] text-black tracking-[-0.01em]"
+                        style="
+                            font-family: &quot;Syne&quot;, sans-serif;
+                            font-weight: 800;
+                            letter-spacing: -0.04em;
+                        "
                         >Cover</span
                     >
                 </a>
@@ -125,14 +391,16 @@
                             &nbsp;&middot;&nbsp; 100% secure
                         </div>
                         <h1
-                            class="text-[clamp(2.5rem,5vw,4rem)] text-black leading-[1.08] tracking-[-0.03em] font-extrabold mb-6 hr hr2"
+                            class="text-[clamp(2.5rem,5vw,4rem)] text-black leading-[1.08] tracking-[-0.04em] font-extrabold mb-6 hr hr2"
+                            style="font-family: &quot;Syne&quot;, sans-serif"
                         >
                             Safe deals,<br /><span class="text-gradient"
                                 >every single time.</span
                             >
                         </h1>
                         <p
-                            class="text-[16px] sm:text-[17px] text-neutral-500 leading-[1.7] max-w-[480px] mb-10 hr hr3"
+                            class="text-[15px] sm:text-[16px] text-neutral-500 leading-[1.75] max-w-[480px] mb-10 hr hr3"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Cover holds your payment in escrow until you confirm
                             receipt. Browse verified seller shops, follow
@@ -141,8 +409,13 @@
                         </p>
                         <div class="flex flex-col sm:flex-row gap-3 hr hr4">
                             <label
-                                for="login-step1"
+                                for="auth-open"
                                 class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                    font-weight: 600;
+                                "
                             >
                                 Open the app
 
@@ -168,11 +441,23 @@
                             <div>
                                 <div
                                     class="text-[22px] font-bold text-black tracking-tight mono"
+                                    style="
+                                        font-family:
+                                            &quot;Syne&quot;, sans-serif;
+                                        font-weight: 800;
+                                        letter-spacing: -0.03em;
+                                    "
                                 >
                                     Rs. 0
                                 </div>
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 600;
+                                        letter-spacing: 0.1em;
+                                    "
                                 >
                                     Lost by Cover users
                                 </div>
@@ -183,11 +468,23 @@
                             <div>
                                 <div
                                     class="text-[22px] font-bold text-black tracking-tight"
+                                    style="
+                                        font-family:
+                                            &quot;Syne&quot;, sans-serif;
+                                        font-weight: 800;
+                                        letter-spacing: -0.03em;
+                                    "
                                 >
                                     100% secure
                                 </div>
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 600;
+                                        letter-spacing: 0.1em;
+                                    "
                                 >
                                     Wrong item — full refund
                                 </div>
@@ -198,11 +495,23 @@
                             <div>
                                 <div
                                     class="text-[22px] font-bold text-black tracking-tight mono"
+                                    style="
+                                        font-family:
+                                            &quot;Syne&quot;, sans-serif;
+                                        font-weight: 800;
+                                        letter-spacing: -0.03em;
+                                    "
                                 >
                                     5%
                                 </div>
                                 <div
                                     class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 600;
+                                        letter-spacing: 0.1em;
+                                    "
                                 >
                                     Protection fee. Min Rs. 100
                                 </div>
@@ -210,199 +519,181 @@
                         </div>
                     </div>
 
-                    <!-- HERO MOCKUP — app deal conversation card -->
+                    <!-- CHANGE 2: Hero right column — dashboard mockup replacing the app chat card -->
                     <div class="hero-mockup flex justify-center lg:justify-end">
-                        <div
-                            class="w-full max-w-[400px] mockup-shadow rounded-2xl overflow-hidden app-card"
-                        >
-                            <!-- app header bar -->
-                            <div class="app-header">
-                                <div class="flex items-center gap-2.5">
-                                    <div
-                                        class="w-6 h-6 bg-white rounded-md flex items-center justify-center overflow-hidden"
-                                    >
+                        <div class="w-full max-w-[420px] dash-wrap">
+                            <!-- Top bar -->
+                            <div class="dash-topbar">
+                                <div class="dash-topbar-logo">
+                                    <div class="dash-topbar-logomark">
                                         <img
                                             src="/static/assets/profile/logo.png"
                                             alt="Cover"
-                                            class="w-full h-full object-cover"
+                                            style="
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                            "
                                         />
                                     </div>
-                                    <span
-                                        class="text-white text-[13px] font-semibold tracking-tight"
-                                        >Cover</span
-                                    >
+                                    <span class="dash-topbar-brand">Cover</span>
                                 </div>
-                                <div class="flex items-center gap-1.5">
-                                    <span
-                                        class="w-[6px] h-[6px] rounded-full bg-neutral-400 pulse-dot"
-                                    ></span>
-                                    <span
-                                        class="text-[11px] text-neutral-400 font-medium"
-                                        >Escrow active</span
-                                    >
+                                <div class="dash-topbar-user">
+                                    <div style="text-align: right">
+                                        <div class="dash-user-name">
+                                            Ahmed Khan
+                                        </div>
+                                        <div class="dash-user-role">
+                                            Buyer · Islamabad
+                                        </div>
+                                    </div>
+                                    <div class="dash-avatar">A</div>
                                 </div>
                             </div>
-                            <!-- deal header -->
-                            <div
-                                class="px-4 py-3 border-b border-black/[0.05] flex items-center gap-3 bg-white"
-                            >
-                                <div
-                                    class="w-9 h-9 rounded-full bg-neutral-100 flex items-center justify-center text-[11px] font-bold text-neutral-500"
-                                >
-                                    AH
-                                </div>
-                                <div class="flex-1">
-                                    <div
-                                        class="text-[13.5px] font-700 text-black font-bold leading-tight"
-                                    >
-                                        Samsung Galaxy A54
-                                    </div>
-                                    <div
-                                        class="text-[11px] text-neutral-400 mono"
-                                    >
-                                        Ali Khan &nbsp;·&nbsp; CVR-2025-041
-                                    </div>
-                                </div>
-                                <span
-                                    class="text-[10.5px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700"
-                                    >In Transit</span
-                                >
-                            </div>
-                            <!-- chat area -->
-                            <div
-                                class="bg-[#efeae2] px-4 pt-4 pb-3 flex flex-col gap-2"
-                                style="
-                                    background-image: radial-gradient(
-                                        rgba(180, 160, 120, 0.1) 1px,
-                                        transparent 1px
-                                    );
-                                    background-size: 22px 22px;
-                                "
-                            >
-                                <!-- escrow card -->
-                                <div
-                                    class="rounded-xl overflow-hidden self-center w-full max-w-[280px] shadow-sm"
-                                >
-                                    <div class="escrow-top">
-                                        <div
-                                            class="text-[9px] font-bold uppercase tracking-widest text-neutral-500 mb-2"
-                                        >
-                                            Held in Escrow
+
+                            <!-- Dashboard body -->
+                            <div class="dash-body">
+                                <!-- Profile row -->
+                                <div class="dash-profile-row">
+                                    <div class="dash-profile-avatar">A</div>
+                                    <div>
+                                        <div class="dash-profile-name">
+                                            Ahmed Khan
                                         </div>
-                                        <div
-                                            class="text-[28px] font-black text-white tracking-tight leading-none mono"
-                                        >
-                                            Rs. 18,180
-                                        </div>
-                                        <div
-                                            class="text-[10px] text-neutral-500 mt-1.5 mono"
-                                        >
-                                            CVR-2025-041 &nbsp;·&nbsp; Fee Rs.
-                                            180
+                                        <div class="dash-profile-sub">
+                                            Buyer · +92 300 1234567
                                         </div>
                                     </div>
-                                    <div class="escrow-bottom">
-                                        <div
-                                            class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"
-                                        ></div>
-                                        <span
-                                            class="text-[12px] font-semibold text-neutral-800"
-                                            >In Transit</span
-                                        >
-                                        <span
-                                            class="text-[11px] text-neutral-400 ml-auto mono"
-                                            >TCS-8821934</span
-                                        >
+                                    <div class="dash-badge-verified">
+                                        Verified
                                     </div>
                                 </div>
-                                <!-- system bubble -->
-                                <div
-                                    class="chat-bubble-in self-start"
-                                    style="
-                                        background: rgba(255, 255, 255, 0.85);
-                                        font-size: 11.5px;
-                                    "
-                                >
-                                    Seller confirmed dispatch via TCS. Expected
-                                    delivery: 21 May.
-                                </div>
-                                <!-- buyer message -->
-                                <div
-                                    class="chat-bubble-out"
-                                    style="font-size: 11.5px"
-                                >
-                                    Is the phone sealed box?
-                                </div>
-                                <!-- seller message -->
-                                <div
-                                    class="chat-bubble-in"
-                                    style="font-size: 11.5px"
-                                >
-                                    Yes, sealed box with Samsung warranty card
-                                    included.
-                                </div>
-                                <!-- action card -->
-                                <div
-                                    class="rounded-xl overflow-hidden self-center w-full max-w-[280px] bg-white shadow-sm border border-black/[0.06]"
-                                >
-                                    <div
-                                        class="px-4 py-3 border-b border-black/[0.05]"
-                                    >
-                                        <div
-                                            class="text-[9.5px] font-bold uppercase tracking-wider text-neutral-400 mb-1"
-                                        >
-                                            Cover &middot; Action Required
-                                        </div>
-                                        <div
-                                            class="text-[12px] text-neutral-700 leading-snug"
-                                        >
-                                            Did your order arrive as described?
+
+                                <!-- Stats -->
+                                <div class="dash-stats">
+                                    <div class="dash-stat">
+                                        <div class="dash-stat-num">2</div>
+                                        <div class="dash-stat-lbl">Active</div>
+                                    </div>
+                                    <div class="dash-stat">
+                                        <div class="dash-stat-num">8</div>
+                                        <div class="dash-stat-lbl">
+                                            Completed
                                         </div>
                                     </div>
-                                    <div class="px-4 py-3 flex flex-col gap-2">
-                                        <div
-                                            class="bg-neutral-900 text-white text-[11.5px] font-semibold py-2.5 rounded-lg text-center"
-                                        >
-                                            Confirm delivery
-                                        </div>
-                                        <div
-                                            class="text-center text-[11px] text-red-500 font-medium"
-                                        >
-                                            Raise a dispute
+                                    <div class="dash-stat">
+                                        <div class="dash-stat-num">₨84k</div>
+                                        <div class="dash-stat-lbl">
+                                            Protected
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- input bar -->
-                            <div
-                                class="bg-white border-t border-black/[0.05] px-4 py-3 flex items-center gap-2.5"
-                            >
-                                <div
-                                    class="flex-1 bg-neutral-100 rounded-full px-4 py-2 text-[12px] text-neutral-400"
-                                >
-                                    Message Cover support
+
+                                <!-- Recent orders label -->
+                                <div class="dash-section-label">
+                                    Recent Orders
                                 </div>
-                                <div
-                                    class="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0"
-                                >
-                                    <svg
-                                        width="13"
-                                        height="13"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                    >
-                                        <path
-                                            d="M3 8h10M9 4l4 4-4 4"
-                                            stroke="white"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        />
-                                    </svg>
+
+                                <!-- Order 1 -->
+                                <div class="dash-order-card">
+                                    <div class="dash-order-top">
+                                        <div>
+                                            <div class="dash-order-name">
+                                                iPhone 15 Pro
+                                            </div>
+                                            <div class="dash-order-seller">
+                                                Ali Phones
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right">
+                                            <div class="dash-order-amount">
+                                                PKR 263,025
+                                            </div>
+                                            <div style="margin-top: 5px">
+                                                <span class="dash-pill-shipped"
+                                                    >Shipped</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dash-order-meta">
+                                        COV-A3BX-7KPQ &nbsp;·&nbsp; 1d ago
+                                    </div>
+                                </div>
+
+                                <!-- Order 2 -->
+                                <div class="dash-order-card">
+                                    <div class="dash-order-top">
+                                        <div>
+                                            <div class="dash-order-name">
+                                                PlayStation 5
+                                            </div>
+                                            <div class="dash-order-seller">
+                                                GameZone
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right">
+                                            <div class="dash-order-amount">
+                                                PKR 84,525
+                                            </div>
+                                            <div style="margin-top: 5px">
+                                                <span class="dash-pill-paid"
+                                                    >Paid</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dash-order-meta">
+                                        COV-X9YZ-4WPK &nbsp;·&nbsp; 2h ago
+                                    </div>
+                                </div>
+
+                                <!-- Quick actions -->
+                                <div class="dash-section-label">
+                                    Quick Actions
+                                </div>
+                                <div class="dash-actions">
+                                    <button class="dash-btn-black">
+                                        <svg
+                                            width="13"
+                                            height="13"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M12 4v16m8-8H4"
+                                            />
+                                        </svg>
+                                        New Order
+                                    </button>
+                                    <button class="dash-btn-ghost">
+                                        <svg
+                                            width="13"
+                                            height="13"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                            />
+                                        </svg>
+                                        Lookup
+                                    </button>
                                 </div>
                             </div>
+                            <!-- /dash-body -->
                         </div>
+                        <!-- /dash-wrap -->
                     </div>
+                    <!-- END CHANGE 2 -->
                 </div>
             </div>
         </section>
@@ -417,11 +708,16 @@
             <div class="max-w-lg mb-16 reveal">
                 <p
                     class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-weight: 700;
+                    "
                 >
                     How it works
                 </p>
                 <h2
-                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.02em] font-extrabold"
+                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
                 >
                     Three steps to a
                     <span class="text-gradient">safe deal</span>
@@ -432,14 +728,25 @@
                     <div
                         class="w-11 h-11 bg-black rounded-full flex items-center justify-center mb-6"
                     >
-                        <span class="text-white text-sm font-bold">1</span>
+                        <span
+                            class="text-white text-sm font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >1</span
+                        >
                     </div>
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                        style="
+                            font-family: &quot;Syne&quot;, sans-serif;
+                            font-weight: 700;
+                        "
                     >
                         Create a deal in the app
                     </h3>
-                    <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
+                    <p
+                        class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         Open Cover, tap New Deal, enter the item name, amount,
                         and the seller's details. The app generates a secure
                         deal reference and locks the escrow instantly.
@@ -449,14 +756,25 @@
                     <div
                         class="w-11 h-11 bg-black rounded-full flex items-center justify-center mb-6"
                     >
-                        <span class="text-white text-sm font-bold">2</span>
+                        <span
+                            class="text-white text-sm font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >2</span
+                        >
                     </div>
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                        style="
+                            font-family: &quot;Syne&quot;, sans-serif;
+                            font-weight: 700;
+                        "
                     >
                         Pay into escrow — not the seller
                     </h3>
-                    <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
+                    <p
+                        class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         Choose your saved payment method — Easypaisa, NayaPay,
                         Sadapay, or bank transfer. Your money is held securely
                         by Cover. The seller receives nothing until you confirm.
@@ -483,10 +801,17 @@
                     </div>
                     <h3
                         class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                        style="
+                            font-family: &quot;Syne&quot;, sans-serif;
+                            font-weight: 700;
+                        "
                     >
                         Confirm delivery — funds release
                     </h3>
-                    <p class="text-[13.5px] text-neutral-500 leading-[1.7]">
+                    <p
+                        class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         Item arrived correctly? Tap Confirm. Payment releases to
                         the seller immediately. Problem? Raise a dispute
                         directly in the deal chat — Cover mediates and decides.
@@ -503,11 +828,16 @@
                 <div class="max-w-lg mb-16 reveal">
                     <p
                         class="text-[11px] uppercase tracking-[0.12em] text-neutral-500 mb-3 font-medium"
+                        style="
+                            font-family: &quot;DM Sans&quot;, sans-serif;
+                            font-weight: 700;
+                        "
                     >
                         What Cover does
                     </p>
                     <h2
-                        class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.02em] font-extrabold"
+                        class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.03em] font-extrabold"
+                        style="font-family: &quot;Syne&quot;, sans-serif"
                     >
                         Everything to
                         <span class="text-neutral-500">never lose money</span>
@@ -534,10 +864,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Verified seller shops
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Every seller goes through KYC — CNIC verification
                             and live video confirmation. Shops display real deal
                             counts, dispute rates, and average transaction
@@ -571,10 +908,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Trust score system
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Both buyers and sellers build a 0–1000 trust score
                             across every transaction. High-trust accounts get
                             faster releases and priority support. Fraudsters
@@ -602,10 +946,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Inline dispute resolution
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Raise a dispute directly inside the deal
                             conversation. Attach photos, video, and screenshots
                             as evidence. Cover's team reviews both sides and
@@ -640,10 +991,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Full deal lifecycle in-app
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Every stage — payment, seller confirmation, dispatch
                             proof, tracking, delivery action, verdict — flows as
                             a single conversation thread. No forms, no emails,
@@ -671,10 +1029,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Seller stories and shops
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Browse seller shops and product stories directly in
                             the app. Tap Buy safely with Cover on any story to
                             start a protected deal with that seller in one step.
@@ -700,10 +1065,17 @@
                         </div>
                         <h3
                             class="font-semibold text-[15px] mb-2 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Works across every platform
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Found a seller on OLX, Facebook Marketplace, or
                             Instagram? Create a Cover deal for any transaction,
                             with anyone, regardless of where you found the
@@ -721,16 +1093,24 @@
             <div class="max-w-2xl mx-auto text-center mb-16 reveal">
                 <p
                     class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-weight: 700;
+                    "
                 >
                     Deal Flow
                 </p>
                 <h2
-                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.02em] font-extrabold mb-4"
+                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold mb-4"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
                 >
                     How a deal moves through
                     <span class="text-gradient">Cover</span>
                 </h2>
-                <p class="text-[14px] text-neutral-500 leading-[1.7]">
+                <p
+                    class="text-[14px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
                     Every stage is tracked in a single conversation thread
                     inside the app. Nothing falls through the cracks.
                 </p>
@@ -741,15 +1121,26 @@
                     <div
                         class="w-[38px] h-[38px] bg-black rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
-                        <span class="text-white text-[13px] font-bold">1</span>
+                        <span
+                            class="text-white text-[13px] font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >1</span
+                        >
                     </div>
                     <div class="pt-0.5">
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Create a deal — escrow locks instantly
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Open the app, tap New Deal. Enter the item, amount,
                             and seller. A deal reference is generated. Pay using
                             any saved method — Easypaisa, NayaPay, Sadapay, bank
@@ -762,15 +1153,26 @@
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
-                        <span class="text-black text-[13px] font-bold">2</span>
+                        <span
+                            class="text-black text-[13px] font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >2</span
+                        >
                     </div>
                     <div class="pt-0.5">
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Seller confirms and ships
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             The seller receives a notification and confirms the
                             order inside the deal chat. They upload dispatch
                             proof and the courier tracking number. Cover
@@ -783,15 +1185,26 @@
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
-                        <span class="text-black text-[13px] font-bold">3</span>
+                        <span
+                            class="text-black text-[13px] font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >3</span
+                        >
                     </div>
                     <div class="pt-0.5">
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Package arrives — you inspect
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Record an unboxing video before opening the package.
                             Check the item matches what was agreed. The Cover
                             app shows the expected delivery window and sends a
@@ -803,15 +1216,26 @@
                     <div
                         class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
                     >
-                        <span class="text-black text-[13px] font-bold">4</span>
+                        <span
+                            class="text-black text-[13px] font-bold"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >4</span
+                        >
                     </div>
                     <div class="pt-0.5">
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Any problem — raise a dispute inline
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Wrong item, damage, or not as described? Tap Raise a
                             dispute in the deal chat. Select the issue type,
                             describe it, and attach evidence. Escrow freezes
@@ -842,10 +1266,17 @@
                     <div class="pt-0.5">
                         <h3
                             class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Confirm delivery — seller is paid
                         </h3>
-                        <p class="text-[13px] text-neutral-500 leading-[1.7]">
+                        <p
+                            class="text-[13px] text-neutral-500 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Everything correct? Tap Confirm delivery in the
                             action card inside the chat. Payment releases to the
                             seller instantly. Your trust score increases. The
@@ -870,11 +1301,16 @@
                     <div class="max-w-[560px]">
                         <p
                             class="text-[11px] uppercase tracking-[0.12em] text-neutral-500 mb-3 font-medium"
+                            style="
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                                font-weight: 700;
+                            "
                         >
                             Pricing
                         </p>
                         <h2
-                            class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.02em] font-extrabold mb-6"
+                            class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.03em] font-extrabold mb-6"
+                            style="font-family: &quot;Syne&quot;, sans-serif"
                         >
                             One fee.
                             <span class="text-neutral-500"
@@ -883,6 +1319,7 @@
                         </h2>
                         <p
                             class="text-[15px] text-neutral-500 leading-[1.75] mb-10"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Just 5% of the total transaction amount — product
                             plus delivery — with a minimum of Rs. 100. The
@@ -920,17 +1357,33 @@
                                 <div>
                                     <div
                                         class="text-[20px] font-extrabold tracking-tight leading-none mono"
+                                        style="
+                                            font-family:
+                                                &quot;Syne&quot;, sans-serif;
+                                            font-weight: 800;
+                                            letter-spacing: -0.04em;
+                                        "
                                     >
                                         5%
                                     </div>
                                     <div
                                         class="text-[12px] text-neutral-500 mt-0.5"
+                                        style="
+                                            font-family:
+                                                &quot;DM Sans&quot;, sans-serif;
+                                        "
                                     >
                                         Minimum Rs. 100 per transaction
                                     </div>
                                 </div>
                             </div>
-                            <div class="space-y-3 text-[13px] text-neutral-300">
+                            <div
+                                class="space-y-3 text-[13px] text-neutral-300"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                            >
                                 <div class="flex items-center gap-2.5">
                                     <svg
                                         width="15"
@@ -1014,8 +1467,12 @@
                             </div>
                         </div>
                         <label
-                            for="login-step1"
+                            for="auth-open"
                             class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                            style="
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                                font-weight: 600;
+                            "
                         >
                             Open Cover
                             <svg
@@ -1057,11 +1514,20 @@
                                     </div>
                                     <span
                                         class="text-[13px] font-semibold tracking-tight text-white"
+                                        style="
+                                            font-family:
+                                                &quot;Syne&quot;, sans-serif;
+                                            font-weight: 700;
+                                        "
                                         >Fee Calculator</span
                                     >
                                 </div>
                                 <p
                                     class="text-[12px] text-neutral-500 ml-[38px]"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                    "
                                 >
                                     See exactly what you pay
                                 </p>
@@ -1072,17 +1538,33 @@
                                     <div class="flex justify-between mb-2">
                                         <label
                                             class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Sans&quot;,
+                                                    sans-serif;
+                                                font-weight: 700;
+                                            "
                                             >Product Amount</label
                                         >
                                         <span
                                             id="amountDisplay"
                                             class="text-sm font-semibold text-white mono"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                             >Rs. 18,000</span
                                         >
                                     </div>
                                     <div class="relative">
                                         <span
                                             class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                             >Rs.</span
                                         >
                                         <input
@@ -1092,6 +1574,11 @@
                                             min="0"
                                             step="100"
                                             class="calc-input w-full pl-12 text-2xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-2xl py-4 transition-all text-white"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                         />
                                     </div>
                                 </div>
@@ -1100,17 +1587,33 @@
                                     <div class="flex justify-between mb-2">
                                         <label
                                             class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Sans&quot;,
+                                                    sans-serif;
+                                                font-weight: 700;
+                                            "
                                             >Delivery Charges</label
                                         >
                                         <span
                                             id="deliveryDisplay"
                                             class="text-sm font-semibold text-white mono"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                             >Rs. 0</span
                                         >
                                     </div>
                                     <div class="relative">
                                         <span
                                             class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                             >Rs.</span
                                         >
                                         <input
@@ -1120,6 +1623,11 @@
                                             min="0"
                                             step="50"
                                             class="calc-input w-full pl-12 text-xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-xl py-3 transition-all text-white"
+                                            style="
+                                                font-family:
+                                                    &quot;DM Mono&quot;,
+                                                    monospace;
+                                            "
                                         />
                                     </div>
                                 </div>
@@ -1136,6 +1644,10 @@
                                     />
                                     <div
                                         class="flex justify-between text-[10px] text-neutral-500 mt-1 mono"
+                                        style="
+                                            font-family:
+                                                &quot;DM Mono&quot;, monospace;
+                                        "
                                     >
                                         <span>Rs. 100</span
                                         ><span>Rs. 2,00,000</span>
@@ -1145,7 +1657,13 @@
                                 <div
                                     class="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-5 space-y-4"
                                 >
-                                    <div class="space-y-3 text-sm">
+                                    <div
+                                        class="space-y-3 text-sm"
+                                        style="
+                                            font-family:
+                                                &quot;DM Sans&quot;, sans-serif;
+                                        "
+                                    >
                                         <div
                                             class="flex justify-between items-center"
                                         >
@@ -1155,6 +1673,11 @@
                                             <span
                                                 id="productBreakdown"
                                                 class="font-medium mono"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Mono&quot;,
+                                                        monospace;
+                                                "
                                                 >Rs. 18,000</span
                                             >
                                         </div>
@@ -1167,6 +1690,11 @@
                                             <span
                                                 id="deliveryBreakdown"
                                                 class="font-medium mono"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Mono&quot;,
+                                                        monospace;
+                                                "
                                                 >Rs. 0</span
                                             >
                                         </div>
@@ -1179,6 +1707,11 @@
                                             <span
                                                 id="feeDisplay"
                                                 class="font-medium text-neutral-400 mono"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Mono&quot;,
+                                                        monospace;
+                                                "
                                                 >Rs. 900</span
                                             >
                                         </div>
@@ -1191,11 +1724,22 @@
                                         >
                                             <span
                                                 class="text-white font-semibold"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Sans&quot;,
+                                                        sans-serif;
+                                                "
                                                 >Buyer Pays</span
                                             >
                                             <span
                                                 id="totalDisplay"
                                                 class="text-xl font-bold text-white mono"
+                                                style="
+                                                    font-family:
+                                                        &quot;Syne&quot;,
+                                                        sans-serif;
+                                                    font-weight: 800;
+                                                "
                                                 >Rs. 18,900</span
                                             >
                                         </div>
@@ -1204,11 +1748,21 @@
                                         >
                                             <span
                                                 class="text-neutral-500 text-xs"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Sans&quot;,
+                                                        sans-serif;
+                                                "
                                                 >Seller Receives</span
                                             >
                                             <span
                                                 id="sellerDisplay"
                                                 class="font-medium text-neutral-400 text-xs mono"
+                                                style="
+                                                    font-family:
+                                                        &quot;DM Mono&quot;,
+                                                        monospace;
+                                                "
                                                 >Rs. 18,000</span
                                             >
                                         </div>
@@ -1217,7 +1771,11 @@
                                 <div
                                     id="minBadge"
                                     class="text-amber-400 text-xs"
-                                    style="display: none"
+                                    style="
+                                        display: none;
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                    "
                                 >
                                     Minimum fee of Rs. 100 applied
                                 </div>
@@ -1238,11 +1796,16 @@
             <div class="max-w-lg mb-16 reveal">
                 <p
                     class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-weight: 700;
+                    "
                 >
                     FAQ
                 </p>
                 <h2
-                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.02em] font-extrabold"
+                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
                 >
                     Common <span class="text-gradient">questions</span>
                 </h2>
@@ -1250,8 +1813,15 @@
             <div class="grid md:grid-cols-2 gap-3 items-start max-w-5xl">
                 <div class="space-y-3">
                     <details class="faq-item reveal">
-                        <summary>How do I start a deal?</summary>
-                        <div class="faq-body">
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            How do I start a deal?
+                        </summary>
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Open Cover, tap New Deal, enter the item name,
                             amount, and the seller's phone number or username.
                             The app generates a deal reference and locks the
@@ -1260,10 +1830,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
-                        <summary>
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             How do I confirm that I received my item?
                         </summary>
-                        <div class="faq-body">
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Inside the deal conversation, a Cover action card
                             appears once the seller marks the order as shipped.
                             Tap Confirm delivery on that card. Payment releases
@@ -1271,10 +1846,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
-                        <summary>
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             How will I know what is happening with my deal?
                         </summary>
-                        <div class="faq-body">
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Every stage appears as a message or card inside the
                             deal conversation — payment received, seller
                             confirmed, dispatched with tracking number, delivery
@@ -1282,10 +1862,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
-                        <summary>
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Can I use Cover with a seller not on the app?
                         </summary>
-                        <div class="faq-body">
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Yes. You can create a protected deal with anyone — a
                             seller from OLX, Facebook Marketplace, or Instagram.
                             Enter their details in the New Deal form. Both
@@ -1294,8 +1879,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd3">
-                        <summary>What payment methods are supported?</summary>
-                        <div class="faq-body">
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            What payment methods are supported?
+                        </summary>
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Easypaisa, NayaPay, Sadapay, bank transfer via IBAN,
                             and USDT on Polygon. Add and save your preferred
                             methods in the Payment Methods section of your
@@ -1306,10 +1898,15 @@
                 </div>
                 <div class="space-y-3">
                     <details class="faq-item reveal rd1">
-                        <summary>
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             What if I receive a damaged or wrong item?
                         </summary>
-                        <div class="faq-body">
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Do not confirm delivery. In the deal chat, tap Raise
                             a dispute on the action card. Choose the issue type,
                             describe it, and attach your unboxing video and
@@ -1319,8 +1916,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd1">
-                        <summary>Is an unboxing video required?</summary>
-                        <div class="faq-body">
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            Is an unboxing video required?
+                        </summary>
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Yes. Record a continuous unboxing video before
                             opening any package. This is your primary evidence
                             for any dispute. Claims submitted without an
@@ -1329,8 +1933,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
-                        <summary>Where does my money go during escrow?</summary>
-                        <div class="faq-body">
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            Where does my money go during escrow?
+                        </summary>
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Into a dedicated Cover escrow account, completely
                             separate from operating funds. It is not invested or
                             used. The full amount is held until you confirm
@@ -1339,8 +1950,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd2">
-                        <summary>How do I list my shop as a seller?</summary>
-                        <div class="faq-body">
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            How do I list my shop as a seller?
+                        </summary>
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Complete KYC in your profile — CNIC front and back,
                             plus a live video verification call with Cover's
                             team. Once approved, go to Profile, tap New Shop,
@@ -1349,10 +1967,15 @@
                         </div>
                     </details>
                     <details class="faq-item reveal rd3">
-                        <summary>
+                        <summary
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             Who pays delivery charges in a dispute?
                         </summary>
-                        <div class="faq-body">
+                        <div
+                            class="faq-body"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
                             If the item is correct but you changed your mind,
                             you pay return shipping. If the item is wrong,
                             damaged, or counterfeit, the seller pays return
@@ -1372,20 +1995,28 @@
         >
             <div class="max-w-lg mx-auto">
                 <h2
-                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.02em] font-extrabold mb-4"
+                    class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.04em] font-extrabold mb-4"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
                 >
                     If you pay a stranger,<br /><span class="text-gradient"
                         >use Cover.</span
                     >
                 </h2>
-                <p class="text-[14px] text-neutral-500 leading-[1.7] mb-10">
+                <p
+                    class="text-[14px] text-neutral-500 leading-[1.7] mb-10"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
                     Private beta &nbsp;&middot;&nbsp; App-powered
                     &nbsp;&middot;&nbsp; 100% secure
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center">
                     <label
-                        for="login-step1"
+                        for="auth-open"
                         class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                        style="
+                            font-family: &quot;DM Sans&quot;, sans-serif;
+                            font-weight: 600;
+                        "
                     >
                         Open the app
                         <svg
@@ -1424,11 +2055,17 @@
                             </div>
                             <span
                                 class="font-semibold text-[15px] text-white tracking-[-0.01em]"
+                                style="
+                                    font-family: &quot;Syne&quot;, sans-serif;
+                                    font-weight: 800;
+                                    letter-spacing: -0.04em;
+                                "
                                 >Cover</span
                             >
                         </a>
                         <p
                             class="text-[13px] text-neutral-500 leading-[1.75] max-w-[260px] mb-6"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Pay safe. Every time. Cover holds your money in
                             escrow until you confirm receipt of exactly what you
@@ -1533,17 +2170,36 @@
                     <div>
                         <h4
                             class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Policies
                         </h4>
                         <div class="flex flex-col">
-                            <label for="policy-privacy" class="footer-link"
+                            <label
+                                for="policy-privacy"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
                                 >Privacy Policy</label
                             >
-                            <label for="policy-returns" class="footer-link"
+                            <label
+                                for="policy-returns"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
                                 >Return / Refund / Shipping Policy</label
                             >
-                            <label for="policy-terms" class="footer-link"
+                            <label
+                                for="policy-terms"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
                                 >Terms &amp; Conditions</label
                             >
                         </div>
@@ -1551,18 +2207,55 @@
                     <div>
                         <h4
                             class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Quick Links
                         </h4>
                         <div class="flex flex-col">
-                            <a href="#how" class="footer-link">How it works</a>
-                            <a href="#features" class="footer-link">Features</a>
-                            <a href="#pricing" class="footer-link">Pricing</a>
-                            <a href="#faq" class="footer-link">FAQ</a>
-                            <label
-                                for="login-step1"
+                            <a
+                                href="#how"
                                 class="footer-link"
-                                style="cursor: pointer"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                                >How it works</a
+                            >
+                            <a
+                                href="#features"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                                >Features</a
+                            >
+                            <a
+                                href="#pricing"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                                >Pricing</a
+                            >
+                            <a
+                                href="#faq"
+                                class="footer-link"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                                >FAQ</a
+                            >
+                            <label
+                                for="auth-open"
+                                class="footer-link"
+                                style="
+                                    cursor: pointer;
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
                                 >Open the app</label
                             >
                         </div>
@@ -1570,6 +2263,7 @@
                     <div>
                         <h4
                             class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
                         >
                             Contact
                         </h4>
@@ -1597,6 +2291,10 @@
                                 </svg>
                                 <span
                                     class="text-[13px] text-neutral-400 leading-[1.7]"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                    "
                                     >Office #148, Hashmi Mohalla,<br />Near
                                     Hazara Mohalla,<br />Loralai, Balochistan,
                                     Pakistan</span
@@ -1633,6 +2331,10 @@
                                 <a
                                     href="tel:+923158105028"
                                     class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                    "
                                     >+92 315 810 5028</a
                                 >
                             </div>
@@ -1664,6 +2366,10 @@
                                 <a
                                     href="mailto:help@cover.mom"
                                     class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                    "
                                     >help@cover.mom</a
                                 >
                             </div>
@@ -1675,12 +2381,16 @@
                 <div
                     class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
                 >
-                    <p class="text-[12px] text-neutral-600">
+                    <p
+                        class="text-[12px] text-neutral-600"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         © 2026 Cover &nbsp;&middot;&nbsp; Private beta
                         &nbsp;&middot;&nbsp; All rights reserved.
                     </p>
                     <div
                         class="flex items-center gap-4 text-[12px] text-neutral-600"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
                     >
                         <label
                             for="policy-privacy"
@@ -1704,16 +2414,234 @@
             </div>
         </footer>
 
-        <div class="auth-overlay-step1">
+        <!-- AUTH & POLICY MODALS (unchanged) -->
+        <!-- ── Auth modal: 3-step pure CSS ── -->
+        <!--
+            3 checkboxes control which step is visible:
+            #auth-open   : overlay is showing
+            #auth-step2  : OTP step
+            #auth-step3  : Profile setup step
+            Default (none checked) = step 1 visible when overlay is open
+        -->
+        <input type="checkbox" id="auth-open" style="display: none" />
+        <input type="checkbox" id="auth-step2" style="display: none" />
+        <input type="checkbox" id="auth-step3" style="display: none" />
+
+        <style>
+            /* ── Payment method radio state (reuse existing pm-* radios) ── */
+
+            /* Overlay hidden by default, shown when #auth-open is checked */
+            .auth-modal-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                background: rgba(0, 0, 0, 0.45);
+                align-items: flex-start;
+                justify-content: center;
+                padding: 24px;
+                overflow-y: auto;
+            }
+            #auth-open:checked ~ .auth-modal-overlay {
+                display: flex;
+                animation: authFadeIn 0.22s ease forwards;
+            }
+            @keyframes authFadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Step visibility — all hidden by default */
+            .auth-s1,
+            .auth-s2,
+            .auth-s3 {
+                display: none;
+                flex-direction: column;
+            }
+
+            @keyframes stepIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Step 1: visible when overlay open */
+            #auth-open:checked ~ .auth-modal-overlay .auth-s1 {
+                display: flex;
+                animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            /* Step 2 checked: show s2, hide s1 */
+            #auth-step2:checked ~ .auth-modal-overlay .auth-s1 {
+                display: none;
+            }
+            #auth-step2:checked ~ .auth-modal-overlay .auth-s2 {
+                display: flex;
+                animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            /* Step 3 checked: show s3, hide s1 and s2 */
+            #auth-step3:checked ~ .auth-modal-overlay .auth-s1 {
+                display: none;
+            }
+            #auth-step3:checked ~ .auth-modal-overlay .auth-s2 {
+                display: none;
+            }
+            #auth-step3:checked ~ .auth-modal-overlay .auth-s3 {
+                display: flex;
+                animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+
+            .auth-btn-primary {
+                margin-bottom: 20px !important;
+            }
+
+            /* Profile setup scroll — step 3 can be tall */
+            .auth-s3 {
+                overflow: visible;
+            }
+
+            /* Payment pill active states for step 3 */
+            #lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-pill-easy,
+            #lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-pill-bank,
+            #lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-pill-raast,
+            #lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-pill-card {
+                background: #0a0a0a;
+                color: #fff;
+                border-color: #0a0a0a;
+            }
+            #lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-fields-easy,
+            #lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-fields-bank,
+            #lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-fields-raast,
+            #lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-fields-card {
+                display: flex !important;
+            }
+            .lp-pm-fields {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            /* Auth modal inner styles (matching styles.css aesthetic) */
+            .auth-s3 .lp-field {
+                width: 100%;
+                padding: 12px 14px;
+                background: #fff;
+                border: 1.5px solid rgba(0, 0, 0, 0.14);
+                border-radius: 12px;
+                font-family: "DM Sans", sans-serif;
+                font-size: 14px;
+                color: #0a0a0a;
+                outline: none;
+                box-sizing: border-box;
+            }
+            .auth-s3 .lp-field:focus {
+                border-color: #0a0a0a;
+                box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.07);
+            }
+            .auth-s3 select.lp-field {
+                cursor: pointer;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%236b6b6b' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 14px center;
+                padding-right: 36px;
+            }
+            .lp-pm-pill {
+                padding: 7px 14px;
+                border: 1.5px solid rgba(0, 0, 0, 0.14);
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                cursor: pointer;
+                color: #6b6b6b;
+                font-family: "DM Sans", sans-serif;
+                transition: all 0.15s;
+                white-space: nowrap;
+            }
+            .lp-section-label {
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #a8a8a8;
+                font-family: "DM Sans", sans-serif;
+            }
+            .lp-avatar-circle {
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                border: 2px dashed rgba(0, 0, 0, 0.14);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background: #f8f8f7;
+                transition:
+                    border-color 0.18s,
+                    background 0.18s;
+                margin: 0 auto 6px;
+            }
+            .lp-avatar-circle:hover {
+                border-color: #0a0a0a;
+                background: #f2f2f0;
+            }
+        </style>
+
+        <!-- Payment method radios for step 3 (must be before .auth-modal-overlay in DOM) -->
+        <input
+            type="radio"
+            name="lp-pm"
+            id="lp-pm-easy"
+            style="display: none"
+            checked
+        />
+        <input
+            type="radio"
+            name="lp-pm"
+            id="lp-pm-bank"
+            style="display: none"
+        />
+        <input
+            type="radio"
+            name="lp-pm"
+            id="lp-pm-raast"
+            style="display: none"
+        />
+        <input
+            type="radio"
+            name="lp-pm"
+            id="lp-pm-card"
+            style="display: none"
+        />
+
+        <div class="auth-modal-overlay">
+            <!-- Backdrop closes everything -->
             <label
-                for="login-step1"
+                for="auth-open"
                 style="position: absolute; inset: 0; cursor: default"
             ></label>
-            <div class="auth-modal" style="position: relative; z-index: 1">
+
+            <div
+                class="auth-modal"
+                style="position: relative; z-index: 1; margin: auto"
+            >
+                <!-- Close X — always visible, unchecks all -->
                 <label
-                    for="login-step1"
+                    for="auth-open"
                     class="auth-modal-close"
                     aria-label="Close"
+                    style="cursor: pointer"
                 >
                     <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                         <path
@@ -1724,152 +2652,418 @@
                         />
                     </svg>
                 </label>
-                <div class="auth-logo">
-                    <img src="/static/assets/profile/logo.png" alt="Cover" />
-                </div>
-                <h2>Enter your number</h2>
-                <p>
-                    We'll send a one-time code to your WhatsApp to verify your
-                    identity.
-                </p>
-                <div class="auth-input-wrap">
-                    <span class="auth-input-prefix">🇵🇰 +92</span>
-                    <input
-                        class="auth-input"
-                        type="tel"
-                        placeholder="3XX XXX XXXX"
-                        maxlength="11"
-                        inputmode="numeric"
-                    />
-                </div>
-                <label for="login-step2" class="auth-btn-primary">
-                    Continue
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M3 8h10M9 4l4 4-4 4"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+
+                <!-- ── Step 1: Phone number ── -->
+                <div class="auth-s1">
+                    <div class="auth-logo">
+                        <img
+                            src="/static/assets/profile/logo.png"
+                            alt="Cover"
                         />
-                    </svg>
-                </label>
-                <p class="auth-hint">
-                    By continuing, you agree to Cover's Terms &amp; Conditions
-                    and Privacy Policy.
-                </p>
+                    </div>
+                    <h2>Enter your number</h2>
+                    <p>
+                        We'll send a one-time code to your WhatsApp to verify
+                        your identity.
+                    </p>
+                    <div class="auth-input-wrap">
+                        <span class="auth-input-prefix"
+                            >&#x1F1F5;&#x1F1F0; +92</span
+                        >
+                        <input
+                            class="auth-input"
+                            type="tel"
+                            placeholder="3XX XXX XXXX"
+                            maxlength="11"
+                            inputmode="numeric"
+                        />
+                    </div>
+                    <label
+                        for="auth-step2"
+                        class="auth-btn-primary"
+                        style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            cursor: pointer;
+                        "
+                    >
+                        Continue
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M3 8h10M9 4l4 4-4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </label>
+                    <p class="auth-hint">
+                        By continuing, you agree to Cover's Terms &amp;
+                        Conditions and Privacy Policy.
+                    </p>
+                </div>
+
+                <!-- ── Step 2: OTP ── -->
+                <div class="auth-s2">
+                    <label
+                        for="auth-step2"
+                        class="auth-back"
+                        style="
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        "
+                    >
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M13 8H3M7 4l-4 4 4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        Back
+                    </label>
+                    <div class="auth-logo">
+                        <img
+                            src="/static/assets/profile/logo.png"
+                            alt="Cover"
+                        />
+                    </div>
+                    <h2>Enter the code</h2>
+                    <p>
+                        A 6-digit code was sent to your WhatsApp number. It
+                        expires in 10 minutes.
+                    </p>
+                    <div class="otp-input-wrap">
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                        <input
+                            class="otp-digit"
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                        />
+                    </div>
+                    <label
+                        for="auth-step3"
+                        class="auth-btn-primary"
+                        style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            cursor: pointer;
+                            margin-bottom: 20px;
+                        "
+                    >
+                        Verify &amp; continue
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M3 8h10M9 4l4 4-4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </label>
+                    <p class="auth-resend">
+                        Didn't receive it? <span>Resend code</span>
+                    </p>
+                    <p class="auth-hint">
+                        Make sure your WhatsApp notifications are enabled.
+                    </p>
+                </div>
+
+                <!-- ── Step 3: Create profile ── -->
+                <div class="auth-s3">
+                    <label
+                        for="auth-step3"
+                        class="auth-back"
+                        style="
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        "
+                    >
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M13 8H3M7 4l-4 4 4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        Back
+                    </label>
+                    <div class="auth-logo">
+                        <img
+                            src="/static/assets/profile/logo.png"
+                            alt="Cover"
+                        />
+                    </div>
+                    <h2 style="margin-bottom: 4px">Create your profile</h2>
+                    <p style="margin-bottom: 18px">
+                        Set up your identity and default payment method.
+                    </p>
+
+                    <!-- Avatar -->
+                    <div
+                        style="
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 6px;
+                            margin-bottom: 18px;
+                        "
+                    >
+                        <label for="lp-avatar-input" class="lp-avatar-circle">
+                            <svg
+                                width="22"
+                                height="22"
+                                fill="none"
+                                stroke="rgba(0,0,0,0.3)"
+                                stroke-width="1.5"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                                />
+                                <circle
+                                    cx="12"
+                                    cy="13"
+                                    r="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </label>
+                        <input
+                            id="lp-avatar-input"
+                            type="file"
+                            accept="image/*"
+                            style="
+                                position: absolute;
+                                width: 1px;
+                                height: 1px;
+                                opacity: 0;
+                                pointer-events: none;
+                            "
+                        />
+                        <span
+                            style="
+                                font-size: 11px;
+                                color: #a8a8a8;
+                                font-weight: 500;
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                            "
+                            >Tap to add photo</span
+                        >
+                    </div>
+
+                    <!-- Name + City -->
+                    <div
+                        style="
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            margin-bottom: 18px;
+                        "
+                    >
+                        <input
+                            type="text"
+                            placeholder="Full name"
+                            class="lp-field"
+                        />
+                        <select class="lp-field">
+                            <option value="">Select city</option>
+                            <option>Karachi</option>
+                            <option>Lahore</option>
+                            <option>Islamabad</option>
+                            <option>Rawalpindi</option>
+                            <option>Faisalabad</option>
+                            <option>Multan</option>
+                            <option>Peshawar</option>
+                        </select>
+                    </div>
+
+                    <!-- Payment method -->
+                    <div style="margin-bottom: 18px">
+                        <div
+                            class="lp-section-label"
+                            style="margin-bottom: 10px"
+                        >
+                            Default Payment Method
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                            <label
+                                for="lp-pm-easy"
+                                class="lp-pm-pill lp-pm-pill-easy"
+                                style="cursor: pointer"
+                                >Easypaisa / JazzCash</label
+                            >
+                            <label
+                                for="lp-pm-bank"
+                                class="lp-pm-pill lp-pm-pill-bank"
+                                style="cursor: pointer"
+                                >Bank Transfer</label
+                            >
+                            <label
+                                for="lp-pm-raast"
+                                class="lp-pm-pill lp-pm-pill-raast"
+                                style="cursor: pointer"
+                                >Raast</label
+                            >
+                            <label
+                                for="lp-pm-card"
+                                class="lp-pm-pill lp-pm-pill-card"
+                                style="cursor: pointer"
+                                >Visa / Mastercard</label
+                            >
+                        </div>
+                        <div class="lp-pm-fields lp-pm-fields-easy">
+                            <input
+                                type="tel"
+                                placeholder="Mobile number (03XXXXXXXXX)"
+                                class="lp-field"
+                            />
+                        </div>
+                        <div class="lp-pm-fields lp-pm-fields-bank">
+                            <input
+                                type="text"
+                                placeholder="IBAN (PK00XXXX…)"
+                                class="lp-field"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Bank name (e.g. HBL, UBL)"
+                                class="lp-field"
+                            />
+                        </div>
+                        <div class="lp-pm-fields lp-pm-fields-raast">
+                            <input
+                                type="text"
+                                placeholder="IBAN / Account number"
+                                class="lp-field"
+                            />
+                        </div>
+                        <div class="lp-pm-fields lp-pm-fields-card">
+                            <input
+                                type="text"
+                                placeholder="Name on card"
+                                class="lp-field"
+                            />
+                            <input
+                                type="tel"
+                                placeholder="Card number"
+                                class="lp-field"
+                            />
+                            <input
+                                type="tel"
+                                placeholder="CVV"
+                                class="lp-field"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Create account button -->
+                    <a
+                        href="http://localhost:3000/dashboard"
+                        class="auth-btn-primary"
+                        style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            margin-bottom: 0;
+                        "
+                    >
+                        Create Account
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M3 8h10M9 4l4 4-4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- STEP 2: OTP -->
-        <div class="auth-overlay-step2">
-            <label
-                for="login-step2"
-                style="position: absolute; inset: 0; cursor: default"
-            ></label>
-            <div class="auth-modal" style="position: relative; z-index: 1">
-                <label
-                    for="login-step1"
-                    class="auth-modal-close"
-                    aria-label="Close"
-                >
-                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M4 4l8 8M12 4l-8 8"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                        />
-                    </svg>
-                </label>
-                <label for="login-step2" class="auth-back">
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M13 8H3M7 4l-4 4 4 4"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                    Back
-                </label>
-                <div class="auth-logo">
-                    <img src="/static/assets/profile/logo.png" alt="Cover" />
-                </div>
-                <h2>Enter the code</h2>
-                <p>
-                    A 6-digit code was sent to your WhatsApp number. It expires
-                    in 10 minutes.
-                </p>
-                <div class="otp-input-wrap">
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                    <input
-                        class="otp-digit"
-                        type="text"
-                        maxlength="1"
-                        inputmode="numeric"
-                    />
-                </div>
-                <a
-                    href="http://localhost:3000/dashboard"
-                    class="auth-btn-primary"
-                >
-                    Verify &amp; open app
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M3 8h10M9 4l4 4-4 4"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </a>
-                <p class="auth-resend">
-                    Didn't receive it? <span>Resend code</span>
-                </p>
-                <p class="auth-hint">
-                    Make sure your WhatsApp notifications are enabled.
-                </p>
-            </div>
-        </div>
-
-        <!-- POLICY MODALS (unchanged content from original) -->
         <div class="policy-overlay" data-policy="privacy">
             <label for="policy-privacy" class="policy-backdrop"></label>
             <div class="policy-modal-panel">
                 <div class="policy-modal-header">
-                    <h2 class="font-bold text-black text-[17px] tracking-tight">
+                    <h2
+                        class="font-bold text-black text-[17px] tracking-tight"
+                        style="font-family: &quot;Syne&quot;, sans-serif"
+                    >
                         Privacy Policy
                     </h2>
                     <label for="policy-privacy" class="policy-modal-close"
@@ -1888,7 +3082,10 @@
                     ></label>
                 </div>
                 <div class="policy-modal-scroll">
-                    <div class="policy-modal-body">
+                    <div
+                        class="policy-modal-body"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         <p class="text-[11px] text-neutral-400 mb-4">
                             Last updated: January 2026
                         </p>
@@ -1959,7 +3156,10 @@
             <label for="policy-returns" class="policy-backdrop"></label>
             <div class="policy-modal-panel">
                 <div class="policy-modal-header">
-                    <h2 class="font-bold text-black text-[17px] tracking-tight">
+                    <h2
+                        class="font-bold text-black text-[17px] tracking-tight"
+                        style="font-family: &quot;Syne&quot;, sans-serif"
+                    >
                         Return / Refund / Shipping Policy
                     </h2>
                     <label for="policy-returns" class="policy-modal-close"
@@ -1978,7 +3178,10 @@
                     ></label>
                 </div>
                 <div class="policy-modal-scroll">
-                    <div class="policy-modal-body">
+                    <div
+                        class="policy-modal-body"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         <p class="text-[11px] text-neutral-400 mb-4">
                             Last updated: January 2026
                         </p>
@@ -1989,10 +3192,7 @@
                             time of deal creation. Returns must be reported
                             within 24 hours of receiving the product by raising
                             a dispute inside the deal conversation. You must
-                            provide an unboxing video as evidence. Cover does
-                            not accept returns for buyer's remorse, change of
-                            mind, or minor cosmetic differences clearly visible
-                            in pre-deal photos.
+                            provide an unboxing video as evidence.
                         </p>
                         <h3>Refund Policy</h3>
                         <ul>
@@ -2083,7 +3283,10 @@
             <label for="policy-terms" class="policy-backdrop"></label>
             <div class="policy-modal-panel">
                 <div class="policy-modal-header">
-                    <h2 class="font-bold text-black text-[17px] tracking-tight">
+                    <h2
+                        class="font-bold text-black text-[17px] tracking-tight"
+                        style="font-family: &quot;Syne&quot;, sans-serif"
+                    >
                         Terms &amp; Conditions
                     </h2>
                     <label for="policy-terms" class="policy-modal-close"
@@ -2102,7 +3305,10 @@
                     ></label>
                 </div>
                 <div class="policy-modal-scroll">
-                    <div class="policy-modal-body">
+                    <div
+                        class="policy-modal-body"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
                         <p class="text-[11px] text-neutral-400 mb-4">
                             Last updated: January 2026
                         </p>
