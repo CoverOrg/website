@@ -1,0 +1,2679 @@
+{% extends "base.html" %} {% block content %}
+
+<input type="checkbox" name="auth-toggle" id="login-step1" />
+<input type="checkbox" name="auth-toggle" id="login-step2" />
+
+<input type="checkbox" name="policy-toggle" id="policy-privacy" />
+<input type="checkbox" name="policy-toggle" id="policy-returns" />
+<input type="checkbox" name="policy-toggle" id="policy-terms" />
+
+<!-- NAV -->
+<nav
+    class="fixed top-0 left-0 right-0 z-50 nav-glass border-b border-black/[0.04]"
+>
+    <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 h-[60px] flex items-center justify-between"
+    >
+        <a href="#" class="flex items-center gap-2.5">
+            <div
+                class="w-8 h-8 bg-black rounded-[10px] flex items-center justify-center flex-shrink-0 overflow-hidden"
+            >
+                <img
+                    src="/static/assets/profile/logo.png"
+                    alt="Cover"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+            <span
+                class="font-semibold text-[15px] text-black tracking-[-0.01em]"
+                style="
+                    font-family: &quot;Syne&quot;, sans-serif;
+                    font-weight: 800;
+                    letter-spacing: -0.04em;
+                "
+                >Cover</span
+            >
+        </a>
+        <div
+            class="hidden md:flex items-center gap-7 text-[13px] text-neutral-500 font-medium"
+        >
+            <a
+                href="#how"
+                class="hover:text-black transition-colors duration-200"
+                >How it works</a
+            >
+            <a
+                href="#features"
+                class="hover:text-black transition-colors duration-200"
+                >Features</a
+            >
+            <a
+                href="#pricing"
+                class="hover:text-black transition-colors duration-200"
+                >Pricing</a
+            >
+            <a
+                href="#faq"
+                class="hover:text-black transition-colors duration-200"
+                >FAQ</a
+            >
+        </div>
+        <div class="flex items-center gap-2">
+            <a
+                href="https://chat.whatsapp.com/FyVV2yoKzwP6uDaTht5zoh"
+                target="_blank"
+                class="btn-gray text-[12px] font-medium px-3.5 py-[7px] rounded-full flex items-center gap-1.5"
+            >
+                <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                    />
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.847L.057 23.882l6.198-1.456A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.36-.213-3.68.865.928-3.585-.234-.37A9.818 9.818 0 012.182 12c0-5.423 4.395-9.818 9.818-9.818S21.818 6.577 21.818 12 17.423 21.818 12 21.818z"
+                    />
+                </svg>
+                Join Group
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section
+    class="relative min-h-screen flex items-center pt-[60px] overflow-hidden"
+>
+    <div
+        class="absolute top-[15%] left-[10%] w-[400px] h-[400px] rounded-full bg-gray-50/60 blur-3xl pointer-events-none"
+    ></div>
+    <div
+        class="absolute bottom-[10%] right-[15%] w-[300px] h-[300px] rounded-full bg-neutral-100/50 blur-3xl pointer-events-none"
+    ></div>
+    <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16 sm:py-20 lg:py-0 w-full relative z-10"
+    >
+        <div
+            class="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center"
+        >
+            <div class="max-w-[580px]">
+                <div
+                    class="inline-flex items-center gap-2 bg-white border border-black/[0.06] text-neutral-600 rounded-full px-4 py-[6px] text-[11px] font-medium tracking-wide uppercase mb-8 hr hr1"
+                >
+                    <span
+                        class="w-[6px] h-[6px] rounded-full bg-neutral-400 inline-block pulse-dot"
+                    ></span>
+                    Private beta &nbsp;&middot;&nbsp; App-powered
+                    &nbsp;&middot;&nbsp; 100% secure
+                </div>
+                <h1
+                    class="text-[clamp(2.5rem,5vw,4rem)] text-black leading-[1.08] tracking-[-0.04em] font-extrabold mb-6 hr hr2"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
+                >
+                    Safe deals,<br /><span class="text-gradient"
+                        >every single time.</span
+                    >
+                </h1>
+                <p
+                    class="text-[15px] sm:text-[16px] text-neutral-500 leading-[1.75] max-w-[480px] mb-10 hr hr3"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Cover holds your payment in escrow until you confirm
+                    receipt. Browse verified seller shops, follow stories, and
+                    manage every deal inside one clean interface.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 hr hr4">
+                    <label
+                        for="auth-open"
+                        class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                        style="
+                            font-family: &quot;DM Sans&quot;, sans-serif;
+                            font-weight: 600;
+                        "
+                    >
+                        Open the app
+
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                        >
+                            <path
+                                d="M3 8h10M9 4l4 4-4 4"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </label>
+                </div>
+                <div class="mt-14 flex flex-wrap gap-x-8 gap-y-4 hr hr4">
+                    <div>
+                        <div
+                            class="text-[22px] font-bold text-black tracking-tight mono"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 800;
+                                letter-spacing: -0.03em;
+                            "
+                        >
+                            Rs. 0
+                        </div>
+                        <div
+                            class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                            style="
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.1em;
+                            "
+                        >
+                            Lost by Cover users
+                        </div>
+                    </div>
+                    <div class="w-px bg-black/[0.06] self-stretch"></div>
+                    <div>
+                        <div
+                            class="text-[22px] font-bold text-black tracking-tight"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 800;
+                                letter-spacing: -0.03em;
+                            "
+                        >
+                            100% secure
+                        </div>
+                        <div
+                            class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                            style="
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.1em;
+                            "
+                        >
+                            Wrong item — full refund
+                        </div>
+                    </div>
+                    <div class="w-px bg-black/[0.06] self-stretch"></div>
+                    <div>
+                        <div
+                            class="text-[22px] font-bold text-black tracking-tight mono"
+                            style="
+                                font-family: &quot;Syne&quot;, sans-serif;
+                                font-weight: 800;
+                                letter-spacing: -0.03em;
+                            "
+                        >
+                            5%
+                        </div>
+                        <div
+                            class="text-[11px] text-neutral-400 mt-0.5 tracking-wide uppercase"
+                            style="
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 0.1em;
+                            "
+                        >
+                            Protection fee. Min Rs. 100
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHANGE 2: Hero right column — dashboard mockup replacing the app chat card -->
+            <div class="hero-mockup flex justify-center lg:justify-end">
+                <div class="w-full max-w-[420px] dash-wrap">
+                    <!-- Top bar -->
+                    <div class="dash-topbar">
+                        <div class="dash-topbar-logo">
+                            <div class="dash-topbar-logomark">
+                                <img
+                                    src="/static/assets/profile/logo.png"
+                                    alt="Cover"
+                                    style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                            </div>
+                            <span class="dash-topbar-brand">Cover</span>
+                        </div>
+                        <div class="dash-topbar-user">
+                            <div style="text-align: right">
+                                <div class="dash-user-name">Ahmed Khan</div>
+                                <div class="dash-user-role">
+                                    Buyer · Islamabad
+                                </div>
+                            </div>
+                            <div class="dash-avatar">A</div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard body -->
+                    <div class="dash-body">
+                        <!-- Profile row -->
+                        <div class="dash-profile-row">
+                            <div class="dash-profile-avatar">A</div>
+                            <div>
+                                <div class="dash-profile-name">Ahmed Khan</div>
+                                <div class="dash-profile-sub">
+                                    Buyer · +92 300 1234567
+                                </div>
+                            </div>
+                            <div class="dash-badge-verified">Verified</div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="dash-stats">
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">2</div>
+                                <div class="dash-stat-lbl">Active</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">8</div>
+                                <div class="dash-stat-lbl">Completed</div>
+                            </div>
+                            <div class="dash-stat">
+                                <div class="dash-stat-num">₨84k</div>
+                                <div class="dash-stat-lbl">Protected</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent orders label -->
+                        <div class="dash-section-label">Recent Orders</div>
+
+                        <!-- Order 1 -->
+                        <div class="dash-order-card">
+                            <div class="dash-order-top">
+                                <div>
+                                    <div class="dash-order-name">
+                                        iPhone 15 Pro
+                                    </div>
+                                    <div class="dash-order-seller">
+                                        Ali Phones
+                                    </div>
+                                </div>
+                                <div style="text-align: right">
+                                    <div class="dash-order-amount">
+                                        PKR 263,025
+                                    </div>
+                                    <div style="margin-top: 5px">
+                                        <span class="dash-pill-shipped"
+                                            >Shipped</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dash-order-meta">
+                                COV-A3BX-7KPQ &nbsp;·&nbsp; 1d ago
+                            </div>
+                        </div>
+
+                        <!-- Order 2 -->
+                        <div class="dash-order-card">
+                            <div class="dash-order-top">
+                                <div>
+                                    <div class="dash-order-name">
+                                        PlayStation 5
+                                    </div>
+                                    <div class="dash-order-seller">
+                                        GameZone
+                                    </div>
+                                </div>
+                                <div style="text-align: right">
+                                    <div class="dash-order-amount">
+                                        PKR 84,525
+                                    </div>
+                                    <div style="margin-top: 5px">
+                                        <span class="dash-pill-paid">Paid</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dash-order-meta">
+                                COV-X9YZ-4WPK &nbsp;·&nbsp; 2h ago
+                            </div>
+                        </div>
+
+                        <!-- Quick actions -->
+                        <div class="dash-section-label">Quick Actions</div>
+                        <div class="dash-actions">
+                            <button class="dash-btn-black">
+                                <svg
+                                    width="13"
+                                    height="13"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 4v16m8-8H4"
+                                    />
+                                </svg>
+                                New Order
+                            </button>
+                            <button class="dash-btn-ghost">
+                                <svg
+                                    width="13"
+                                    height="13"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                                Lookup
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /dash-body -->
+                </div>
+                <!-- /dash-wrap -->
+            </div>
+            <!-- END CHANGE 2 -->
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- HOW IT WORKS -->
+<section
+    id="how"
+    class="py-24 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10"
+>
+    <div class="max-w-lg mb-16 reveal">
+        <p
+            class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+            style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 700;
+            "
+        >
+            How it works
+        </p>
+        <h2
+            class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold"
+            style="font-family: &quot;Syne&quot;, sans-serif"
+        >
+            Three steps to a
+            <span class="text-gradient">safe deal</span>
+        </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-7 reveal">
+            <div
+                class="w-11 h-11 bg-black rounded-full flex items-center justify-center mb-6"
+            >
+                <span
+                    class="text-white text-sm font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >1</span
+                >
+            </div>
+            <h3
+                class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                style="
+                    font-family: &quot;Syne&quot;, sans-serif;
+                    font-weight: 700;
+                "
+            >
+                Create a deal in the app
+            </h3>
+            <p
+                class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                Open Cover, tap New Deal, enter the item name, amount, and the
+                seller's details. The app generates a secure deal reference and
+                locks the escrow instantly.
+            </p>
+        </div>
+        <div class="card p-7 reveal rd1">
+            <div
+                class="w-11 h-11 bg-black rounded-full flex items-center justify-center mb-6"
+            >
+                <span
+                    class="text-white text-sm font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >2</span
+                >
+            </div>
+            <h3
+                class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                style="
+                    font-family: &quot;Syne&quot;, sans-serif;
+                    font-weight: 700;
+                "
+            >
+                Pay into escrow — not the seller
+            </h3>
+            <p
+                class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                Choose your saved payment method — Easypaisa, NayaPay, Sadapay,
+                or bank transfer. Your money is held securely by Cover. The
+                seller receives nothing until you confirm.
+            </p>
+        </div>
+        <div class="card p-7 reveal rd2">
+            <div
+                class="w-11 h-11 bg-black rounded-full flex items-center justify-center mb-6"
+            >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M4 8l2.5 2.5L13 3"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+            <h3
+                class="text-[17px] font-semibold text-black mb-2.5 tracking-tight"
+                style="
+                    font-family: &quot;Syne&quot;, sans-serif;
+                    font-weight: 700;
+                "
+            >
+                Confirm delivery — funds release
+            </h3>
+            <p
+                class="text-[13.5px] text-neutral-500 leading-[1.7]"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                Item arrived correctly? Tap Confirm. Payment releases to the
+                seller immediately. Problem? Raise a dispute directly in the
+                deal chat — Cover mediates and decides.
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- FEATURES -->
+<section id="features" class="py-24 sm:py-28 bg-[#0A0A0A] text-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div class="max-w-lg mb-16 reveal">
+            <p
+                class="text-[11px] uppercase tracking-[0.12em] text-neutral-500 mb-3 font-medium"
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-weight: 700;
+                "
+            >
+                What Cover does
+            </p>
+            <h2
+                class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.03em] font-extrabold"
+                style="font-family: &quot;Syne&quot;, sans-serif"
+            >
+                Everything to
+                <span class="text-neutral-500">never lose money</span>
+                again
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="feature-card p-6 reveal">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"
+                            stroke="white"
+                            stroke-width="1.3"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Verified seller shops
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Every seller goes through KYC — CNIC verification and live
+                    video confirmation. Shops display real deal counts, dispute
+                    rates, and average transaction values.
+                </p>
+            </div>
+            <div class="feature-card p-6 reveal rd1">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                            stroke="white"
+                            stroke-width="1.3"
+                        />
+                        <path
+                            d="M12 7v5l3 3"
+                            stroke="white"
+                            stroke-width="1.3"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Trust score system
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Both buyers and sellers build a 0–1000 trust score across
+                    every transaction. High-trust accounts get faster releases
+                    and priority support. Fraudsters cannot fake history.
+                </p>
+            </div>
+            <div class="feature-card p-6 reveal rd2">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 12l5 5L20 7"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Inline dispute resolution
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Raise a dispute directly inside the deal conversation.
+                    Attach photos, video, and screenshots as evidence. Cover's
+                    team reviews both sides and issues a binding verdict.
+                </p>
+            </div>
+            <div class="feature-card p-6 reveal rd1">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <rect
+                            x="3"
+                            y="8"
+                            width="18"
+                            height="12"
+                            rx="2"
+                            stroke="white"
+                            stroke-width="1.3"
+                        />
+                        <path
+                            d="M7 8V6a5 5 0 0110 0v2"
+                            stroke="white"
+                            stroke-width="1.3"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Full deal lifecycle in-app
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Every stage — payment, seller confirmation, dispatch proof,
+                    tracking, delivery action, verdict — flows as a single
+                    conversation thread. No forms, no emails, no WhatsApp
+                    chasing.
+                </p>
+            </div>
+            <div class="feature-card p-6 reveal rd2">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                            stroke="white"
+                            stroke-width="1.3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Seller stories and shops
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Browse seller shops and product stories directly in the app.
+                    Tap Buy safely with Cover on any story to start a protected
+                    deal with that seller in one step.
+                </p>
+            </div>
+            <div class="feature-card p-6 reveal rd3">
+                <div
+                    class="w-11 h-11 bg-white/[0.08] rounded-xl flex items-center justify-center mb-5"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M4 12h16M12 4v16"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+                <h3
+                    class="font-semibold text-[15px] mb-2 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Works across every platform
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Found a seller on OLX, Facebook Marketplace, or Instagram?
+                    Create a Cover deal for any transaction, with anyone,
+                    regardless of where you found the listing.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- DEAL FLOW -->
+<section class="py-24 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <p
+            class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+            style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 700;
+            "
+        >
+            Deal Flow
+        </p>
+        <h2
+            class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold mb-4"
+            style="font-family: &quot;Syne&quot;, sans-serif"
+        >
+            How a deal moves through
+            <span class="text-gradient">Cover</span>
+        </h2>
+        <p
+            class="text-[14px] text-neutral-500 leading-[1.7]"
+            style="font-family: &quot;DM Sans&quot;, sans-serif"
+        >
+            Every stage is tracked in a single conversation thread inside the
+            app. Nothing falls through the cracks.
+        </p>
+    </div>
+    <div class="max-w-2xl mx-auto relative">
+        <div class="step-line"></div>
+        <div class="relative flex gap-5 pb-10 reveal">
+            <div
+                class="w-[38px] h-[38px] bg-black rounded-full flex items-center justify-center flex-shrink-0 z-10"
+            >
+                <span
+                    class="text-white text-[13px] font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >1</span
+                >
+            </div>
+            <div class="pt-0.5">
+                <h3
+                    class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Create a deal — escrow locks instantly
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Open the app, tap New Deal. Enter the item, amount, and
+                    seller. A deal reference is generated. Pay using any saved
+                    method — Easypaisa, NayaPay, Sadapay, bank transfer, or
+                    USDT. Funds go into escrow, not to the seller.
+                </p>
+            </div>
+        </div>
+        <div class="relative flex gap-5 pb-10 reveal rd1">
+            <div
+                class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
+            >
+                <span
+                    class="text-black text-[13px] font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >2</span
+                >
+            </div>
+            <div class="pt-0.5">
+                <h3
+                    class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Seller confirms and ships
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    The seller receives a notification and confirms the order
+                    inside the deal chat. They upload dispatch proof and the
+                    courier tracking number. Cover verifies the proof before
+                    marking the deal as in transit.
+                </p>
+            </div>
+        </div>
+        <div class="relative flex gap-5 pb-10 reveal rd2">
+            <div
+                class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
+            >
+                <span
+                    class="text-black text-[13px] font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >3</span
+                >
+            </div>
+            <div class="pt-0.5">
+                <h3
+                    class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Package arrives — you inspect
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Record an unboxing video before opening the package. Check
+                    the item matches what was agreed. The Cover app shows the
+                    expected delivery window and sends a reminder when delivery
+                    is due.
+                </p>
+            </div>
+        </div>
+        <div class="relative flex gap-5 pb-10 reveal rd3">
+            <div
+                class="w-[38px] h-[38px] bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0 z-10"
+            >
+                <span
+                    class="text-black text-[13px] font-bold"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >4</span
+                >
+            </div>
+            <div class="pt-0.5">
+                <h3
+                    class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Any problem — raise a dispute inline
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Wrong item, damage, or not as described? Tap Raise a dispute
+                    in the deal chat. Select the issue type, describe it, and
+                    attach evidence. Escrow freezes immediately. Cover reviews
+                    within 3 to 5 business days.
+                </p>
+            </div>
+        </div>
+        <div class="relative flex gap-5 reveal rd4">
+            <div
+                class="w-[38px] h-[38px] bg-black rounded-full flex items-center justify-center flex-shrink-0 z-10"
+            >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M4 8l2.5 2.5L13 3"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+            <div class="pt-0.5">
+                <h3
+                    class="font-semibold text-black text-[15px] mb-1.5 tracking-tight"
+                    style="
+                        font-family: &quot;Syne&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Confirm delivery — seller is paid
+                </h3>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.7]"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Everything correct? Tap Confirm delivery in the action card
+                    inside the chat. Payment releases to the seller instantly.
+                    Your trust score increases. The deal is archived with a full
+                    timestamped record.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- PRICING -->
+<section
+    id="pricing"
+    class="py-24 sm:py-28 bg-[#0A0A0A] text-white overflow-hidden"
+>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div
+            class="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center"
+        >
+            <div class="max-w-[560px]">
+                <p
+                    class="text-[11px] uppercase tracking-[0.12em] text-neutral-500 mb-3 font-medium"
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-weight: 700;
+                    "
+                >
+                    Pricing
+                </p>
+                <h2
+                    class="text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] tracking-[-0.03em] font-extrabold mb-6"
+                    style="font-family: &quot;Syne&quot;, sans-serif"
+                >
+                    One fee.
+                    <span class="text-neutral-500">Total peace of mind.</span>
+                </h2>
+                <p
+                    class="text-[15px] text-neutral-500 leading-[1.75] mb-10"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Just 5% of the total transaction amount — product plus
+                    delivery — with a minimum of Rs. 100. The seller receives
+                    the full product and delivery amount. Cover's fee is paid by
+                    the buyer at the time of creating the deal. No hidden
+                    charges.
+                </p>
+                <div
+                    class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 mb-8"
+                >
+                    <div class="flex items-center gap-4 mb-5">
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"
+                                    stroke="black"
+                                    stroke-width="1.5"
+                                />
+                                <path
+                                    d="M9 12l2 2 4-4"
+                                    stroke="black"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <div
+                                class="text-[20px] font-extrabold tracking-tight leading-none mono"
+                                style="
+                                    font-family: &quot;Syne&quot;, sans-serif;
+                                    font-weight: 800;
+                                    letter-spacing: -0.04em;
+                                "
+                            >
+                                5%
+                            </div>
+                            <div
+                                class="text-[12px] text-neutral-500 mt-0.5"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                            >
+                                Minimum Rs. 100 per transaction
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="space-y-3 text-[13px] text-neutral-300"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                    >
+                        <div class="flex items-center gap-2.5">
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 8l2.5 2.5L13 3"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                /></svg
+                            >Secure escrow hold
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 8l2.5 2.5L13 3"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                /></svg
+                            >Funds released after buyer confirmation
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 8l2.5 2.5L13 3"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                /></svg
+                            >Evidence-based dispute mediation
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 8l2.5 2.5L13 3"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                /></svg
+                            >KYC seller verification
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                            >
+                                <path
+                                    d="M4 8l2.5 2.5L13 3"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                /></svg
+                            >Trust score tracking
+                        </div>
+                    </div>
+                </div>
+                <label
+                    for="auth-open"
+                    class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-weight: 600;
+                    "
+                >
+                    Open Cover
+                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                        <path
+                            d="M3 8h10M9 4l4 4-4 4"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </label>
+            </div>
+
+            <!-- Calculator -->
+            <div class="pricing-visual flex justify-center lg:justify-end">
+                <div
+                    class="w-full max-w-[440px] bg-[#141414] rounded-2xl border border-white/[0.06] overflow-hidden shadow-2xl"
+                >
+                    <div class="px-6 pt-6 pb-5 border-b border-white/[0.06]">
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <div
+                                class="w-7 h-7 bg-white rounded-lg flex items-center justify-center overflow-hidden"
+                            >
+                                <img
+                                    src="/static/assets/profile/logo.png"
+                                    alt="Cover"
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+                            <span
+                                class="text-[13px] font-semibold tracking-tight text-white"
+                                style="
+                                    font-family: &quot;Syne&quot;, sans-serif;
+                                    font-weight: 700;
+                                "
+                                >Fee Calculator</span
+                            >
+                        </div>
+                        <p
+                            class="text-[12px] text-neutral-500 ml-[38px]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >
+                            See exactly what you pay
+                        </p>
+                    </div>
+                    <div class="p-6 space-y-5">
+                        <!-- Product amount -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 700;
+                                    "
+                                    >Product Amount</label
+                                >
+                                <span
+                                    id="amountDisplay"
+                                    class="text-sm font-semibold text-white mono"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                    >Rs. 18,000</span
+                                >
+                            </div>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                    >Rs.</span
+                                >
+                                <input
+                                    type="number"
+                                    id="amountInput"
+                                    value="18000"
+                                    min="0"
+                                    step="100"
+                                    class="calc-input w-full pl-12 text-2xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-2xl py-4 transition-all text-white"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                />
+                            </div>
+                        </div>
+                        <!-- Delivery charges -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.1em] text-neutral-500 font-medium"
+                                    style="
+                                        font-family:
+                                            &quot;DM Sans&quot;, sans-serif;
+                                        font-weight: 700;
+                                    "
+                                    >Delivery Charges</label
+                                >
+                                <span
+                                    id="deliveryDisplay"
+                                    class="text-sm font-semibold text-white mono"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                    >Rs. 0</span
+                                >
+                            </div>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 text-base font-semibold mono"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                    >Rs.</span
+                                >
+                                <input
+                                    type="number"
+                                    id="deliveryInput"
+                                    value="0"
+                                    min="0"
+                                    step="50"
+                                    class="calc-input w-full pl-12 text-xl font-bold bg-transparent border border-white/10 focus:border-neutral-500 rounded-xl py-3 transition-all text-white"
+                                    style="
+                                        font-family:
+                                            &quot;DM Mono&quot;, monospace;
+                                    "
+                                />
+                            </div>
+                        </div>
+                        <!-- Range slider -->
+                        <div>
+                            <input
+                                type="range"
+                                id="amountRange"
+                                min="100"
+                                max="200000"
+                                step="100"
+                                value="18000"
+                                class="w-full accent-neutral-400"
+                            />
+                            <div
+                                class="flex justify-between text-[10px] text-neutral-500 mt-1 mono"
+                                style="
+                                    font-family: &quot;DM Mono&quot;, monospace;
+                                "
+                            >
+                                <span>Rs. 100</span><span>Rs. 2,00,000</span>
+                            </div>
+                        </div>
+                        <!-- Breakdown -->
+                        <div
+                            class="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-5 space-y-4"
+                        >
+                            <div
+                                class="space-y-3 text-sm"
+                                style="
+                                    font-family:
+                                        &quot;DM Sans&quot;, sans-serif;
+                                "
+                            >
+                                <div class="flex justify-between items-center">
+                                    <span class="text-neutral-400"
+                                        >Product Amount</span
+                                    >
+                                    <span
+                                        id="productBreakdown"
+                                        class="font-medium mono"
+                                        style="
+                                            font-family:
+                                                &quot;DM Mono&quot;, monospace;
+                                        "
+                                        >Rs. 18,000</span
+                                    >
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-neutral-400"
+                                        >Delivery Charges</span
+                                    >
+                                    <span
+                                        id="deliveryBreakdown"
+                                        class="font-medium mono"
+                                        style="
+                                            font-family:
+                                                &quot;DM Mono&quot;, monospace;
+                                        "
+                                        >Rs. 0</span
+                                    >
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-neutral-400"
+                                        >Cover Fee (5%)</span
+                                    >
+                                    <span
+                                        id="feeDisplay"
+                                        class="font-medium text-neutral-400 mono"
+                                        style="
+                                            font-family:
+                                                &quot;DM Mono&quot;, monospace;
+                                        "
+                                        >Rs. 900</span
+                                    >
+                                </div>
+                            </div>
+                            <div
+                                class="border-t border-white/10 pt-4 space-y-3"
+                            >
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="text-white font-semibold"
+                                        style="
+                                            font-family:
+                                                &quot;DM Sans&quot;, sans-serif;
+                                        "
+                                        >Buyer Pays</span
+                                    >
+                                    <span
+                                        id="totalDisplay"
+                                        class="text-xl font-bold text-white mono"
+                                        style="
+                                            font-family:
+                                                &quot;Syne&quot;, sans-serif;
+                                            font-weight: 800;
+                                        "
+                                        >Rs. 18,900</span
+                                    >
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="text-neutral-500 text-xs"
+                                        style="
+                                            font-family:
+                                                &quot;DM Sans&quot;, sans-serif;
+                                        "
+                                        >Seller Receives</span
+                                    >
+                                    <span
+                                        id="sellerDisplay"
+                                        class="font-medium text-neutral-400 text-xs mono"
+                                        style="
+                                            font-family:
+                                                &quot;DM Mono&quot;, monospace;
+                                        "
+                                        >Rs. 18,000</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="minBadge"
+                            class="text-amber-400 text-xs"
+                            style="
+                                display: none;
+                                font-family: &quot;DM Sans&quot;, sans-serif;
+                            "
+                        >
+                            Minimum fee of Rs. 100 applied
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- FAQ -->
+<section
+    id="faq"
+    class="py-24 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10"
+>
+    <div class="max-w-lg mb-16 reveal">
+        <p
+            class="text-[11px] uppercase tracking-[0.12em] text-neutral-400 mb-3 font-medium"
+            style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 700;
+            "
+        >
+            FAQ
+        </p>
+        <h2
+            class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.03em] font-extrabold"
+            style="font-family: &quot;Syne&quot;, sans-serif"
+        >
+            Common <span class="text-gradient">questions</span>
+        </h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-3 items-start max-w-5xl">
+        <div class="space-y-3">
+            <details class="faq-item reveal">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    How do I start a deal?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Open Cover, tap New Deal, enter the item name, amount, and
+                    the seller's phone number or username. The app generates a
+                    deal reference and locks the escrow. Pay using any saved
+                    payment method — the seller receives nothing until you
+                    confirm.
+                </div>
+            </details>
+            <details class="faq-item reveal rd1">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    How do I confirm that I received my item?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Inside the deal conversation, a Cover action card appears
+                    once the seller marks the order as shipped. Tap Confirm
+                    delivery on that card. Payment releases to the seller
+                    immediately and the deal is closed.
+                </div>
+            </details>
+            <details class="faq-item reveal rd1">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    How will I know what is happening with my deal?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Every stage appears as a message or card inside the deal
+                    conversation — payment received, seller confirmed,
+                    dispatched with tracking number, delivery expected. No
+                    separate WhatsApp chasing required.
+                </div>
+            </details>
+            <details class="faq-item reveal rd2">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    Can I use Cover with a seller not on the app?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Yes. You can create a protected deal with anyone — a seller
+                    from OLX, Facebook Marketplace, or Instagram. Enter their
+                    details in the New Deal form. Both parties interact through
+                    the Cover deal conversation.
+                </div>
+            </details>
+            <details class="faq-item reveal rd3">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    What payment methods are supported?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Easypaisa, NayaPay, Sadapay, bank transfer via IBAN, and
+                    USDT on Polygon. Add and save your preferred methods in the
+                    Payment Methods section of your profile. The seller sets
+                    their own payout method separately.
+                </div>
+            </details>
+        </div>
+        <div class="space-y-3">
+            <details class="faq-item reveal rd1">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    What if I receive a damaged or wrong item?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Do not confirm delivery. In the deal chat, tap Raise a
+                    dispute on the action card. Choose the issue type, describe
+                    it, and attach your unboxing video and photos as evidence.
+                    Escrow freezes immediately. Cover reviews within 3 to 5
+                    business days and issues a binding verdict.
+                </div>
+            </details>
+            <details class="faq-item reveal rd1">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    Is an unboxing video required?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Yes. Record a continuous unboxing video before opening any
+                    package. This is your primary evidence for any dispute.
+                    Claims submitted without an unboxing video may not be upheld
+                    regardless of the issue.
+                </div>
+            </details>
+            <details class="faq-item reveal rd2">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    Where does my money go during escrow?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Into a dedicated Cover escrow account, completely separate
+                    from operating funds. It is not invested or used. The full
+                    amount is held until you confirm delivery or a dispute is
+                    resolved. You can request a balance proof at any time by
+                    contacting support.
+                </div>
+            </details>
+            <details class="faq-item reveal rd2">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    How do I list my shop as a seller?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Complete KYC in your profile — CNIC front and back, plus a
+                    live video verification call with Cover's team. Once
+                    approved, go to Profile, tap New Shop, and fill in your shop
+                    details. Your shop appears in the Shops section immediately.
+                </div>
+            </details>
+            <details class="faq-item reveal rd3">
+                <summary style="font-family: &quot;DM Sans&quot;, sans-serif">
+                    Who pays delivery charges in a dispute?
+                </summary>
+                <div
+                    class="faq-body"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    If the item is correct but you changed your mind, you pay
+                    return shipping. If the item is wrong, damaged, or
+                    counterfeit, the seller pays return shipping. If the seller
+                    never shipped, you receive a full refund including Cover's
+                    fee.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<hr class="sep" />
+
+<!-- CTA -->
+<section
+    class="py-24 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 text-center reveal"
+>
+    <div class="max-w-lg mx-auto">
+        <h2
+            class="text-[clamp(1.75rem,4vw,2.75rem)] text-black leading-[1.15] tracking-[-0.04em] font-extrabold mb-4"
+            style="font-family: &quot;Syne&quot;, sans-serif"
+        >
+            If you pay a stranger,<br /><span class="text-gradient"
+                >use Cover.</span
+            >
+        </h2>
+        <p
+            class="text-[14px] text-neutral-500 leading-[1.7] mb-10"
+            style="font-family: &quot;DM Sans&quot;, sans-serif"
+        >
+            Private beta &nbsp;&middot;&nbsp; App-powered &nbsp;&middot;&nbsp;
+            100% secure
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <label
+                for="auth-open"
+                class="btn-primary font-medium px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-[14px] cursor-pointer"
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-weight: 600;
+                "
+            >
+                Open the app
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </label>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0A0A0A] text-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16 sm:py-20">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+            <div class="sm:col-span-2 lg:col-span-1">
+                <a href="#" class="flex items-center gap-2.5 mb-5">
+                    <div
+                        class="w-8 h-8 bg-white rounded-[10px] flex items-center justify-center flex-shrink-0 overflow-hidden"
+                    >
+                        <img
+                            src="/static/assets/profile/logo.png"
+                            alt="Cover"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <span
+                        class="font-semibold text-[15px] text-white tracking-[-0.01em]"
+                        style="
+                            font-family: &quot;Syne&quot;, sans-serif;
+                            font-weight: 800;
+                            letter-spacing: -0.04em;
+                        "
+                        >Cover</span
+                    >
+                </a>
+                <p
+                    class="text-[13px] text-neutral-500 leading-[1.75] max-w-[260px] mb-6"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Pay safe. Every time. Cover holds your money in escrow until
+                    you confirm receipt of exactly what you ordered.
+                </p>
+                <div class="flex items-center gap-2.5">
+                    <a
+                        href="https://chat.whatsapp.com/FyVV2yoKzwP6uDaTht5zoh"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="WhatsApp"
+                        ><svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                            />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.847L.057 23.882l6.198-1.456A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.36-.213-3.68.865.928-3.585-.234-.37A9.818 9.818 0 012.182 12c0-5.423 4.395-9.818 9.818-9.818S21.818 6.577 21.818 12 17.423 21.818 12 21.818z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://www.youtube.com/channel/UCCA_6c3se8lrcu25R6_I4KQ"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="YouTube"
+                        ><svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/company/coverpay"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="LinkedIn"
+                        ><svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://x.com/ibilalkayyy"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="X"
+                        ><svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://facebook.com/ibilalkayy"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="Facebook"
+                        ><svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://instagram.com/ibilalkayy"
+                        target="_blank"
+                        class="social-icon"
+                        aria-label="Instagram"
+                        ><svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                            /></svg
+                    ></a>
+                </div>
+            </div>
+            <div>
+                <h4
+                    class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Policies
+                </h4>
+                <div class="flex flex-col">
+                    <label
+                        for="policy-privacy"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >Privacy Policy</label
+                    >
+                    <label
+                        for="policy-returns"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >Return / Refund / Shipping Policy</label
+                    >
+                    <label
+                        for="policy-terms"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >Terms &amp; Conditions</label
+                    >
+                </div>
+            </div>
+            <div>
+                <h4
+                    class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Quick Links
+                </h4>
+                <div class="flex flex-col">
+                    <a
+                        href="#how"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >How it works</a
+                    >
+                    <a
+                        href="#features"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >Features</a
+                    >
+                    <a
+                        href="#pricing"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >Pricing</a
+                    >
+                    <a
+                        href="#faq"
+                        class="footer-link"
+                        style="font-family: &quot;DM Sans&quot;, sans-serif"
+                        >FAQ</a
+                    >
+                    <label
+                        for="auth-open"
+                        class="footer-link"
+                        style="
+                            cursor: pointer;
+                            font-family: &quot;DM Sans&quot;, sans-serif;
+                        "
+                        >Open the app</label
+                    >
+                </div>
+            </div>
+            <div>
+                <h4
+                    class="text-[12px] uppercase tracking-[0.1em] text-neutral-500 font-semibold mb-5"
+                    style="font-family: &quot;DM Sans&quot;, sans-serif"
+                >
+                    Contact
+                </h4>
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-start gap-2.5">
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            class="flex-shrink-0 mt-0.5 text-neutral-500"
+                        >
+                            <path
+                                d="M8 1.5C5.5 1.5 3 3.5 3 6.5c0 4 5 8 5 8s5-4 5-8c0-3-2.5-5-5-5z"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                            />
+                            <circle
+                                cx="8"
+                                cy="6.5"
+                                r="1.5"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                            />
+                        </svg>
+                        <span
+                            class="text-[13px] text-neutral-400 leading-[1.7]"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >Office #148, Hashmi Mohalla,<br />Near Hazara
+                            Mohalla,<br />Loralai, Balochistan, Pakistan</span
+                        >
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            class="flex-shrink-0 text-neutral-500"
+                        >
+                            <path
+                                d="M2.5 3.5h11l-1 6H4l-.5-3"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M5.5 14a.5.5 0 110-1 .5.5 0 010 1zM11 14a.5.5 0 110-1 .5.5 0 010 1z"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                            />
+                            <path
+                                d="M2.5 3.5L3 1.5h8.5"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <a
+                            href="tel:+923158105028"
+                            class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >+92 315 810 5028</a
+                        >
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            class="flex-shrink-0 text-neutral-500"
+                        >
+                            <rect
+                                x="2"
+                                y="3"
+                                width="12"
+                                height="10"
+                                rx="1.5"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                            />
+                            <path
+                                d="M2 5l6 4 6-4"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <a
+                            href="mailto:help@cover.mom"
+                            class="text-[13px] text-neutral-400 hover:text-white transition-colors duration-200"
+                            style="font-family: &quot;DM Sans&quot;, sans-serif"
+                            >help@cover.mom</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-white/[0.06]">
+        <div
+            class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
+        >
+            <p
+                class="text-[12px] text-neutral-600"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                © 2026 Cover &nbsp;&middot;&nbsp; Private beta
+                &nbsp;&middot;&nbsp; All rights reserved.
+            </p>
+            <div
+                class="flex items-center gap-4 text-[12px] text-neutral-600"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                <label
+                    for="policy-privacy"
+                    class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
+                    >Privacy</label
+                >
+                <span class="text-neutral-800">&middot;</span>
+                <label
+                    for="policy-returns"
+                    class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
+                    >Returns</label
+                >
+                <span class="text-neutral-800">&middot;</span>
+                <label
+                    for="policy-terms"
+                    class="hover:text-neutral-400 cursor-pointer transition-colors duration-200"
+                    >Terms</label
+                >
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- AUTH & POLICY MODALS (unchanged) -->
+<!-- ── Auth modal: 3-step pure CSS ── -->
+<!--
+            3 checkboxes control which step is visible:
+            #auth-open   : overlay is showing
+            #auth-step2  : OTP step
+            #auth-step3  : Profile setup step
+            Default (none checked) = step 1 visible when overlay is open
+        -->
+<input
+    type="checkbox"
+    id="auth-open"
+    style="display: none"
+    autocomplete="off"
+/>
+<input
+    type="checkbox"
+    id="auth-step2"
+    style="display: none"
+    autocomplete="off"
+/>
+<input
+    type="checkbox"
+    id="auth-step3"
+    style="display: none"
+    autocomplete="off"
+/>
+
+<!-- Payment method radios for step 3 (must be before .auth-modal-overlay in DOM) -->
+<input
+    type="radio"
+    name="lp-pm"
+    id="lp-pm-easy"
+    style="display: none"
+    checked
+/>
+<input type="radio" name="lp-pm" id="lp-pm-bank" style="display: none" />
+<input type="radio" name="lp-pm" id="lp-pm-raast" style="display: none" />
+<input type="radio" name="lp-pm" id="lp-pm-card" style="display: none" />
+
+<div class="auth-modal-overlay">
+    <!-- Backdrop closes everything -->
+    <label
+        for="auth-open"
+        style="position: absolute; inset: 0; cursor: default"
+    ></label>
+
+    <div
+        class="auth-modal"
+        style="position: relative; z-index: 1; margin: auto"
+    >
+        <!-- Close X — always visible, unchecks all -->
+        <label
+            for="auth-open"
+            class="auth-modal-close"
+            aria-label="Close"
+            style="cursor: pointer"
+        >
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path
+                    d="M4 4l8 8M12 4l-8 8"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                />
+            </svg>
+        </label>
+
+        <!-- ── Step 1: Phone number ── -->
+        <div class="auth-s1">
+            <div class="auth-logo">
+                <img src="/static/assets/profile/logo.png" alt="Cover" />
+            </div>
+            <h2>Enter your number</h2>
+            <p>
+                We'll send a one-time code to your WhatsApp to verify your
+                identity.
+            </p>
+            <div class="auth-input-wrap">
+                <span class="auth-input-prefix">&#x1F1F5;&#x1F1F0; +92</span>
+                <input
+                    class="auth-input"
+                    type="tel"
+                    placeholder="3XX XXX XXXX"
+                    maxlength="11"
+                    inputmode="numeric"
+                />
+            </div>
+            <label
+                for="auth-step2"
+                class="auth-btn-primary"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    cursor: pointer;
+                "
+            >
+                Continue
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </label>
+            <p class="auth-hint">
+                By continuing, you agree to Cover's Terms &amp; Conditions and
+                Privacy Policy.
+            </p>
+        </div>
+
+        <!-- ── Step 2: OTP ── -->
+        <div class="auth-s2">
+            <label
+                for="auth-step2"
+                class="auth-back"
+                style="
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                "
+            >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M13 8H3M7 4l-4 4 4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+                Back
+            </label>
+            <div class="auth-logo">
+                <img src="/static/assets/profile/logo.png" alt="Cover" />
+            </div>
+            <h2>Enter the code</h2>
+            <p>
+                A 6-digit code was sent to your WhatsApp number. It expires in
+                10 minutes.
+            </p>
+            <div class="otp-input-wrap">
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+                <input
+                    class="otp-digit"
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                />
+            </div>
+            <label
+                for="auth-step3"
+                class="auth-btn-primary"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                "
+            >
+                Verify &amp; continue
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </label>
+            <p class="auth-resend">
+                Didn't receive it? <span>Resend code</span>
+            </p>
+            <p class="auth-hint">
+                Make sure your WhatsApp notifications are enabled.
+            </p>
+        </div>
+
+        <!-- ── Step 3: Create profile ── -->
+        <div class="auth-s3">
+            <label
+                for="auth-step3"
+                class="auth-back"
+                style="
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                "
+            >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M13 8H3M7 4l-4 4 4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+                Back
+            </label>
+            <div class="auth-logo">
+                <img src="/static/assets/profile/logo.png" alt="Cover" />
+            </div>
+            <h2 style="margin-bottom: 4px">Create your profile</h2>
+            <p style="margin-bottom: 18px">
+                Set up your identity and default payment method.
+            </p>
+
+            <!-- Avatar -->
+            <div
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 6px;
+                    margin-bottom: 18px;
+                "
+            >
+                <label for="lp-avatar-input" class="lp-avatar-circle">
+                    <svg
+                        width="22"
+                        height="22"
+                        fill="none"
+                        stroke="rgba(0,0,0,0.3)"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                        />
+                        <circle
+                            cx="12"
+                            cy="13"
+                            r="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </label>
+                <input
+                    id="lp-avatar-input"
+                    type="file"
+                    accept="image/*"
+                    style="
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        opacity: 0;
+                        pointer-events: none;
+                    "
+                />
+                <span
+                    style="
+                        font-size: 11px;
+                        color: #a8a8a8;
+                        font-weight: 500;
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                    "
+                    >Tap to add photo</span
+                >
+            </div>
+
+            <!-- Name + City -->
+            <div
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin-bottom: 18px;
+                "
+            >
+                <input type="text" placeholder="Full name" class="lp-field" />
+                <select class="lp-field">
+                    <option value="">Select city</option>
+                    <option>Karachi</option>
+                    <option>Lahore</option>
+                    <option>Islamabad</option>
+                    <option>Rawalpindi</option>
+                    <option>Faisalabad</option>
+                    <option>Multan</option>
+                    <option>Peshawar</option>
+                </select>
+            </div>
+
+            <!-- Payment method -->
+            <div style="margin-bottom: 18px">
+                <div class="lp-section-label" style="margin-bottom: 10px">
+                    Default Payment Method
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                    <label
+                        for="lp-pm-easy"
+                        class="lp-pm-pill lp-pm-pill-easy"
+                        style="cursor: pointer"
+                        >Easypaisa / JazzCash</label
+                    >
+                    <label
+                        for="lp-pm-bank"
+                        class="lp-pm-pill lp-pm-pill-bank"
+                        style="cursor: pointer"
+                        >Bank Transfer</label
+                    >
+                    <label
+                        for="lp-pm-raast"
+                        class="lp-pm-pill lp-pm-pill-raast"
+                        style="cursor: pointer"
+                        >Raast</label
+                    >
+                    <label
+                        for="lp-pm-card"
+                        class="lp-pm-pill lp-pm-pill-card"
+                        style="cursor: pointer"
+                        >Visa / Mastercard</label
+                    >
+                </div>
+                <div class="lp-pm-fields lp-pm-fields-easy">
+                    <input
+                        type="tel"
+                        placeholder="Mobile number (03XXXXXXXXX)"
+                        class="lp-field"
+                    />
+                </div>
+                <div class="lp-pm-fields lp-pm-fields-bank">
+                    <input
+                        type="text"
+                        placeholder="IBAN (PK00XXXX…)"
+                        class="lp-field"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Bank name (e.g. HBL, UBL)"
+                        class="lp-field"
+                    />
+                </div>
+                <div class="lp-pm-fields lp-pm-fields-raast">
+                    <input
+                        type="text"
+                        placeholder="IBAN / Account number"
+                        class="lp-field"
+                    />
+                </div>
+                <div class="lp-pm-fields lp-pm-fields-card">
+                    <input
+                        type="text"
+                        placeholder="Name on card"
+                        class="lp-field"
+                    />
+                    <input
+                        type="tel"
+                        placeholder="Card number"
+                        class="lp-field"
+                    />
+                    <input type="tel" placeholder="CVV" class="lp-field" />
+                </div>
+            </div>
+
+            <!-- Create account button -->
+            <a
+                href="http://localhost:3000/dashboard"
+                class="auth-btn-primary"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    margin-bottom: 0;
+                "
+            >
+                Create Account
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M3 8h10M9 4l4 4-4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="policy-overlay" data-policy="privacy">
+    <label for="policy-privacy" class="policy-backdrop"></label>
+    <div class="policy-modal-panel">
+        <div class="policy-modal-header">
+            <h2
+                class="font-bold text-black text-[17px] tracking-tight"
+                style="font-family: &quot;Syne&quot;, sans-serif"
+            >
+                Privacy Policy
+            </h2>
+            <label for="policy-privacy" class="policy-modal-close"
+                ><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M4 4l8 8M12 4l-8 8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                    /></svg
+            ></label>
+        </div>
+        <div class="policy-modal-scroll">
+            <div
+                class="policy-modal-body"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                <p class="text-[11px] text-neutral-400 mb-4">
+                    Last updated: January 2026
+                </p>
+                <h3>Information We Collect</h3>
+                <p>
+                    When you create a deal or contact us, we collect your name,
+                    phone number, email address (if provided), transaction
+                    details, product descriptions, and deal references. We also
+                    collect device information and IP address for security
+                    purposes.
+                </p>
+                <h3>How We Use Your Information</h3>
+                <ul>
+                    <li>To process and verify your protected deals</li>
+                    <li>To send deal status updates inside the app</li>
+                    <li>To verify seller identity and prevent fraud</li>
+                    <li>To resolve disputes between buyers and sellers</li>
+                    <li>To improve our service and security measures</li>
+                </ul>
+                <h3>Data Sharing</h3>
+                <p>
+                    We do not sell, rent, or share your personal data with third
+                    parties for marketing purposes. We may share limited
+                    deal-related information with the counterparty involved in
+                    the same transaction to facilitate the deal. We may disclose
+                    data if required by Pakistani law.
+                </p>
+                <h3>Data Security</h3>
+                <p>
+                    All deal information is stored securely and accessed only by
+                    authorized Cover team members. Payment hold details are kept
+                    in separate, restricted-access systems. CNIC and KYC
+                    documents are encrypted at rest using AES-256.
+                </p>
+                <h3>Data Retention</h3>
+                <p>
+                    We retain deal records for a minimum of 12 months after deal
+                    completion for dispute resolution purposes. You may request
+                    deletion of your personal data by contacting us at
+                    help@cover.mom, subject to legal retention requirements.
+                </p>
+                <h3>Your Rights</h3>
+                <p>
+                    You have the right to access, correct, or delete your
+                    personal data. You may opt out of non-essential
+                    communications at any time. To exercise these rights,
+                    contact us via the app support chat or email.
+                </p>
+                <h3>Contact</h3>
+                <p>
+                    For any privacy-related concerns, reach out to us at
+                    help@cover.mom or call +92 315 810 5028.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="policy-overlay" data-policy="returns">
+    <label for="policy-returns" class="policy-backdrop"></label>
+    <div class="policy-modal-panel">
+        <div class="policy-modal-header">
+            <h2
+                class="font-bold text-black text-[17px] tracking-tight"
+                style="font-family: &quot;Syne&quot;, sans-serif"
+            >
+                Return / Refund / Shipping Policy
+            </h2>
+            <label for="policy-returns" class="policy-modal-close"
+                ><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M4 4l8 8M12 4l-8 8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                    /></svg
+            ></label>
+        </div>
+        <div class="policy-modal-scroll">
+            <div
+                class="policy-modal-body"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                <p class="text-[11px] text-neutral-400 mb-4">
+                    Last updated: January 2026
+                </p>
+                <h3>Return Policy</h3>
+                <p>
+                    You may initiate a return if the product received does not
+                    match the description agreed upon at the time of deal
+                    creation. Returns must be reported within 24 hours of
+                    receiving the product by raising a dispute inside the deal
+                    conversation. You must provide an unboxing video as
+                    evidence.
+                </p>
+                <h3>Refund Policy</h3>
+                <ul>
+                    <li>
+                        <strong>Wrong item received:</strong> Full refund of the
+                        held amount. Cover's protection fee is non-refundable.
+                    </li>
+                    <li>
+                        <strong>Damaged or defective item:</strong> Full refund
+                        after verification of unboxing video evidence.
+                    </li>
+                    <li>
+                        <strong>Seller fails to ship:</strong> Full refund
+                        including Cover's protection fee.
+                    </li>
+                    <li>
+                        <strong>Buyer cancels after payment is held:</strong>
+                        Refund subject to Cover's review. If the seller has
+                        already incurred costs, a partial refund may apply.
+                    </li>
+                    <li>
+                        <strong>Dispute resolved in seller's favour:</strong>
+                        Payment released to seller; no refund to buyer.
+                    </li>
+                </ul>
+                <p>
+                    Refunds are processed within 3 to 5 business days after
+                    dispute resolution, returned via the same payment method
+                    used.
+                </p>
+                <h3>Shipping Policy</h3>
+                <ul>
+                    <li>
+                        <strong>Delivery charges:</strong> The buyer is
+                        responsible for delivery charges unless otherwise agreed
+                        in the deal terms.
+                    </li>
+                    <li>
+                        <strong>Courier selection:</strong> Cover recommends
+                        tracked courier services (TCS, Leopards) for all
+                        shipments.
+                    </li>
+                    <li>
+                        <strong>Shipping timeline:</strong> The seller must ship
+                        within the timeframe specified in the deal, or within 3
+                        business days if no timeframe was set.
+                    </li>
+                    <li>
+                        <strong>Return shipping (buyer changed mind):</strong>
+                        Buyer bears the return shipping cost.
+                    </li>
+                    <li>
+                        <strong>Return shipping (seller fault):</strong>
+                        Seller bears the return shipping cost.
+                    </li>
+                </ul>
+                <h3>Unboxing Video Requirement</h3>
+                <p>
+                    All buyers must record an unboxing video showing the package
+                    condition, product, and any defects. This video is mandatory
+                    for any return or refund claim. Claims without an unboxing
+                    video will not be accepted.
+                </p>
+                <h3>Contact</h3>
+                <p>
+                    For return, refund, or shipping queries, contact us at
+                    help@cover.mom or call +92 315 810 5028.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="policy-overlay" data-policy="terms">
+    <label for="policy-terms" class="policy-backdrop"></label>
+    <div class="policy-modal-panel">
+        <div class="policy-modal-header">
+            <h2
+                class="font-bold text-black text-[17px] tracking-tight"
+                style="font-family: &quot;Syne&quot;, sans-serif"
+            >
+                Terms &amp; Conditions
+            </h2>
+            <label for="policy-terms" class="policy-modal-close"
+                ><svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M4 4l8 8M12 4l-8 8"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                    /></svg
+            ></label>
+        </div>
+        <div class="policy-modal-scroll">
+            <div
+                class="policy-modal-body"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+            >
+                <p class="text-[11px] text-neutral-400 mb-4">
+                    Last updated: January 2026
+                </p>
+                <h3>Acceptance of Terms</h3>
+                <p>
+                    By using Cover's application or services, you agree to these
+                    Terms and Conditions. If you do not agree, please do not use
+                    our services.
+                </p>
+                <h3>Service Description</h3>
+                <p>
+                    Cover provides a payment escrow and deal management
+                    platform. Cover acts as a neutral escrow agent and does not
+                    directly sell, ship, or warranty any products. Cover
+                    facilitates transactions between independent buyers and
+                    sellers.
+                </p>
+                <h3>Beta Service Disclaimer</h3>
+                <p>
+                    Cover is currently in private beta. Features may change
+                    without notice. Cover makes no guarantees of uninterrupted
+                    service during the beta period.
+                </p>
+                <h3>User Responsibilities</h3>
+                <ul>
+                    <li>
+                        Provide accurate and complete information in all deal
+                        forms
+                    </li>
+                    <li>
+                        Record an unboxing video for every delivered product
+                    </li>
+                    <li>
+                        Not attempt to manipulate, game, or fraudulently use the
+                        Cover system
+                    </li>
+                    <li>
+                        Not use Cover for illegal, prohibited, or counterfeit
+                        goods transactions
+                    </li>
+                </ul>
+                <h3>Protection Fee</h3>
+                <p>
+                    Cover charges 5% of the total transaction amount (product
+                    plus delivery) with a minimum of Rs. 100. This fee is
+                    non-refundable unless the seller fails to ship entirely.
+                </p>
+                <h3>Payment Hold</h3>
+                <p>
+                    When you pay into a Cover deal, your money is held in a
+                    separate escrow account and not released until the buyer
+                    confirms receipt of the correct item, or Cover resolves a
+                    dispute. Cover does not earn interest on held funds.
+                </p>
+                <h3>Dispute Resolution</h3>
+                <p>
+                    Both parties agree to Cover's dispute resolution process as
+                    the sole method for resolving transaction disputes. Cover's
+                    decision is final and binding. Evidence-based review is the
+                    standard — claims without supporting evidence may be denied.
+                </p>
+                <h3>Limitation of Liability</h3>
+                <p>
+                    Cover's liability is limited to the amount held in escrow
+                    for the specific deal in question. Cover is not liable for
+                    indirect, consequential, or incidental damages.
+                </p>
+                <h3>Prohibited Transactions</h3>
+                <p>
+                    Cover may refuse to process deals involving illegal goods,
+                    weapons, controlled substances, counterfeit products, stolen
+                    goods, or any transaction that violates Pakistani law.
+                </p>
+                <h3>Governing Law</h3>
+                <p>
+                    These terms are governed by the laws of Pakistan. Any legal
+                    proceedings shall be subject to the exclusive jurisdiction
+                    of the courts in Karachi, Pakistan.
+                </p>
+                <h3>Contact</h3>
+                <p>
+                    For questions about these terms, contact us at
+                    help@cover.mom or call +92 315 810 5028.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/calculate.js"></script>
+<script src="/static/js/otp.js"></script>
+{% endblock content %}

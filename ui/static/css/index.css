@@ -2,13 +2,23 @@
     box-sizing: border-box;
 }
 body {
-    background: #fafafa;
-    color: #0a0a0a;
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Syne", sans-serif;
+}
+.mono,
+code {
+    font-family: "DM Mono", monospace;
+}
+
 .mono {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "DM Mono", monospace;
 }
 .nav-glass {
     backdrop-filter: blur(24px) saturate(180%);
@@ -47,6 +57,247 @@ body {
 .btn-gray:hover {
     background: #1a1a1a;
     transform: translateY(-1px);
+}
+
+.dash-wrap {
+    background: #f8f8f7;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+.dash-topbar {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dash-topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.dash-topbar-logomark {
+    width: 26px;
+    height: 26px;
+    background: #0a0a0a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.dash-topbar-brand {
+    font-family: "Syne", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #0a0a0a;
+}
+.dash-topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dash-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Syne", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+.dash-user-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0a0a0a;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-user-role {
+    font-size: 10px;
+    color: #6b6b6b;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.dash-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a8a8a8;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.dash-profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Syne", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+.dash-profile-name {
+    font-family: "Syne", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0a0a0a;
+}
+.dash-profile-sub {
+    font-size: 11px;
+    color: #6b6b6b;
+    margin-top: 1px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-badge-verified {
+    margin-left: auto;
+    background: #e8f5ed;
+    color: #1a7a4a;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.dash-stat {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+}
+.dash-stat-num {
+    font-family: "Syne", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #0a0a0a;
+}
+.dash-stat-lbl {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a8a8a8;
+    margin-top: 3px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-order-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+.dash-order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.dash-order-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0a0a0a;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-order-seller {
+    font-size: 11px;
+    color: #6b6b6b;
+    margin-top: 2px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-order-amount {
+    font-family: "Syne", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0a0a0a;
+}
+.dash-order-meta {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: #a8a8a8;
+    margin-top: 8px;
+}
+.dash-pill-shipped {
+    background: #0a0a0a;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-pill-paid {
+    background: #fef3c7;
+    color: #b45309;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: "DM Sans", sans-serif;
+}
+.dash-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.dash-btn-black {
+    background: #0a0a0a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.dash-btn-ghost {
+    background: transparent;
+    color: #0a0a0a;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
 }
 .sep {
     border: none;
@@ -711,4 +962,214 @@ body:has(input[name="policy-toggle"]:checked) {
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 2px;
+}
+
+/* ==========================================================================
+   AUTH & POLICY MODALS
+   ========================================================================== */
+
+/* Overlay hidden by default, shown when #auth-open is checked */
+.auth-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+}
+#auth-open:checked ~ .auth-modal-overlay {
+    display: flex;
+    animation: authFadeIn 0.22s ease forwards;
+}
+@keyframes authFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Step visibility — all hidden by default */
+.auth-s1,
+.auth-s2,
+.auth-s3 {
+    display: none;
+    flex-direction: column;
+}
+
+@keyframes stepIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Step 1: visible when overlay open */
+#auth-open:checked ~ .auth-modal-overlay .auth-s1 {
+    display: flex;
+    animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Step 2 checked: show s2, hide s1 */
+#auth-step2:checked ~ .auth-modal-overlay .auth-s1 {
+    display: none;
+}
+#auth-step2:checked ~ .auth-modal-overlay .auth-s2 {
+    display: flex;
+    animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Step 3 checked: show s3, hide s1 and s2 */
+#auth-step3:checked ~ .auth-modal-overlay .auth-s1 {
+    display: none;
+}
+#auth-step3:checked ~ .auth-modal-overlay .auth-s2 {
+    display: none;
+}
+#auth-step3:checked ~ .auth-modal-overlay .auth-s3 {
+    display: flex;
+    animation: stepIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auth-btn-primary {
+    margin-bottom: 20px !important;
+}
+
+/* Profile setup scroll — step 3 can be tall */
+.auth-s3 {
+    overflow: visible;
+}
+
+/* Payment pill active states for step 3 */
+#lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-pill-easy,
+#lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-pill-bank,
+#lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-pill-raast,
+#lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-pill-card {
+    background: #0a0a0a;
+    color: #fff;
+    border-color: #0a0a0a;
+}
+#lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-fields-easy,
+#lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-fields-bank,
+#lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-fields-raast,
+#lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-fields-card {
+    display: flex !important;
+}
+.lp-pm-fields {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Auth modal inner styles */
+.auth-modal {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    position: relative;
+}
+.auth-modal-close {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3f3f3;
+    cursor: pointer;
+}
+.auth-logo {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+.auth-input-wrap,
+.lp-field {
+    border: 1.5px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+/* Specific overrides for Step 3 fields */
+.auth-s3 .lp-field {
+    width: 100%;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1.5px solid rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    color: #0a0a0a;
+    outline: none;
+    box-sizing: border-box;
+}
+.auth-s3 .lp-field:focus {
+    border-color: #0a0a0a;
+    box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.07);
+}
+.auth-s3 select.lp-field {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%236b6b6b' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.lp-pm-pill {
+    padding: 7px 14px;
+    border: 1.5px solid rgba(0, 0, 0, 0.14);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #6b6b6b;
+    font-family: "DM Sans", sans-serif;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+.lp-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a8a8a8;
+    font-family: "DM Sans", sans-serif;
+}
+.lp-avatar-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px dashed rgba(0, 0, 0, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #f8f8f7;
+    transition:
+        border-color 0.18s,
+        background 0.18s;
+    margin: 0 auto 6px;
+}
+.lp-avatar-circle:hover {
+    border-color: #0a0a0a;
+    background: #f2f2f0;
 }
