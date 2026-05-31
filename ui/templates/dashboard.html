@@ -2364,8 +2364,7 @@
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
-                            flex-wrap: wrap;
-                            gap: 12px;
+                            gap: 10px;
                         "
                     >
                         <h2
@@ -2373,9 +2372,14 @@
                                 font-size: 20px;
                                 font-weight: 800;
                                 letter-spacing: -0.03em;
+                                flex: 1;
+                                min-width: 0;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
                             "
                         >
-                            My Orders
+                            Orders
                         </h2>
                         <div
                             style="
@@ -2558,14 +2562,7 @@
                         class="sub sub-ord-list"
                         style="flex-direction: column; gap: 16px"
                     >
-                        <div
-                            style="
-                                display: flex;
-                                gap: 8px;
-                                overflow-x: auto;
-                                padding-bottom: 2px;
-                            "
-                        >
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px">
                             <label for="f-all" class="chip chip-all">All</label>
                             <label for="f-active" class="chip chip-active"
                                 >Active</label
