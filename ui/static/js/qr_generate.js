@@ -20,20 +20,7 @@
   }
 
   // Try immediately, retry after scripts load
-  if (window.QRCode) {
-    generateShipQR();
-  } else {
-    window.addEventListener("load", generateShipQR);
-    // Fallback: poll briefly
-    var attempts = 0;
-    var poll = setInterval(function () {
-      if (window.QRCode) {
-        generateShipQR();
-        clearInterval(poll);
-      }
-      if (++attempts > 20) clearInterval(poll);
-    }, 300);
-  }
+  window.addEventListener("load", generateShipQR);
 
   window.downloadShipQR = function () {
     var wrap = document.getElementById("ship-qr-wrap");

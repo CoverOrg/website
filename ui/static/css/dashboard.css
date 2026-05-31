@@ -1700,3 +1700,13 @@ textarea.field {
     font-family: "DM Mono", monospace;
     font-size: 12px;
 }
+
+@keyframes scanLine {
+    0%,
+    100% {
+        top: 20px;
+    }
+    50% {
+        top: calc(100% - 20px);
+    }
+}
