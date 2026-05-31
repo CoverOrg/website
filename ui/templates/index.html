@@ -3,10 +3,456 @@ content %}
 
 <input type="checkbox" name="auth-toggle" id="login-step1" />
 <input type="checkbox" name="auth-toggle" id="login-step2" />
+<input type="checkbox" id="loc-granted" style="display: none" />
 
 <input type="checkbox" name="policy-toggle" id="policy-privacy" />
 <input type="checkbox" name="policy-toggle" id="policy-returns" />
 <input type="checkbox" name="policy-toggle" id="policy-terms" />
+
+<!-- LOCATION GATE OVERLAY -->
+<div class="loc-overlay">
+    <!-- Blurred backdrop — not clickable, intentionally trapping the user -->
+    <div class="loc-backdrop"></div>
+
+    <div class="loc-modal">
+        <!-- Icon -->
+        <!-- Icon row — two icons side by side -->
+        <div
+            style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin: 0 auto 20px;
+            "
+        >
+            <div
+                style="
+                    width: 52px;
+                    height: 52px;
+                    background: #0a0a0a;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                "
+            >
+                <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="1.6"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"
+                    />
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2.5"
+                        stroke="white"
+                        stroke-width="1.6"
+                    />
+                </svg>
+            </div>
+            <div
+                style="
+                    width: 28px;
+                    height: 2px;
+                    background: rgba(0, 0, 0, 0.12);
+                    border-radius: 2px;
+                    flex-shrink: 0;
+                "
+            ></div>
+            <div
+                style="
+                    width: 52px;
+                    height: 52px;
+                    background: #0a0a0a;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                "
+            >
+                <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="1.6"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0
+                           01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0
+                           00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Heading -->
+        <h2
+            style="
+                font-family: &quot;Syne&quot;, sans-serif;
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                color: #0a0a0a;
+                text-align: center;
+                margin: 0 0 10px;
+            "
+        >
+            Location &amp; Camera Required
+        </h2>
+
+        <!-- Reason intro -->
+        <p
+            style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 13px;
+                color: #737373;
+                line-height: 1.75;
+                text-align: center;
+                margin: 0 0 6px;
+            "
+        >
+            Cover needs both permissions to protect every deal. Neither is used
+            in the background — only at the moment you scan a parcel QR code.
+        </p>
+
+        <!-- Reason bullets -->
+        <div
+            style="
+                background: #f8f8f7;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 14px;
+                padding: 16px 18px;
+                margin: 16px 0 22px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            "
+        >
+            <!-- Location reason 1 -->
+            <div style="display: flex; align-items: flex-start; gap: 10px">
+                <div
+                    style="
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50%;
+                        background: #0a0a0a;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        margin-top: 1px;
+                    "
+                >
+                    <svg
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2.2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"
+                        />
+                    </svg>
+                </div>
+                <span
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-size: 12.5px;
+                        color: #3a3a3a;
+                        line-height: 1.6;
+                    "
+                >
+                    <strong style="font-weight: 600">Location</strong> —
+                    verifies QR scans happen at the correct delivery address,
+                    flagging any scan that occurs far from where the parcel was
+                    sent
+                </span>
+            </div>
+
+            <!-- Location reason 2 -->
+            <div style="display: flex; align-items: flex-start; gap: 10px">
+                <div
+                    style="
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50%;
+                        background: #0a0a0a;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        margin-top: 1px;
+                    "
+                >
+                    <svg
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2.2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"
+                        />
+                    </svg>
+                </div>
+                <span
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-size: 12.5px;
+                        color: #3a3a3a;
+                        line-height: 1.6;
+                    "
+                >
+                    <strong style="font-weight: 600">Location</strong> — logs a
+                    verified location record against each order scan as evidence
+                    in case of a dispute
+                </span>
+            </div>
+
+            <!-- Camera reason 1 -->
+            <div style="display: flex; align-items: flex-start; gap: 10px">
+                <div
+                    style="
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50%;
+                        background: #0a0a0a;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        margin-top: 1px;
+                    "
+                >
+                    <svg
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2.2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0
+                                 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0
+                                 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                        />
+                    </svg>
+                </div>
+                <span
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-size: 12.5px;
+                        color: #3a3a3a;
+                        line-height: 1.6;
+                    "
+                >
+                    <strong style="font-weight: 600">Camera</strong> — reads the
+                    QR code printed on the parcel to instantly confirm delivery
+                    and release payment to the seller
+                </span>
+            </div>
+
+            <!-- Camera reason 2 -->
+            <div style="display: flex; align-items: flex-start; gap: 10px">
+                <div
+                    style="
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50%;
+                        background: #0a0a0a;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        margin-top: 1px;
+                    "
+                >
+                    <svg
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2.2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0
+                                 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0
+                                 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                        />
+                    </svg>
+                </div>
+                <span
+                    style="
+                        font-family: &quot;DM Sans&quot;, sans-serif;
+                        font-size: 12.5px;
+                        color: #3a3a3a;
+                        line-height: 1.6;
+                    "
+                >
+                    <strong style="font-weight: 600">Camera</strong> — never
+                    used for photos or recording; only activated when you tap
+                    Scan QR inside an order
+                </span>
+            </div>
+        </div>
+
+        <!-- Allow button -->
+        <button
+            id="loc-allow-btn"
+            style="
+                width: 100%;
+                background: #0a0a0a;
+                color: white;
+                border: none;
+                border-radius: 100px;
+                padding: 14px 20px;
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: background 0.15s;
+                margin-bottom: 12px;
+            "
+        >
+            <svg
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 13l4 4L19 7"
+                />
+            </svg>
+            Allow Both Permissions
+        </button>
+
+        <!-- Partial grant fallback — hidden until JS reveals it -->
+        <div
+            id="loc-partial-msg"
+            style="
+                display: none;
+                background: #fef3c7;
+                border: 1px solid #fde68a;
+                border-radius: 12px;
+                padding: 12px 14px;
+                margin-bottom: 12px;
+                text-align: center;
+            "
+        >
+            <div
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 12.5px;
+                    font-weight: 600;
+                    color: #b45309;
+                    margin-bottom: 4px;
+                "
+            >
+                One permission is still missing
+            </div>
+            <div
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 12px;
+                    color: #92400e;
+                    line-height: 1.6;
+                "
+                id="loc-partial-detail"
+            ></div>
+        </div>
+
+        <!-- Denied state -->
+        <div
+            id="loc-denied-msg"
+            style="
+                display: none;
+                background: #fdf0ee;
+                border: 1px solid #fecaca;
+                border-radius: 12px;
+                padding: 12px 14px;
+                margin-bottom: 12px;
+                text-align: center;
+            "
+        >
+            <div
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 12.5px;
+                    font-weight: 600;
+                    color: #c0392b;
+                    margin-bottom: 4px;
+                "
+            >
+                Permissions were denied
+            </div>
+            <div
+                style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 12px;
+                    color: #991b1b;
+                    line-height: 1.6;
+                "
+            >
+                Please enable Location and Camera in your browser settings, then
+                reload the page to continue.
+            </div>
+        </div>
+
+        <!-- Fine print -->
+        <p
+            style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 11px;
+                color: #a3a3a3;
+                text-align: center;
+                line-height: 1.6;
+                margin: 0;
+            "
+        >
+            Location and camera are never used in the background.<br />
+            Both are only activated when you tap Scan QR on an order.
+        </p>
+    </div>
+</div>
+<!-- /LOCATION GATE OVERLAY -->
 
 <!-- NAV -->
 <nav
@@ -2596,4 +3042,6 @@ content %}
 
 <script src="/static/js/calculate.js"></script>
 <script src="/static/js/otp.js"></script>
+<script src="/static/js/location.js"></script>
+
 {% endblock content %}
