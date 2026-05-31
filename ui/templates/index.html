@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block title %} Cover {% endblock title %} {% block
+content %}
 
 <input type="checkbox" name="auth-toggle" id="login-step1" />
 <input type="checkbox" name="auth-toggle" id="login-step2" />
@@ -122,8 +123,8 @@
                     style="font-family: &quot;DM Sans&quot;, sans-serif"
                 >
                     Cover holds your payment in escrow until you confirm
-                    receipt. Browse verified seller shops, follow stories, and
-                    manage every deal inside one clean interface.
+                    receipt. Bring any seller, and manage your deal inside one
+                    platform.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 hr hr4">
                     <label
@@ -134,7 +135,7 @@
                             font-weight: 600;
                         "
                     >
-                        Open the app
+                        Start a Deal
 
                         <svg
                             width="15"
@@ -436,7 +437,7 @@
                 class="text-[13.5px] text-neutral-500 leading-[1.7]"
                 style="font-family: &quot;DM Sans&quot;, sans-serif"
             >
-                Open Cover, tap New Deal, enter the item name, amount, and the
+                Open Cover, tap New Order, enter the item name, amount, and the
                 seller's details. The app generates a secure deal reference and
                 locks the escrow instantly.
             </p>
@@ -791,7 +792,7 @@
                     class="text-[13px] text-neutral-500 leading-[1.7]"
                     style="font-family: &quot;DM Sans&quot;, sans-serif"
                 >
-                    Open the app, tap New Deal. Enter the item, amount, and
+                    Open the app, tap New Order. Enter the item, amount, and
                     seller. A deal reference is generated. Pay using any saved
                     method — Easypaisa, NayaPay, Sadapay, bank transfer, or
                     USDT. Funds go into escrow, not to the seller.
@@ -1110,7 +1111,7 @@
                         font-weight: 600;
                     "
                 >
-                    Open Cover
+                    Start a Deal
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
                         <path
                             d="M3 8h10M9 4l4 4-4 4"
@@ -1415,7 +1416,7 @@
                     class="faq-body"
                     style="font-family: &quot;DM Sans&quot;, sans-serif"
                 >
-                    Open Cover, tap New Deal, enter the item name, amount, and
+                    Open Cover, tap New Order, enter the item name, amount, and
                     the seller's phone number or username. The app generates a
                     deal reference and locks the escrow. Pay using any saved
                     payment method — the seller receives nothing until you
@@ -1588,7 +1589,7 @@
                     font-weight: 600;
                 "
             >
-                Open the app
+                Start a Deal
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
                     <path
                         d="M3 8h10M9 4l4 4-4 4"
@@ -1798,7 +1799,7 @@
                             cursor: pointer;
                             font-family: &quot;DM Sans&quot;, sans-serif;
                         "
-                        >Open the app</label
+                        >Start a Deal</label
                     >
                 </div>
             </div>
@@ -1973,18 +1974,6 @@
     style="display: none"
     autocomplete="off"
 />
-
-<!-- Payment method radios for step 3 (must be before .auth-modal-overlay in DOM) -->
-<input
-    type="radio"
-    name="lp-pm"
-    id="lp-pm-easy"
-    style="display: none"
-    checked
-/>
-<input type="radio" name="lp-pm" id="lp-pm-bank" style="display: none" />
-<input type="radio" name="lp-pm" id="lp-pm-raast" style="display: none" />
-<input type="radio" name="lp-pm" id="lp-pm-card" style="display: none" />
 
 <div class="auth-modal-overlay">
     <!-- Backdrop closes everything -->
@@ -2189,9 +2178,7 @@
                 <img src="/static/assets/profile/logo.png" alt="Cover" />
             </div>
             <h2 style="margin-bottom: 4px">Create your profile</h2>
-            <p style="margin-bottom: 18px">
-                Set up your identity and default payment method.
-            </p>
+            <p style="margin-bottom: 18px">Set up your identity.</p>
 
             <!-- Avatar -->
             <div
@@ -2271,78 +2258,6 @@
                 </select>
             </div>
 
-            <!-- Payment method -->
-            <div style="margin-bottom: 18px">
-                <div class="lp-section-label" style="margin-bottom: 10px">
-                    Default Payment Method
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px">
-                    <label
-                        for="lp-pm-easy"
-                        class="lp-pm-pill lp-pm-pill-easy"
-                        style="cursor: pointer"
-                        >Easypaisa / JazzCash</label
-                    >
-                    <label
-                        for="lp-pm-bank"
-                        class="lp-pm-pill lp-pm-pill-bank"
-                        style="cursor: pointer"
-                        >Bank Transfer</label
-                    >
-                    <label
-                        for="lp-pm-raast"
-                        class="lp-pm-pill lp-pm-pill-raast"
-                        style="cursor: pointer"
-                        >Raast</label
-                    >
-                    <label
-                        for="lp-pm-card"
-                        class="lp-pm-pill lp-pm-pill-card"
-                        style="cursor: pointer"
-                        >Visa / Mastercard</label
-                    >
-                </div>
-                <div class="lp-pm-fields lp-pm-fields-easy">
-                    <input
-                        type="tel"
-                        placeholder="Mobile number (03XXXXXXXXX)"
-                        class="lp-field"
-                    />
-                </div>
-                <div class="lp-pm-fields lp-pm-fields-bank">
-                    <input
-                        type="text"
-                        placeholder="IBAN (PK00XXXX…)"
-                        class="lp-field"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Bank name (e.g. HBL, UBL)"
-                        class="lp-field"
-                    />
-                </div>
-                <div class="lp-pm-fields lp-pm-fields-raast">
-                    <input
-                        type="text"
-                        placeholder="IBAN / Account number"
-                        class="lp-field"
-                    />
-                </div>
-                <div class="lp-pm-fields lp-pm-fields-card">
-                    <input
-                        type="text"
-                        placeholder="Name on card"
-                        class="lp-field"
-                    />
-                    <input
-                        type="tel"
-                        placeholder="Card number"
-                        class="lp-field"
-                    />
-                    <input type="tel" placeholder="CVV" class="lp-field" />
-                </div>
-            </div>
-
             <!-- Create account button -->
             <a
                 href="http://localhost:3000/dashboard"
@@ -2366,6 +2281,11 @@
                     />
                 </svg>
             </a>
+
+            <p class="auth-hint">
+                Your trusted identity for safe deals. Get verified and deal with
+                confidence
+            </p>
         </div>
     </div>
 </div>

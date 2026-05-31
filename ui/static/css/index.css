@@ -1048,28 +1048,6 @@ body:has(input[name="policy-toggle"]:checked) {
     overflow: visible;
 }
 
-/* Payment pill active states for step 3 */
-#lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-pill-easy,
-#lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-pill-bank,
-#lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-pill-raast,
-#lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-pill-card {
-    background: #0a0a0a;
-    color: #fff;
-    border-color: #0a0a0a;
-}
-#lp-pm-easy:checked ~ .auth-modal-overlay .lp-pm-fields-easy,
-#lp-pm-bank:checked ~ .auth-modal-overlay .lp-pm-fields-bank,
-#lp-pm-raast:checked ~ .auth-modal-overlay .lp-pm-fields-raast,
-#lp-pm-card:checked ~ .auth-modal-overlay .lp-pm-fields-card {
-    display: flex !important;
-}
-.lp-pm-fields {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
 /* Auth modal inner styles */
 .auth-modal {
     background: #fff;
@@ -1134,26 +1112,6 @@ body:has(input[name="policy-toggle"]:checked) {
     padding-right: 36px;
 }
 
-.lp-pm-pill {
-    padding: 7px 14px;
-    border: 1.5px solid rgba(0, 0, 0, 0.14);
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #6b6b6b;
-    font-family: "DM Sans", sans-serif;
-    transition: all 0.15s;
-    white-space: nowrap;
-}
-.lp-section-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #a8a8a8;
-    font-family: "DM Sans", sans-serif;
-}
 .lp-avatar-circle {
     width: 72px;
     height: 72px;

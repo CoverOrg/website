@@ -109,7 +109,7 @@ textarea::placeholder {
 }
 
 /* ══════════════════════════════════════════════════════════
-   ROUTING ENGINE — pure CSS radio-based router
+   ROUTING ENGINE
    ══════════════════════════════════════════════════════════ */
 
 /* ── App shell ── */
@@ -118,8 +118,7 @@ textarea::placeholder {
 #r-orders:checked ~ .root .app-shell,
 #r-seller:checked ~ .root .app-shell,
 #r-settings:checked ~ .root .app-shell,
-#r-modal-on:checked ~ .root .app-shell,
-#r-notifs:checked ~ .root .app-shell {
+#r-modal-on:checked ~ .root .app-shell {
     display: flex !important;
 }
 
@@ -127,10 +126,7 @@ textarea::placeholder {
 #r-home:checked ~ .root .nav-home,
 #r-new:checked ~ .root .nav-new,
 #r-orders:checked ~ .root .nav-orders,
-#r-seller:checked ~ .root .nav-seller,
-#r-settings:checked ~ .root .nav-settings,
-#r-modal-on:checked ~ .root .nav-settings,
-#r-notifs:checked ~ .root .nav-notifs {
+#r-seller:checked ~ .root .nav-seller {
     background: var(--ink);
     color: var(--white);
 }
@@ -141,8 +137,7 @@ textarea::placeholder {
 #r-orders:checked ~ .root .panel-orders,
 #r-seller:checked ~ .root .panel-seller,
 #r-settings:checked ~ .root .panel-settings,
-#r-modal-on:checked ~ .root .panel-settings,
-#r-notifs:checked ~ .root .panel-notifs {
+#r-modal-on:checked ~ .root .panel-settings {
     display: flex !important;
     animation: fadeUp 0.3s ease forwards;
 }
@@ -213,6 +208,146 @@ textarea::placeholder {
     background: var(--ink);
     color: var(--white);
     border-color: var(--ink);
+}
+
+/* ══════════════════════════════════════════════════════════
+   NOTIFICATION BELL + DROPDOWN
+   ══════════════════════════════════════════════════════════ */
+
+/* Bell button in page header */
+.notif-bell-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1.5px solid var(--border2);
+    cursor: pointer;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        color 0.15s;
+}
+.notif-bell-btn:hover {
+    background: var(--white);
+    border-color: var(--ink);
+    color: var(--ink);
+}
+#cb-notif-open:checked ~ .root .notif-bell-btn {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--white);
+}
+
+/* Badge on bell */
+.notif-bell-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 9px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid var(--white);
+    font-family: "DM Sans", sans-serif;
+}
+
+/* Dropdown container — sits as a fixed layer inside main */
+.notif-dropdown-wrap {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    pointer-events: none;
+}
+#cb-notif-open:checked ~ .root .notif-dropdown-wrap {
+    display: block;
+    pointer-events: all;
+}
+
+/* Transparent backdrop to close on outside click */
+.notif-backdrop {
+    position: fixed;
+    inset: 0;
+    cursor: default;
+    pointer-events: all;
+}
+
+/* The actual dropdown panel */
+.notif-dropdown {
+    position: fixed;
+    top: 64px;
+    right: 20px;
+    width: 360px;
+    max-height: 360px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.13),
+        0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow-y: auto;
+    pointer-events: all;
+    animation: fadeUp 0.2s ease forwards;
+}
+
+.notif-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 1;
+}
+
+/* Notif items inside dropdown — slightly compact */
+.notif-dropdown .notif-item {
+    padding: 14px 18px;
+    gap: 12px;
+}
+.notif-dropdown .notif-item:last-child {
+    border-bottom: none;
+}
+
+/* Mobile: full-width */
+@media (max-width: 767px) {
+    .notif-dropdown {
+        top: 60px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        border-radius: 14px;
+    }
+}
+
+/* ── Referral accordion ── */
+#cb-referral:checked ~ .root .edit-form-referral {
+    max-height: 900px;
+    opacity: 1;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-top: 1px solid var(--border);
+}
+#cb-referral:checked ~ .root .edit-btn-referral .btn-edit-open {
+    display: none;
+}
+#cb-referral:checked ~ .root .edit-btn-referral .btn-edit-close {
+    display: flex !important;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -507,7 +642,7 @@ textarea.field {
     flex-shrink: 0;
 }
 
-/* ── Notification badge ── */
+/* ── Notification badge (sidebar only, kept for any future use) ── */
 .notif-badge {
     min-width: 18px;
     height: 18px;
@@ -632,18 +767,18 @@ textarea.field {
 .logo-mark {
     width: 36px;
     height: 36px;
-    background: transparent; /* Changed from var(--ink) so your image background shows */
+    background: transparent;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    overflow: hidden; /* Ensures the image respects the border-radius */
+    overflow: hidden;
 }
 
 /* ── Page header ── */
 .page-header {
-    padding: 24px 28px 20px;
+    padding: 18px 28px 16px;
     border-bottom: 1px solid var(--border);
     background: var(--white);
     position: sticky;
@@ -741,12 +876,7 @@ textarea.field {
     gap: 12px;
 }
 
-/* ── Shield SVG inline ── */
-svg.shield path {
-    fill: currentColor;
-}
-
-/* ── Mobile bottom nav ────────────────────────────────── */
+/* ── Mobile bottom nav ── */
 .mobile-nav {
     display: none;
     position: fixed;
@@ -786,10 +916,6 @@ svg.shield path {
     font-weight: 600;
     letter-spacing: 0.02em;
     opacity: 0;
-    transform: translateY(4px);
-    transition:
-        opacity 0.18s ease,
-        transform 0.18s ease;
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -802,6 +928,9 @@ svg.shield path {
     font-size: 11px;
     pointer-events: none;
     margin-bottom: 6px;
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
 }
 .mobile-nav-item:hover .mobile-nav-label {
     opacity: 1;
@@ -816,15 +945,459 @@ svg.shield path {
     border: 5px solid transparent;
     border-top-color: var(--ink);
 }
-/* Active states */
+
+/* Active states - mobile nav (no settings) */
 #r-home:checked ~ .root .mobile-nav-item-home,
 #r-new:checked ~ .root .mobile-nav-item-new,
 #r-orders:checked ~ .root .mobile-nav-item-orders,
 #r-seller:checked ~ .root .mobile-nav-item-seller,
-#r-notifs:checked ~ .root .mobile-nav-item-notifs,
 #r-settings:checked ~ .root .mobile-nav-item-settings,
 #r-modal-on:checked ~ .root .mobile-nav-item-settings {
     color: var(--ink);
+}
+/* ── User chip (sidebar) ── */
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--surface);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        border-color 0.15s;
+    border: 1.5px solid transparent;
+    user-select: none;
+}
+.user-chip:hover {
+    background: var(--surface2);
+    border-color: var(--border2);
+}
+.user-chip.active {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+.user-chip.active .user-chip-name,
+.user-chip.active .user-chip-role {
+    color: white !important;
+}
+.user-chip.active .user-chip-avatar {
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+.user-chip-chevron {
+    color: var(--subtle);
+    flex-shrink: 0;
+    transition: transform 0.22s ease;
+}
+.user-chip.active .user-chip-chevron {
+    transform: rotate(180deg);
+    color: white;
+}
+
+/* ── Desktop user menu popup — JS-driven via .is-open ── */
+.user-menu {
+    position: fixed;
+    bottom: 72px;
+    left: 10px;
+    width: 212px;
+    background: var(--white);
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    box-shadow:
+        0 -4px 20px rgba(0, 0, 0, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 400;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+.user-menu.is-open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+/* ── User menu items ── */
+.user-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.13s;
+    width: 100%;
+}
+.user-menu-item:hover {
+    background: var(--surface);
+}
+.user-menu-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--muted);
+}
+.user-menu-item-danger {
+    color: var(--red);
+}
+.user-menu-item-danger:hover {
+    background: var(--red-bg);
+}
+.user-menu-icon-danger {
+    background: var(--red-bg);
+    color: var(--red);
+}
+
+/* ── Mobile user avatar in nav ── */
+.mobile-user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Syne", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* ── Mobile bottom sheet — JS-driven via .is-open ── */
+.mobile-user-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 150;
+    cursor: default;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+}
+.mobile-user-menu-backdrop.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-user-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 160;
+    background: var(--white);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.16);
+    padding-bottom: env(safe-area-inset-bottom, 12px);
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-user-menu.is-open {
+    transform: translateY(0);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.13s;
+    width: 100%;
+}
+.mobile-menu-item:hover {
+    background: var(--surface);
+}
+.mobile-menu-item-danger {
+    color: var(--red);
+}
+.mobile-menu-item-danger:hover {
+    background: var(--red-bg);
+}
+
+/* ══════════════════════════════════════════════════════════
+   NEW ORDER STEP INDICATOR — CSS driven
+   ══════════════════════════════════════════════════════════ */
+
+/* Base — all steps muted */
+.new-step {
+    color: var(--subtle);
+}
+.new-step-dot {
+    background: var(--surface2);
+    color: var(--subtle);
+    border: 1.5px solid var(--border2);
+}
+
+/* Step 1 active: Details */
+#r-new-form:checked ~ .root .new-step-1 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-new-form:checked ~ .root .new-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* Step 2 active: Payment — step 1 done (filled), step 2 active */
+#r-new-pay:checked ~ .root .new-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-new-pay:checked ~ .root .new-step-1 {
+    color: var(--ink);
+}
+#r-new-pay:checked ~ .root .new-step-2 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-new-pay:checked ~ .root .new-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* Step 3 active: Done — steps 1 & 2 done, step 3 active */
+#r-new-success:checked ~ .root .new-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-new-success:checked ~ .root .new-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-new-success:checked ~ .root .new-step-1 {
+    color: var(--ink);
+}
+#r-new-success:checked ~ .root .new-step-2 {
+    color: var(--ink);
+}
+#r-new-success:checked ~ .root .new-step-3 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-new-success:checked ~ .root .new-step-dot-3 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* ══════════════════════════════════════════════════════════
+   BUYER PAYOUT METHOD ACCORDION
+   ══════════════════════════════════════════════════════════ */
+#cb-payout-buyer:checked ~ .root .edit-form-payout-buyer {
+    max-height: 400px;
+    opacity: 1;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-top: 1px solid var(--border);
+}
+#cb-payout-buyer:checked ~ .root .edit-btn-payout-buyer .btn-edit-open {
+    display: none;
+}
+#cb-payout-buyer:checked ~ .root .edit-btn-payout-buyer .btn-edit-close {
+    display: flex !important;
+}
+
+/* ── Referral payout pills ── */
+#rpm-easy:checked ~ .root .rpm-pill-easy,
+#rpm-jazz:checked ~ .root .rpm-pill-jazz,
+#rpm-naya:checked ~ .root .rpm-pill-naya,
+#rpm-sada:checked ~ .root .rpm-pill-sada,
+#rpm-bank:checked ~ .root .rpm-pill-bank {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* Referral payout fields — hidden by default, no height so no gap */
+.rpm-fields {
+    display: none;
+}
+#rpm-easy:checked ~ .root .rpm-fields-easy,
+#rpm-jazz:checked ~ .root .rpm-fields-jazz,
+#rpm-naya:checked ~ .root .rpm-fields-naya,
+#rpm-sada:checked ~ .root .rpm-fields-sada {
+    display: block;
+}
+#rpm-bank:checked ~ .root .rpm-fields-bank {
+    display: block;
+}
+
+/* ── Orders step indicator ── */
+/* Default: step 1 active */
+.ord-step {
+    color: var(--subtle);
+}
+.ord-step-dot {
+    background: var(--surface2);
+    color: var(--subtle);
+    border: 1.5px solid var(--border2);
+}
+
+/* Step 1 active on list view */
+#r-ord-list:checked ~ .root .ord-step-1 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-ord-list:checked ~ .root .ord-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* Step 2 active on detail, confirm, dispute */
+#r-ord-detail:checked ~ .root .ord-step-dot-1,
+#r-ord-confirm:checked ~ .root .ord-step-dot-1,
+#r-ord-dispute:checked ~ .root .ord-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-ord-detail:checked ~ .root .ord-step-1,
+#r-ord-confirm:checked ~ .root .ord-step-1,
+#r-ord-dispute:checked ~ .root .ord-step-1 {
+    color: var(--ink);
+}
+#r-ord-detail:checked ~ .root .ord-step-2 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-ord-detail:checked ~ .root .ord-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* Step 3 active on confirm/dispute */
+#r-ord-confirm:checked ~ .root .ord-step-dot-2,
+#r-ord-dispute:checked ~ .root .ord-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-ord-confirm:checked ~ .root .ord-step-2,
+#r-ord-dispute:checked ~ .root .ord-step-2 {
+    color: var(--ink);
+}
+#r-ord-confirm:checked ~ .root .ord-step-3,
+#r-ord-dispute:checked ~ .root .ord-step-3 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-ord-confirm:checked ~ .root .ord-step-dot-3,
+#r-ord-dispute:checked ~ .root .ord-step-dot-3 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* ── Seller step indicator ── */
+.sel-step {
+    color: var(--subtle);
+}
+.sel-step-dot {
+    background: var(--surface2);
+    color: var(--subtle);
+    border: 1.5px solid var(--border2);
+}
+
+#r-sel-lookup:checked ~ .root .sel-step-1 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-sel-lookup:checked ~ .root .sel-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+#r-sel-order:checked ~ .root .sel-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-sel-order:checked ~ .root .sel-step-1 {
+    color: var(--ink);
+}
+#r-sel-order:checked ~ .root .sel-step-2 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-sel-order:checked ~ .root .sel-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+#r-sel-ship:checked ~ .root .sel-step-dot-1,
+#r-sel-shipped:checked ~ .root .sel-step-dot-1 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-sel-ship:checked ~ .root .sel-step-dot-2,
+#r-sel-shipped:checked ~ .root .sel-step-dot-2 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+#r-sel-ship:checked ~ .root .sel-step-1,
+#r-sel-shipped:checked ~ .root .sel-step-1,
+#r-sel-ship:checked ~ .root .sel-step-2,
+#r-sel-shipped:checked ~ .root .sel-step-2 {
+    color: var(--ink);
+}
+#r-sel-ship:checked ~ .root .sel-step-3,
+#r-sel-shipped:checked ~ .root .sel-step-3 {
+    color: var(--ink);
+    font-weight: 700;
+}
+#r-sel-ship:checked ~ .root .sel-step-dot-3,
+#r-sel-shipped:checked ~ .root .sel-step-dot-3 {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+}
+
+/* ── On desktop: never show mobile sheet ── */
+@media (min-width: 768px) {
+    .mobile-user-menu-backdrop,
+    .mobile-user-menu {
+        display: none !important;
+    }
+}
+/* ── On mobile: never show desktop popup ── */
+@media (max-width: 767px) {
+    .user-menu {
+        display: none !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -848,7 +1421,7 @@ svg.shield path {
         height: 100%;
     }
     .page-header {
-        padding: 16px 18px 14px !important;
+        padding: 13px 18px 12px !important;
     }
     .panel {
         flex: 1;
@@ -864,6 +1437,9 @@ svg.shield path {
     .stat-lbl {
         font-size: 9px !important;
         letter-spacing: 0.06em !important;
+    }
+    .notif-dropdown {
+        top: 52px;
     }
 }
 
@@ -885,25 +1461,8 @@ svg.shield path {
     opacity: 1;
     padding-top: 16px;
     padding-bottom: 16px;
-}
-#cb-edit-easy:checked ~ .root .edit-form-easy,
-#cb-edit-bank:checked ~ .root .edit-form-bank {
     display: block !important;
     animation: fadeUp 0.25s ease forwards;
-}
-#cb-edit-easy:checked ~ .root .edit-btn-easy .btn-edit-open {
-    display: flex;
-    align-items: center;
-}
-#cb-edit-easy:checked ~ .root .edit-btn-easy .btn-edit-close {
-    display: flex !important;
-}
-#cb-edit-bank:checked ~ .root .edit-btn-bank .btn-edit-open {
-    display: flex;
-    align-items: center;
-}
-#cb-edit-bank:checked ~ .root .edit-btn-bank .btn-edit-close {
-    display: flex !important;
 }
 
 /* ── Profile inline edit ── */
@@ -936,7 +1495,7 @@ svg.shield path {
     display: flex !important;
 }
 
-/* OTP step inside phone change */
+/* OTP step */
 #cb-phone-otp:checked ~ .root .phone-otp-step {
     display: flex !important;
 }
@@ -999,7 +1558,7 @@ svg.shield path {
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
 }
 
-/* ── Seller mode toggle (new order form) ── */
+/* ── Seller mode toggle ── */
 .seller-input-block {
     display: none;
 }
@@ -1021,69 +1580,21 @@ svg.shield path {
 }
 
 /* ── KYC payout pills ── */
-#spm-easy:checked ~ .root .spm-pill-easy {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-}
-#spm-jazz:checked ~ .root .spm-pill-jazz {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-}
-#spm-naya:checked ~ .root .spm-pill-naya {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-}
-#spm-sada:checked ~ .root .spm-pill-sada {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-}
-#spm-raast2:checked ~ .root .spm-pill-raast2 {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-}
+#spm-easy:checked ~ .root .spm-pill-easy,
+#spm-jazz:checked ~ .root .spm-pill-jazz,
+#spm-naya:checked ~ .root .spm-pill-naya,
+#spm-sada:checked ~ .root .spm-pill-sada,
+#spm-raast2:checked ~ .root .spm-pill-raast2,
 #spm-bank2:checked ~ .root .spm-pill-bank2 {
     background: var(--ink);
     color: var(--white);
     border-color: var(--ink);
 }
 
-#spm-easy:checked ~ .root .spm-fields-easy {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 200px;
-    opacity: 1;
-    padding-top: 12px;
-}
-#spm-jazz:checked ~ .root .spm-fields-jazz {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 200px;
-    opacity: 1;
-    padding-top: 12px;
-}
-#spm-naya:checked ~ .root .spm-fields-naya {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 200px;
-    opacity: 1;
-    padding-top: 12px;
-}
-#spm-sada:checked ~ .root .spm-fields-sada {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 200px;
-    opacity: 1;
-    padding-top: 12px;
-}
+#spm-easy:checked ~ .root .spm-fields-easy,
+#spm-jazz:checked ~ .root .spm-fields-jazz,
+#spm-naya:checked ~ .root .spm-fields-naya,
+#spm-sada:checked ~ .root .spm-fields-sada,
 #spm-raast2:checked ~ .root .spm-fields-raast2 {
     display: flex;
     flex-direction: column;
