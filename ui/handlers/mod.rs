@@ -3,6 +3,7 @@ pub mod kyc_documents;
 pub mod notifications;
 pub mod orders;
 pub mod otp_codes;
+pub mod payment_proofs;
 pub mod refresh_tokens;
 pub mod seller_acceptances;
 pub mod seller_payout_methods;

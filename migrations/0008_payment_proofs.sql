@@ -4,6 +4,7 @@ CREATE TYPE method_types AS ENUM (
     'nayapay',
     'sadapay',
     'raast',
+    'bank'
 );
 
 CREATE TABLE payment_proofs (
@@ -12,7 +13,6 @@ CREATE TABLE payment_proofs (
   method_type       method_types NOT NULL,
   transaction_id    VARCHAR(80) NOT NULL,
   screenshot_url    TEXT,
-  delivery_address  TEXT,
   submitted_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
