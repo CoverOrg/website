@@ -35,6 +35,7 @@ pub struct Users {
     pub is_buyer: bool,
     pub is_seller: bool,
     pub kyc_status: UserKycStatus,
+    pub seller_handle: String,
     pub id_card: Option<String>,
     pub phone_verified: bool,
     pub created_at: DateTime<Utc>,
@@ -50,6 +51,7 @@ pub struct UsersRequest {
     pub is_buyer: Option<bool>,
     pub is_seller: Option<bool>,
     pub id_card: Option<String>,
+    pub seller_handle: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -63,6 +65,7 @@ pub struct UsersResponse {
     pub is_seller: bool,
     pub kyc_status: UserKycStatus,
     pub id_card: Option<String>,
+    pub seller_handle: String,
     pub phone_verified: bool,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,

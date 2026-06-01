@@ -1,4 +1,4 @@
-use crate::models::notifications::{Channels, NotificationsRequest, NotificationsResponse, Types};
+use crate::models::notifications::{NotificationTypes, NotificationsRequest, NotificationsResponse};
 use axum::{Json, extract::State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};
@@ -6,7 +6,7 @@ use uuid::Uuid;
 
 pub async fn create_notification(
     State(pool): State<Pool<Postgres>>,
-    Json(payload): Json<NotificationsRequest>,
+    Json(request): Json<NotificationsRequest>,
 ) -> Result<Json<NotificationsResponse>, String> {
     let id = Uuid::now_v7();
     let now = Utc::now();
@@ -17,28 +17,22 @@ pub async fn create_notification(
         (
             id,
             user_id,
-            deal_id,
-            title,
+            order_id,
             notification_type,
             message,
-            channel,
             is_read,
-            sent_at,
             created_at
         )
         VALUES
-        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        ($1, $2, $3, $4, $5, $6, $7)
         ",
     )
     .bind(id)
     .bind(Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap())
     .bind(None::<Uuid>)
-    .bind(String::from("title"))
-    .bind(Types::DealUpdate)
+    .bind(NotificationTypes::OrderPaid)
     .bind(String::from("message"))
-    .bind(Channels::InApp)
-    .bind(&payload.is_read)
-    .bind(Some(now))
+    .bind(&request.is_read)
     .bind(now)
     .execute(&pool)
     .await
@@ -46,13 +40,11 @@ pub async fn create_notification(
 
     let response = NotificationsResponse {
         id,
-        deal_id: None::<Uuid>,
-        title: String::from("title"),
-        notification_type: Types::DealUpdate,
+        user_id: Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap(),
+        order_id: None::<Uuid>,
+        notification_type: NotificationTypes::OrderPaid,
         message: String::from("message"),
-        channel: Channels::InApp,
-        is_read: payload.is_read,
-        sent_at: Some(now),
+        is_read: request.is_read,
         created_at: now,
     };
 

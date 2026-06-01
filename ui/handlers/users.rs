@@ -26,6 +26,7 @@ pub async fn create_user(
             is_seller,
             kyc_status,
             id_card,
+            seller_handle,
             phone_verified,
             created_at,
             updated_at
@@ -34,7 +35,7 @@ pub async fn create_user(
         (
             $1, $2, $3, $4, $5,
             $6, $7, $8, $9, $10,
-            $11, $12
+            $11, $12, $13
         )
         ",
     )
@@ -47,6 +48,7 @@ pub async fn create_user(
     .bind(is_seller)
     .bind(UserKycStatus::None)
     .bind(&request.id_card)
+    .bind(&request.seller_handle)
     .bind(false)
     .bind(now)
     .bind(now)
@@ -65,6 +67,7 @@ pub async fn create_user(
         is_seller,
         kyc_status: UserKycStatus::None,
         id_card: request.id_card,
+        seller_handle: request.seller_handle,
         phone_verified: false,
         created_at: now,
         updated_at: now,
