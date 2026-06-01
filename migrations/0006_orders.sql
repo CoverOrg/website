@@ -1,3 +1,12 @@
+CREATE TYPE order_status AS ENUM (
+    'created',
+    'paid',
+    'seller_confirmed',
+    'shipped',
+    'delivered',
+    'released'
+);
+
 CREATE TABLE orders (
   id                    UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
   order_number          VARCHAR(14)  UNIQUE NOT NULL,  -- 'COV-XXXX-XXXX'
@@ -14,13 +23,13 @@ CREATE TABLE orders (
   product_name          VARCHAR(255) NOT NULL,
   product_link          TEXT,
   product_image_url     TEXT,
-  product_amount        DECIMAL(12,2) NOT NULL CHECK (product_amount > 0),
-  delivery_charges      DECIMAL(12,2) NOT NULL DEFAULT 0 CHECK (delivery_charges >= 0),
-  cover_fee             DECIMAL(12,2) NOT NULL,
+  product_amount        BIGINT NOT NULL CHECK (product_amount > 0),
+  delivery_charges      BIGINT NOT NULL DEFAULT 0 CHECK (delivery_charges >= 0),
+  cover_fee             BIGINT NOT NULL,
   -- = ceil((product_amount + delivery_charges) * 0.05 * 100) / 100
-  total_amount          DECIMAL(12,2) NOT NULL,
+  total_amount          BIGINT NOT NULL,
   -- = product_amount + delivery_charges + cover_fee
-  seller_payout         DECIMAL(12,2) NOT NULL,
+  seller_payout         BIGINT NOT NULL,
   -- = product_amount + delivery_charges  (no fee deducted from seller)
   currency              CHAR(3)       NOT NULL DEFAULT 'PKR',
   seller_name           VARCHAR(120)  NOT NULL,
