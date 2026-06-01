@@ -340,8 +340,11 @@ textarea::placeholder {
     max-height: 900px;
     opacity: 1;
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 20px;
     border-top: 1px solid var(--border);
+}
+#cb-referral:checked ~ .root .edit-form-referral {
+    display: flex !important;
 }
 #cb-referral:checked ~ .root .edit-btn-referral .btn-edit-open {
     display: none;
@@ -349,7 +352,6 @@ textarea::placeholder {
 #cb-referral:checked ~ .root .edit-btn-referral .btn-edit-close {
     display: flex !important;
 }
-
 /* ══════════════════════════════════════════════════════════
    COMPONENT STYLES
    ══════════════════════════════════════════════════════════ */
