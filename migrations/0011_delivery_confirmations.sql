@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS delivery_confirmations (
   order_id        UUID NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
   video_url       TEXT,
   notes           TEXT,
+  qr_scanned_at   TIMESTAMPTZ,
   confirmed_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

@@ -21,12 +21,13 @@ pub async fn create_delivery_confirmation(
             order_id,
             video_url,
             notes,
+            qr_scanned_at,
             confirmed_at,
         )
         VALUES
         (
             $1, $2, $3,
-            $4, $5
+            $4, $5, $6
         )
         ",
     )
@@ -44,6 +45,7 @@ pub async fn create_delivery_confirmation(
         order_id: request.order_id,
         video_url: request.video_url,
         notes: request.notes,
+        qr_scanned_at: now,
         confirmed_at: now,
     };
 
