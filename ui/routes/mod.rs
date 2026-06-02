@@ -8,6 +8,7 @@ pub mod orders;
 pub mod otp_codes;
 pub mod payment_proofs;
 pub mod referral_applications;
+pub mod referral_earnings;
 pub mod refresh_tokens;
 pub mod seller_acceptances;
 pub mod seller_payout_methods;

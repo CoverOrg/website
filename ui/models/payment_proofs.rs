@@ -19,8 +19,8 @@ pub enum MethodType {
 pub struct PaymentProofs {
     pub id: Uuid,
     pub order_id: Uuid,
+    pub transaction_id: Uuid,
     pub method_type: MethodType,
-    pub transaction_id: String,
     pub screenshot_url: String,
     pub submitted_at: DateTime<Utc>,
 }
@@ -28,8 +28,8 @@ pub struct PaymentProofs {
 #[derive(Debug, Deserialize)]
 pub struct PaymentProofsRequest {
     pub order_id: Uuid,
+    pub transaction_id: Uuid,
     pub method_type: MethodType,
-    pub transaction_id: String,
     pub screenshot_url: String,
 }
 
@@ -37,8 +37,8 @@ pub struct PaymentProofsRequest {
 pub struct PaymentProofsResponse {
     pub id: Uuid,
     pub order_id: Uuid,
+    pub transaction_id: Uuid,
     pub method_type: MethodType,
-    pub transaction_id: String,
     pub screenshot_url: String,
     pub submitted_at: DateTime<Utc>,
 }

@@ -43,8 +43,8 @@ pub async fn create_payment_proofs(
     let response = PaymentProofsResponse {
         id,
         order_id: request.order_id,
+        transaction_id: Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap(),
         method_type: request.method_type,
-        transaction_id: String::from("019e458c-23cc-7591-ad6c-25930e2ef0d8"),
         screenshot_url: request.screenshot_url,
         submitted_at: now,
     };
