@@ -18,7 +18,6 @@ pub struct DeliveryConfirmationsRequest {
     pub order_id: Uuid,
     pub video_url: String,
     pub notes: String,
-    pub qr_scanned_at: DateTime<Utc>,
 }
 
 #[derive(Debug, Serialize)]
