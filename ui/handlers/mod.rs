@@ -1,4 +1,5 @@
 pub mod buyer_payout_methods;
+pub mod delivery_confirmations;
 pub mod kyc_documents;
 pub mod notifications;
 pub mod orders;
