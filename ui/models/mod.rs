@@ -3,6 +3,7 @@ pub mod delivery_confirmations;
 pub mod disputes;
 pub mod kyc_documents;
 pub mod notifications;
+pub mod order_timeline;
 pub mod orders;
 pub mod otp_codes;
 pub mod payment_proofs;
