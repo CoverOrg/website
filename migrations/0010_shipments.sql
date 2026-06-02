@@ -34,7 +34,7 @@ CREATE TYPE bank_names AS ENUM (
     'habib_metropolitan'
 );
 
-CREATE TABLE shipments (
+CREATE TABLE IF NOT EXISTS shipments (
   id                    UUID             PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id              UUID             NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
   seller_acceptance_id  UUID             REFERENCES seller_acceptances(id),

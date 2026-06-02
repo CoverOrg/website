@@ -39,7 +39,7 @@ CREATE TYPE decisions AS ENUM (
     'rejected'
 );
 
-CREATE TABLE seller_acceptances (
+CREATE TABLE IF NOT EXISTS seller_acceptances (
   id                UUID             PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id          UUID             NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
   seller_name       VARCHAR(120)     NOT NULL,

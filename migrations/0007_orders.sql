@@ -7,7 +7,7 @@ CREATE TYPE order_status AS ENUM (
     'released'
 );
 
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
   id                    UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
   order_number          VARCHAR(14)  UNIQUE NOT NULL,  -- 'COV-XXXX-XXXX'
   buyer_id              UUID         NOT NULL REFERENCES users(id),

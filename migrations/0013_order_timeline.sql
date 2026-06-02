@@ -17,7 +17,7 @@ CREATE TYPE actor_type AS ENUM (
     'system',
 );
 
-CREATE TABLE order_timeline (
+CREATE TABLE IF NOT EXISTS order_timeline (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id    UUID NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
   status      order_timeline_status NOT NULL,

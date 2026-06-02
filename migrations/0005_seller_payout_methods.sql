@@ -29,7 +29,7 @@ CREATE TYPE bank_names AS ENUM (
     'habib_metropolitan'
 );
 
-CREATE TABLE seller_payout_methods (
+CREATE TABLE IF NOT EXISTS seller_payout_methods (
   id             UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id        UUID        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   method_type    method_types NOT NULL,

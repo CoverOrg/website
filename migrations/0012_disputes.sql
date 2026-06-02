@@ -15,7 +15,7 @@ CREATE TYPE dispute_status AS ENUM (
     'closed'
 );
 
-CREATE TABLE disputes (
+CREATE TABLE IF NOT EXISTS disputes (
   id               UUID           PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id         UUID           NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
   raised_by        UUID           NOT NULL REFERENCES users(id),

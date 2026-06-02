@@ -10,7 +10,7 @@ CREATE TYPE kyc_status AS ENUM (
     'rejected'
 );
 
-CREATE TABLE kyc_documents (
+CREATE TABLE IF NOT EXISTS kyc_documents (
   id             UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id        UUID         NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   doc_type       doc_types    NOT NULL,

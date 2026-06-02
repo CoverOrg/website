@@ -7,7 +7,7 @@ CREATE TYPE method_types AS ENUM (
     'bank'
 );
 
-CREATE TABLE payment_proofs (
+CREATE TABLE IF NOT EXISTS payment_proofs (
   id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id          UUID NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
   method_type       method_types NOT NULL,
