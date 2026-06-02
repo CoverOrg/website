@@ -9,6 +9,29 @@ CREATE TYPE pay_out_methods AS ENUM (
     'nayapay',
     'sadapay',
     'raast',
+    'bank'
+);
+
+CREATE TYPE bank_names AS ENUM (
+    'hbl',
+    'ubl',
+    'mcb',
+    'allied_bank',
+    'bank_alfalah',
+    'meezan_bank',
+    'askari_bank',
+    'bank_al_habib',
+    'faysal_bank',
+    'soneri_bank',
+    'js_bank',
+    'silkbank',
+    'summit_bank',
+    'bankislami',
+    'dubai_islamic_bank',
+    'standard_chartered',
+    'samba_bank',
+    'nbp',
+    'habib_metropolitan'
 );
 
 CREATE TABLE shipments (
@@ -18,11 +41,11 @@ CREATE TABLE shipments (
   tracking_id           VARCHAR(80)      NOT NULL,
   courier               courier_services NOT NULL,
   handover_video_url    TEXT,
-  payout_method_id      UUID             REFERENCES payout_methods(id),  -- seller's selected payout
   payout_method         pay_out_methods  NOT NULL,
   payout_account        VARCHAR(30),
   payout_holder         VARCHAR(120),
-  bank_name             VARCHAR(80),
+  bank_name             bank_names,
+  delivery_qr_token     VARCHAR(32)      NOT NULL,
   shipped_at            TIMESTAMPTZ      NOT NULL DEFAULT NOW()
 );
 
