@@ -31,8 +31,12 @@ pub async fn create_order(
             currency,
             seller_name,
             seller_whatsapp,
+            seller_handle,
             seller_accept_token,
+            delivery_qr_token,
+            last_seller_notified_at,
             delivery_address,
+            referred_by,
             created_at,
             updated_at,
             paid_at,
@@ -67,8 +71,12 @@ pub async fn create_order(
     .bind(String::from("PKR"))
     .bind(&request.seller_name)
     .bind(&request.seller_whatsapp)
+    .bind(&request.seller_handle)
     .bind(String::from("accept token"))
+    .bind(String::from("delivery_qr_token"))
+    .bind(now)
     .bind(&request.delivery_address)
+    .bind(Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap())
     .bind(now)
     .bind(now)
     .bind(Some(now))
@@ -97,7 +105,11 @@ pub async fn create_order(
         currency: String::from("PKR"),
         seller_name: request.seller_name,
         seller_whatsapp: request.seller_whatsapp,
+        seller_handle: request.seller_handle,
+        delivery_qr_token: String::from("delivery qr token"),
+        last_seller_notified_at: now,
         delivery_address: request.delivery_address,
+        referred_by: Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap(),
         created_at: now,
         updated_at: now,
         paid_at: Some(now),

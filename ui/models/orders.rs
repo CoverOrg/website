@@ -33,8 +33,12 @@ pub struct Orders {
     pub currency: String, // it can be converted to enum
     pub seller_name: String,
     pub seller_whatsapp: String,
+    pub seller_handle: String,
     pub seller_accept_token: String,
+    pub delivery_qr_token: String,
+    pub last_seller_notified_at: DateTime<Utc>,
     pub delivery_address: String,
+    pub referred_by: Uuid,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
     pub paid_at: Option<DateTime<Utc>>,
@@ -54,6 +58,7 @@ pub struct OrdersRequest {
     pub delivery_charges: i64,
     pub seller_name: String,
     pub seller_whatsapp: String,
+    pub seller_handle: String,
     pub delivery_address: String,
 }
 
@@ -75,7 +80,11 @@ pub struct OrdersResponse {
     pub currency: String,
     pub seller_name: String,
     pub seller_whatsapp: String,
+    pub seller_handle: String,
+    pub delivery_qr_token: String,
+    pub last_seller_notified_at: DateTime<Utc>,
     pub delivery_address: String,
+    pub referred_by: Uuid,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
     pub paid_at: Option<DateTime<Utc>>,
