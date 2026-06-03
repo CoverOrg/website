@@ -67,7 +67,7 @@ pub async fn create_user(
         is_seller,
         kyc_status: UserKycStatus::None,
         id_card: request.id_card,
-        seller_handle: request.seller_handle,
+        seller_handle: Some(request.seller_handle),
         phone_verified: false,
         created_at: now,
         updated_at: now,
