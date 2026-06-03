@@ -70,7 +70,6 @@ pub async fn create_user(
         seller_handle: Some(request.seller_handle),
         phone_verified: false,
         created_at: now,
-        updated_at: now,
     };
 
     Ok(Json(response))
