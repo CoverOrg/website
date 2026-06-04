@@ -48,9 +48,10 @@ pub struct Users {
 // ----------------------------------------
 //  REQUESTS - User request to the server
 // ----------------------------------------
-
-#[derive(Debug, Serialize, Deserialize)]
-pub enum Purpose {
+#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "otp_purpose", rename_all = "snake_case")]
+#[serde(rename_all = "snake_case")]
+pub enum OtpPurpose {
     Signup,
     Login,
     ChangeNumber,
@@ -71,14 +72,14 @@ pub struct UsersRequest {
 #[derive(Debug, Deserialize)]
 pub struct SendOtpRequest {
     pub phone: String,
-    pub purpose: Purpose,
+    pub purpose: OtpPurpose,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct VerifyOtpRequest {
     pub phone: String,
-    pub code: u32,
-    pub purpose: Purpose,
+    pub code: i32,
+    pub purpose: OtpPurpose,
 }
 
 #[derive(Debug, Deserialize)]
@@ -101,7 +102,6 @@ pub struct ConfirmPhoneRequest {
 // ---------------------------------------------
 //  REQUESTS - Server response to the frontend
 // ---------------------------------------------
-
 #[derive(Debug, Serialize)]
 pub struct UsersResponse {
     pub id: Uuid,
@@ -120,15 +120,15 @@ pub struct UsersResponse {
 
 #[derive(Debug, Serialize)]
 pub struct SendOtpResponse {
-    pub code: u32,
-    pub expires_in: DateTime<Utc>,
+    pub code: i32,
+    pub expires_at: DateTime<Utc>,
 }
 
 #[derive(Debug, Serialize)]
 pub struct VerifyOtpResponse {
     pub access_token: String,
     pub expires_token: String,
-    pub code: u32,
+    pub code: i32,
     pub user: UsersResponse,
 }
 
@@ -140,7 +140,7 @@ pub struct UpdateProfileResponse {
 #[derive(Debug, Serialize)]
 pub struct ChangePhoneResponse {
     pub code: String,
-    pub expires_in: DateTime<Utc>,
+    pub expires_at: DateTime<Utc>,
 }
 
 #[derive(Debug, Serialize)]

@@ -4,9 +4,9 @@ use sqlx::FromRow;
 use uuid::Uuid;
 
 #[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "pay_out_method", rename_all = "snake_case")]
+#[sqlx(type_name = "pay_out_methods", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
-pub enum PayoutMethod {
+pub enum PayoutMethods {
     Easypaisa,
     Jazzcash,
     Nayapay,
@@ -16,9 +16,9 @@ pub enum PayoutMethod {
 }
 
 #[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "courier_service", rename_all = "snake_case")]
+#[sqlx(type_name = "courier_services", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
-pub enum CourierService {
+pub enum CourierServices {
     TCS,
     Leopard,
 }
@@ -62,13 +62,13 @@ pub struct SellerAcceptances {
     pub user_id: Uuid,
     pub order_id: Uuid,
     pub seller_name: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: Option<String>,
     pub iban: Option<String>,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub decision: SellerDecision,
     pub rejection_reason: Option<String>,
     pub decision_at: DateTime<Utc>,
@@ -79,13 +79,13 @@ pub struct SellerAcceptancesRequest {
     pub user_id: Uuid,
     pub order_id: Uuid,
     pub seller_name: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: Option<String>,
     pub iban: Option<String>,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub decision: SellerDecision,
     pub rejection_reason: Option<String>,
 }
@@ -96,13 +96,13 @@ pub struct SellerAcceptancesResponse {
     pub user_id: Uuid,
     pub order_id: Uuid,
     pub seller_name: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: Option<String>,
     pub iban: Option<String>,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub decision: SellerDecision,
     pub rejection_reason: Option<String>,
     pub decision_at: DateTime<Utc>,

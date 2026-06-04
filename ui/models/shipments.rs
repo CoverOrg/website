@@ -1,13 +1,13 @@
-use crate::models::seller_acceptances::CourierService;
+use crate::models::seller_acceptances::CourierServices;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
 
 #[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "pay_out_method", rename_all = "snake_case")]
+#[sqlx(type_name = "pay_out_methods", rename_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
-pub enum PayoutMethod {
+pub enum PayoutMethods {
     Easypaisa,
     Jazzcash,
     Nayapay,
@@ -47,9 +47,9 @@ pub struct Shipments {
     pub order_id: Uuid,
     pub seller_acceptance_id: Uuid,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub handover_video_url: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: String,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,
@@ -62,9 +62,9 @@ pub struct ShipmentsRequest {
     pub order_id: Uuid,
     pub seller_acceptance_id: Uuid,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub handover_video_url: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: String,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,
@@ -76,9 +76,9 @@ pub struct ShipmentsResponse {
     pub order_id: Uuid,
     pub seller_acceptance_id: Uuid,
     pub tracking_id: String,
-    pub courier: CourierService,
+    pub courier: CourierServices,
     pub handover_video_url: String,
-    pub payout_method: PayoutMethod,
+    pub payout_method: PayoutMethods,
     pub payout_account: String,
     pub payout_holder: String,
     pub bank_name: Option<BankNames>,

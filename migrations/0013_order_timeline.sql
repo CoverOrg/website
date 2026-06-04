@@ -14,7 +14,7 @@ CREATE TYPE actor_type AS ENUM (
     'buyer',
     'seller',
     'admin',
-    'system',
+    'system'
 );
 
 CREATE TABLE IF NOT EXISTS order_timeline (

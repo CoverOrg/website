@@ -1,12 +1,3 @@
-CREATE TYPE method_types AS ENUM (
-    'easypaisa',
-    'jazzcash',
-    'nayapay',
-    'sadapay',
-    'raast',
-    'bank'
-);
-
 CREATE TABLE IF NOT EXISTS payment_proofs (
   id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id          UUID NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,

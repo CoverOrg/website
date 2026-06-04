@@ -26,33 +26,22 @@ use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() {
-    // let admin_pool = load_pool("ADMIN_URL").await;
+    let admin_pool = load_pool("ADMIN_URL").await;
     let app_pool = load_pool("APP_URL").await;
 
-    // sqlx::migrate!("../migrations")
-    //     .run(&admin_pool)
-    //     .await
-    //     .expect("migrations failed");
+    sqlx::migrate!("../migrations")
+        .run(&admin_pool)
+        .await
+        .expect("migrations failed");
 
-    // run_grants(&admin_pool).await;
+    run_grants(&admin_pool).await;
 
     let app = Router::new()
         // Pages
         .route("/", get(home))
         .route("/dashboard", get(dashboard))
         // APIs
-        // .nest("/users", user_routes())
-        // .nest("/sellers", seller_routes())
-        // .nest("/deals", deal_routes())
-        // .nest("/deal_timeline", deal_timeline_routes())
-        // .nest("/payment", payment_routes())
-        // .nest("/disputes", dispute_routes())
-        // .nest("/report", risk_report_routes())
-        // .nest("/notifications", notification_routes())
-        // .nest("/scams", scam_alert_routes())
-        // .nest("/otp", otp_routes())
-        // .nest("/sessions", session_routes())
-        // .nest("/verification", verification_routes())
+        .merge(routes::users::router())
         .nest_service(
             "/static",
             ServeDir::new(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),

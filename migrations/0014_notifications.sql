@@ -10,7 +10,7 @@ CREATE TYPE notification_types AS ENUM (
     'kyc_approved',
     'kyc_rejected',
     'referrel_approved',
-    'referrel_earned',
+    'referrel_earned'
 );
 
 CREATE TABLE notifications (

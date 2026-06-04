@@ -1,39 +1,3 @@
-CREATE TYPE courier_services AS ENUM (
-    'tcs',
-    'leopards'
-);
-
-CREATE TYPE pay_out_methods AS ENUM (
-    'easypaisa',
-    'jazzcash',
-    'nayapay',
-    'sadapay',
-    'raast',
-    'bank'
-);
-
-CREATE TYPE bank_names AS ENUM (
-    'hbl',
-    'ubl',
-    'mcb',
-    'allied_bank',
-    'bank_alfalah',
-    'meezan_bank',
-    'askari_bank',
-    'bank_al_habib',
-    'faysal_bank',
-    'soneri_bank',
-    'js_bank',
-    'silkbank',
-    'summit_bank',
-    'bankislami',
-    'dubai_islamic_bank',
-    'standard_chartered',
-    'samba_bank',
-    'nbp',
-    'habib_metropolitan'
-);
-
 CREATE TABLE IF NOT EXISTS shipments (
   id                    UUID             PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id              UUID             NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,
