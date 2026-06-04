@@ -1,6 +1,7 @@
 use crate::models::{
+    otp_codes::{SendOtpRequest, SendOtpResponse},
     types::UserKycStatus,
-    users::{SendOtpRequest, SendOtpResponse, UsersRequest, UsersResponse},
+    users::{UsersRequest, UsersResponse},
 };
 
 use axum::{Json, extract::State};

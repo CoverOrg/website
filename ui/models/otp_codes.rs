@@ -1,4 +1,4 @@
-use crate::models::types::OtpPurpose;
+use crate::models::{types::OtpPurpose, users::UsersResponse};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
@@ -30,4 +30,31 @@ pub struct OtpCodesResponse {
     pub expires_at: DateTime<Utc>,
     pub attempts: u16,
     pub created_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct SendOtpRequest {
+    pub phone: String,
+    pub purpose: OtpPurpose,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct VerifyOtpRequest {
+    pub phone: String,
+    pub code: i32,
+    pub purpose: OtpPurpose,
+}
+
+#[derive(Debug, Serialize)]
+pub struct SendOtpResponse {
+    pub code: i32,
+    pub expires_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Serialize)]
+pub struct VerifyOtpResponse {
+    pub access_token: String,
+    pub expires_token: String,
+    pub code: i32,
+    pub user: UsersResponse,
 }

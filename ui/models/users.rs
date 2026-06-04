@@ -1,4 +1,4 @@
-use crate::models::types::{OtpPurpose, UserCity, UserKycStatus};
+use crate::models::types::{UserCity, UserKycStatus};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
@@ -40,19 +40,6 @@ pub struct UsersRequest {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct SendOtpRequest {
-    pub phone: String,
-    pub purpose: OtpPurpose,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct VerifyOtpRequest {
-    pub phone: String,
-    pub code: i32,
-    pub purpose: OtpPurpose,
-}
-
-#[derive(Debug, Deserialize)]
 pub struct UpdateProfileRequest {
     pub name: Option<String>,
     pub city: Option<UserCity>,
@@ -86,20 +73,6 @@ pub struct UsersResponse {
     pub seller_handle: Option<String>,
     pub phone_verified: bool,
     pub created_at: DateTime<Utc>,
-}
-
-#[derive(Debug, Serialize)]
-pub struct SendOtpResponse {
-    pub code: i32,
-    pub expires_at: DateTime<Utc>,
-}
-
-#[derive(Debug, Serialize)]
-pub struct VerifyOtpResponse {
-    pub access_token: String,
-    pub expires_token: String,
-    pub code: i32,
-    pub user: UsersResponse,
 }
 
 #[derive(Debug, Serialize)]
