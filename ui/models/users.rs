@@ -1,3 +1,4 @@
+use crate::models::types::{OtpPurpose, UserCity, UserKycStatus};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
@@ -6,28 +7,6 @@ use uuid::Uuid;
 // ------------------------------------
 //  USER INFORMATION IN THE DATABASE
 // ------------------------------------
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "user_city", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum UserCity {
-    Islamabad,
-    Lahore,
-    Karachi,
-    Faisalabad,
-    Quetta,
-    Peshawar,
-}
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "user_kyc_status", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum UserKycStatus {
-    None,
-    Pending,
-    Approved,
-    Rejected,
-}
-
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Users {
     pub id: Uuid,
@@ -48,15 +27,6 @@ pub struct Users {
 // ----------------------------------------
 //  REQUESTS - User request to the server
 // ----------------------------------------
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "otp_purpose", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum OtpPurpose {
-    Signup,
-    Login,
-    ChangeNumber,
-}
-
 #[derive(Debug, Deserialize)]
 pub struct UsersRequest {
     pub phone: String,
@@ -83,9 +53,9 @@ pub struct VerifyOtpRequest {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct UpddateProfileRequest {
+pub struct UpdateProfileRequest {
     pub name: Option<String>,
-    pub city: Option<String>,
+    pub city: Option<UserCity>,
 }
 
 #[derive(Debug, Deserialize)]

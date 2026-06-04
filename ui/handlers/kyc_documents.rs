@@ -1,4 +1,7 @@
-use crate::models::kyc_documents::{KycDocumentsRequest, KycDocumentsResponse, KycStatus};
+use crate::models::{
+    kyc_documents::{KycDocumentsRequest, KycDocumentsResponse},
+    types::KycStatus,
+};
 use axum::{Json, extract::State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};

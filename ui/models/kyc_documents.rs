@@ -1,25 +1,8 @@
+use crate::models::types::{DocType, KycStatus};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "doc_type", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum DocType {
-    IDFront,
-    IDBack,
-    SelfieVideo,
-}
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "kyc_status", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum KycStatus {
-    Pending,
-    Approved,
-    Rejected,
-}
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct KycDocuments {

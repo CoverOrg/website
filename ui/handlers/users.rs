@@ -1,6 +1,8 @@
-use crate::models::users::{
-    SendOtpRequest, SendOtpResponse, UserKycStatus, UsersRequest, UsersResponse,
+use crate::models::{
+    types::UserKycStatus,
+    users::{SendOtpRequest, SendOtpResponse, UsersRequest, UsersResponse},
 };
+
 use axum::{Json, extract::State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};
@@ -94,7 +96,7 @@ pub async fn create_user(
     .bind(&request.avatar_url)
     .bind(is_buyer)
     .bind(is_seller)
-    .bind(UserKycStatus::None)
+    .bind(UserKycStatus::NotSubmitted)
     .bind(&request.id_card)
     .bind(&request.seller_handle)
     .bind(false)
@@ -112,7 +114,7 @@ pub async fn create_user(
         avatar_url: request.avatar_url,
         is_buyer,
         is_seller,
-        kyc_status: UserKycStatus::None,
+        kyc_status: UserKycStatus::NotSubmitted,
         id_card: request.id_card,
         seller_handle: Some(request.seller_handle),
         phone_verified: false,

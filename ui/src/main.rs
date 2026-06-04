@@ -16,10 +16,6 @@ pub mod pages;
 use crate::{
     db::{bootstrap::run_grants, connection::load_pool},
     pages::{dashboard::dashboard, home::home},
-    routes::{
-        kyc_documents::kyc_documents_routes, notifications::notification_routes,
-        otp_codes::otp_routes, users::user_routes,
-    },
 };
 use axum::{Router, routing::get};
 use tower_http::services::ServeDir;

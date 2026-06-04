@@ -1,19 +1,8 @@
+use crate::models::types::OrderStatus;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "order_status", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum OrderStatus {
-    Created,
-    Paid,
-    SellerConfirmed,
-    Shipped,
-    Delivered,
-    Released,
-}
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Orders {

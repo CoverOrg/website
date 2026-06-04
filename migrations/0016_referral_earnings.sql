@@ -1,9 +1,3 @@
-CREATE TYPE earning_status AS ENUM (
-    'pending',
-    'paid_out',
-    'cancelled'
-);
-
 CREATE TABLE referral_earnings (
   id              UUID            PRIMARY KEY DEFAULT gen_random_uuid(),
   referrer_id     UUID            NOT NULL REFERENCES users(id),

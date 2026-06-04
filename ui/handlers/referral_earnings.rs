@@ -1,4 +1,4 @@
-use crate::models::referral_earnings::{EarningStatus, ReferralEarningsResponse};
+use crate::models::{referral_earnings::ReferralEarningsResponse, types::EarningStatus};
 use axum::{Json, extract::State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};

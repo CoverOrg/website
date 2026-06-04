@@ -1,16 +1,8 @@
+use crate::models::types::OtpPurpose;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
 use uuid::Uuid;
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "otp_purpose", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum OtpPurpose {
-    Signup,
-    Login,
-    ChangePhone,
-}
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct OtpCodes {

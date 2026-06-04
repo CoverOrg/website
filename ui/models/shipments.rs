@@ -1,45 +1,8 @@
-use crate::models::seller_acceptances::CourierServices;
+use crate::models::types::{BankNames, CourierServices, PayoutMethods};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "pay_out_methods", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum PayoutMethods {
-    Easypaisa,
-    Jazzcash,
-    Nayapay,
-    Sadapay,
-    Raast,
-    Bank,
-}
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "bank_name", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum BankNames {
-    Hbl,
-    Ubl,
-    Mcb,
-    AlliedBank,
-    BankAlfalah,
-    MeezanBank,
-    AskariBank,
-    BankAlHabib,
-    FaysalBank,
-    SoneriBank,
-    JsBank,
-    Silkbank,
-    SummitBank,
-    Bankislami,
-    DubaiIslamicBank,
-    StandardChartered,
-    SambaBank,
-    Nbp,
-    HabibMetropolitan,
-}
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Shipments {

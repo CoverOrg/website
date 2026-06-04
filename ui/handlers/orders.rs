@@ -1,4 +1,7 @@
-use crate::models::orders::{OrderStatus, OrdersRequest, OrdersResponse};
+use crate::models::{
+    orders::{OrdersRequest, OrdersResponse},
+    types::OrderStatus,
+};
 use axum::{Json, extract::State};
 use chrono::Utc;
 use sqlx::{Pool, Postgres};

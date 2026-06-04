@@ -1,20 +1,3 @@
-CREATE TYPE dispute_reason AS ENUM (
-    'item_not_received',
-    'not_as_described',
-    'damaged',
-    'seller_not_responding',
-    'suspected_scam',
-    'other'
-);
-
-CREATE TYPE dispute_status AS ENUM (
-    'open',
-    'under_review',
-    'resolved_refund',
-    'resolved_release',
-    'closed'
-);
-
 CREATE TABLE IF NOT EXISTS disputes (
   id               UUID           PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id         UUID           NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,

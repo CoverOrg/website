@@ -3,42 +3,7 @@ use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "method_types", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum MethodTypes {
-    Easypaisa,
-    Jazzcash,
-    Nayapay,
-    Sadapay,
-    Raast,
-    Bank,
-}
-
-#[derive(Debug, Serialize, Deserialize, sqlx::Type)]
-#[sqlx(type_name = "bank_names", rename_all = "snake_case")]
-#[serde(rename_all = "snake_case")]
-pub enum BankNames {
-    Hbl,
-    Ubl,
-    Mcb,
-    AlliedBank,
-    BankAlfalah,
-    MeezanBank,
-    AskariBank,
-    BankAlHabib,
-    FaysalBank,
-    SoneriBank,
-    JsBank,
-    Silkbank,
-    SummitBank,
-    Bankislami,
-    DubaiIslamicBank,
-    StandardChartered,
-    SambaBank,
-    Nbp,
-    HabibMetropolitan,
-}
+use crate::models::types::{BankNames, MethodTypes};
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct SellerPayoutMethods {

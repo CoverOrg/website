@@ -1,22 +1,3 @@
-CREATE TYPE pay_out_methods AS ENUM (
-    'easypaisa',
-    'jazzcash',
-    'nayapay',
-    'sadapay',
-    'raast',
-    'bank'
-);
-
-CREATE TYPE courier_services AS ENUM (
-    'tcs',
-    'leopards'
-);
-
-CREATE TYPE seller_decision AS ENUM (
-    'accepted',
-    'rejected'
-);
-
 CREATE TABLE IF NOT EXISTS seller_acceptances (
   id                UUID             PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id          UUID             NOT NULL UNIQUE REFERENCES orders(id) ON DELETE CASCADE,

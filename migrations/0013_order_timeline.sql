@@ -1,22 +1,3 @@
-CREATE TYPE order_timeline_status AS ENUM (
-    'created',
-    'paid',
-    'seller_confirmed',
-    'shipped',
-    'delivered',
-    'released',
-    'disputed',
-    'cancelled',
-    'refunded'
-);
-
-CREATE TYPE actor_type AS ENUM (
-    'buyer',
-    'seller',
-    'admin',
-    'system'
-);
-
 CREATE TABLE IF NOT EXISTS order_timeline (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   order_id    UUID NOT NULL REFERENCES orders(id) ON DELETE CASCADE,

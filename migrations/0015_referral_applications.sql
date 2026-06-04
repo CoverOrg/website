@@ -1,27 +1,3 @@
-CREATE TYPE referral_methods AS ENUM (
-    'social_media',
-    'whatsapp_groups',
-    'youtube',
-    'blog',
-    'word_of_mouth',
-    'marketplace_communities',
-    'other'
-);
-
-CREATE TYPE reach_estimated AS ENUM (
-    'under_100',
-    '100_500',
-    '500_2000',
-    '2000_10000',
-    '10000_plus'
-);
-
-CREATE TYPE application_status AS ENUM (
-    'pending',
-    'approved',
-    'rejected'
-);
-
 CREATE TABLE referral_applications (
   id               UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id          UUID        NOT NULL UNIQUE REFERENCES users(id) ON DELETE CASCADE,

@@ -1,18 +1,3 @@
-CREATE TYPE notification_types AS ENUM (
-    'order_paid',
-    'order_confirmed',
-    'order_shipped',
-    'order_rejected',
-    'delivery_confirmed',
-    'payment_released',
-    'dispute_opened',
-    'dispute_resolved',
-    'kyc_approved',
-    'kyc_rejected',
-    'referrel_approved',
-    'referrel_earned'
-);
-
 CREATE TABLE notifications (
   id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id           UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,

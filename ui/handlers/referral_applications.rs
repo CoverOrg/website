@@ -1,5 +1,6 @@
-use crate::models::referral_applications::{
-    ApplicationStatus, ReferralApplicationsRequest, ReferralApplicationsResponse,
+use crate::models::{
+    referral_applications::{ReferralApplicationsRequest, ReferralApplicationsResponse},
+    types::ApplicationStatus,
 };
 use axum::{Json, extract::State};
 use chrono::Utc;

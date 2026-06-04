@@ -1,9 +1,3 @@
-CREATE TYPE otp_purpose AS ENUM (
-    'signup',
-    'login',
-    'change_phone'
-);
-
 CREATE TABLE IF NOT EXISTS otp_codes (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   phone       VARCHAR(15) NOT NULL,
