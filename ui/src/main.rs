@@ -37,7 +37,7 @@ async fn main() {
         .route("/", get(home))
         .route("/dashboard", get(dashboard))
         // APIs
-        .merge(routes::users::router())
+        .merge(routes::otp_codes::router())
         .nest_service(
             "/static",
             ServeDir::new(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),

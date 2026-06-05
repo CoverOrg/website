@@ -8,11 +8,11 @@ use uuid::Uuid;
 pub struct OtpCodes {
     pub id: Uuid,
     pub phone: String,
-    pub code: String,
+    pub code: i32,
     pub purpose: OtpPurpose,
     pub expires_at: DateTime<Utc>,
     pub used_at: Option<DateTime<Utc>>,
-    pub attempts: u16,
+    pub attempts: i16,
     pub created_at: DateTime<Utc>,
 }
 
@@ -28,9 +28,11 @@ pub struct OtpCodesResponse {
     pub phone: String,
     pub purpose: OtpPurpose,
     pub expires_at: DateTime<Utc>,
-    pub attempts: u16,
+    pub attempts: i16,
     pub created_at: DateTime<Utc>,
 }
+
+// ----------------------------------------
 
 #[derive(Debug, Deserialize)]
 pub struct SendOtpRequest {

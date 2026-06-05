@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS otp_codes (
   id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   phone       VARCHAR(15) NOT NULL,
-  code        VARCHAR(6)  NOT NULL,
+  code        INTEGER     NOT NULL,
   purpose     otp_purpose NOT NULL,
   expires_at  TIMESTAMPTZ NOT NULL,
   used_at     TIMESTAMPTZ,
