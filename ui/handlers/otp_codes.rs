@@ -3,8 +3,7 @@ use crate::models::{
         OtpCodes, OtpCodesRequest, OtpCodesResponse, SendOtpRequest, SendOtpResponse,
         VerifyOtpRequest, VerifyOtpResponse,
     },
-    types::{OtpPurpose, UserKycStatus},
-    users::UsersResponse,
+    users::{Users, UsersResponse},
 };
 use axum::{Json, extract::State};
 use chrono::{Duration, Utc};
@@ -70,43 +69,53 @@ pub async fn verify_otp(
     State(pool): State<PgPool>,
     Json(request): Json<VerifyOtpRequest>,
 ) -> Result<Json<VerifyOtpResponse>, String> {
-    let _otp: OtpCodes = sqlx::query_as::<_, OtpCodes>(
+    let now = Utc::now();
+    let otp = sqlx::query_as::<_, OtpCodes>(
         "
-            SELECT * FROM otp_codes WHERE
-            phone = $1 AND
-            code = $2 AND
-            purpose = $3 AND
-            expires_at > NOW() AND
-            used_at IS NULL AND
-            attempts < 5
+            SELECT * FROM otp_codes
+            WHERE phone = $1
+            AND code = $2
+            AND purpose = $3
+            AND expires_at > NOW()
+            AND used_at IS NULL
+            AND attempts < 5
             LIMIT 1
         ",
     )
     .bind(&request.phone)
-    .bind(&request.code)
-    .bind(request.purpose as OtpPurpose)
+    .bind(request.code)
+    .bind(request.purpose)
+    .fetch_one(&pool)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    // mark otp as used
+    sqlx::query("UPDATE otp_codes SET used_at = NOW() WHERE id = $1")
+        .bind(otp.id)
+        .execute(&pool)
+        .await
+        .map_err(|e| e.to_string())?;
+
+    // fetch or create the user
+    let user = sqlx::query_as::<_, Users>(
+        "
+            INSERT INTO users (id, phone, phone_verified, created_at, updated_at)
+            VALUES ($1, $2, true, NOW(), NOW())
+            ON CONFLICT (phone) DO UPDATE SET phone_verified = true, updated_at = NOW()
+            RETURNING *
+        ",
+    )
+    .bind(Uuid::now_v7())
+    .bind(request.phone)
     .fetch_one(&pool)
     .await
     .map_err(|e| e.to_string())?;
 
     Ok(Json(VerifyOtpResponse {
-        access_token: "generate_jwt_token".to_string(),
-        expires_token: "generate_refresh_token".to_string(),
-        code: 900,
-        user: UsersResponse {
-            id: Uuid::nil(), // empty uuid — all zeros
-            phone: request.phone,
-            name: None,
-            city: None,
-            avatar_url: None,
-            is_buyer: true,
-            is_seller: false,
-            kyc_status: UserKycStatus::NotSubmitted,
-            id_card: None,
-            seller_handle: None,
-            phone_verified: false,
-            created_at: Utc::now(),
-        },
+        access_token: "generate_jwt_here".to_string(),
+        expires_token: "generate_refresh_here".to_string(),
+        expires_at: now,
+        user: UsersResponse::from(user),
     }))
 }
 

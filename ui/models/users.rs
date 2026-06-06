@@ -57,7 +57,7 @@ pub struct ConfirmPhoneRequest {
 }
 
 // ---------------------------------------------
-//  REQUESTS - Server response to the frontend
+//  RESPONSES - Server response to the frontend
 // ---------------------------------------------
 #[derive(Debug, Serialize)]
 pub struct UsersResponse {

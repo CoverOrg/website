@@ -57,6 +57,6 @@ pub struct SendOtpResponse {
 pub struct VerifyOtpResponse {
     pub access_token: String,
     pub expires_token: String,
-    pub code: i32,
+    pub expires_at: DateTime<Utc>,
     pub user: UsersResponse,
 }
