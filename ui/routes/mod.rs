@@ -13,4 +13,4 @@ pub mod refresh_tokens;
 pub mod seller_acceptances;
 pub mod seller_payout_methods;
 pub mod shipments;
-pub mod users;
+pub mod user_profiles;

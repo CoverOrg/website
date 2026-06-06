@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS orders (
   currency                 CHAR(3)       NOT NULL DEFAULT 'PKR',
   seller_name              VARCHAR(120)  NOT NULL,
   seller_whatsapp          VARCHAR(20)   NOT NULL,
-  seller_handle            VARCHAR(30)   REFERENCES users(seller_handle),
+  seller_handle            VARCHAR(30)   REFERENCES user_profiles(seller_handle),
   -- Token embedded in the WhatsApp link for unauthenticated seller access
   -- cover.mom/{order_number}?t={seller_accept_token}
   seller_accept_token      VARCHAR(32)   NOT NULL DEFAULT '',

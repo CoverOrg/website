@@ -1,4 +1,3 @@
-use crate::models::types::{UserCity, UserKycStatus};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
@@ -11,14 +10,6 @@ use uuid::Uuid;
 pub struct Users {
     pub id: Uuid,
     pub phone: String,
-    pub name: Option<String>,
-    pub city: Option<UserCity>,
-    pub avatar_url: Option<String>,
-    pub is_buyer: bool,
-    pub is_seller: bool,
-    pub kyc_status: UserKycStatus,
-    pub seller_handle: Option<String>,
-    pub id_card: Option<String>,
     pub phone_verified: bool,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
@@ -30,30 +21,6 @@ pub struct Users {
 #[derive(Debug, Deserialize)]
 pub struct UsersRequest {
     pub phone: String,
-    pub name: Option<String>,
-    pub city: Option<UserCity>,
-    pub avatar_url: Option<String>,
-    pub is_buyer: Option<bool>,
-    pub is_seller: Option<bool>,
-    pub id_card: Option<String>,
-    pub seller_handle: String,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct UpdateProfileRequest {
-    pub name: Option<String>,
-    pub city: Option<UserCity>,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct ChangePhoneRequest {
-    pub new_phone: String,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct ConfirmPhoneRequest {
-    pub new_phone: String,
-    pub code: String,
 }
 
 // ---------------------------------------------
@@ -63,32 +30,8 @@ pub struct ConfirmPhoneRequest {
 pub struct UsersResponse {
     pub id: Uuid,
     pub phone: String,
-    pub name: Option<String>,
-    pub city: Option<UserCity>,
-    pub avatar_url: Option<String>,
-    pub is_buyer: bool,
-    pub is_seller: bool,
-    pub kyc_status: UserKycStatus,
-    pub id_card: Option<String>,
-    pub seller_handle: Option<String>,
     pub phone_verified: bool,
     pub created_at: DateTime<Utc>,
-}
-
-#[derive(Debug, Serialize)]
-pub struct UpdateProfileResponse {
-    pub user: UsersResponse,
-}
-
-#[derive(Debug, Serialize)]
-pub struct ChangePhoneResponse {
-    pub code: String,
-    pub expires_at: DateTime<Utc>,
-}
-
-#[derive(Debug, Serialize)]
-pub struct ConfirmPhoneResponse {
-    pub user: UsersResponse,
 }
 
 impl From<Users> for UsersResponse {
@@ -96,14 +39,6 @@ impl From<Users> for UsersResponse {
         Self {
             id: u.id,
             phone: u.phone,
-            name: u.name,
-            city: u.city,
-            avatar_url: u.avatar_url,
-            is_buyer: u.is_buyer,
-            is_seller: u.is_seller,
-            kyc_status: u.kyc_status,
-            seller_handle: u.seller_handle,
-            id_card: u.id_card,
             phone_verified: u.phone_verified,
             created_at: u.created_at,
         }

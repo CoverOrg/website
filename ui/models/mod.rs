@@ -14,4 +14,5 @@ pub mod seller_acceptances;
 pub mod seller_payout_methods;
 pub mod shipments;
 pub mod types;
+pub mod user_profiles;
 pub mod users;
