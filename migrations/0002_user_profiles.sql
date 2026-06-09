@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS user_profiles (
-    id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id          UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     name             VARCHAR(120),
-    city             user_city   NOT NULL,
+    city             user_city,
     avatar_url       TEXT,
     is_buyer         BOOLEAN     NOT NULL DEFAULT TRUE,
     is_seller        BOOLEAN     NOT NULL DEFAULT FALSE,
-    seller_handle    VARCHAR(30) NOT NULL UNIQUE,
+    seller_handle    VARCHAR(30) UNIQUE,
     id_card          VARCHAR(20) UNIQUE,          -- set when KYC submitted
     kyc_status       user_kyc_status NOT NULL DEFAULT 'not_submitted',
     created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW(),

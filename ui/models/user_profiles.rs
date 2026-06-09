@@ -9,13 +9,13 @@ use uuid::Uuid;
 // ------------------------------------
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct UserProfiles {
-    pub id: Uuid,
-    pub name: String,
-    pub city: UserCity,
+    pub user_id: Uuid,
+    pub name: Option<String>,
+    pub city: Option<UserCity>,
     pub avatar_url: Option<String>,
     pub is_buyer: bool,
     pub is_seller: bool,
-    pub seller_handle: String,
+    pub seller_handle: Option<String>,
     pub id_card: Option<String>,
     pub kyc_status: UserKycStatus,
     pub created_at: DateTime<Utc>,
@@ -27,19 +27,20 @@ pub struct UserProfiles {
 // ----------------------------------------
 #[derive(Debug, Deserialize)]
 pub struct UserProfilesRequest {
-    pub name: String,
-    pub city: UserCity,
+    pub user_id: Uuid, // this would come from jwt
+    pub name: Option<String>,
+    pub city: Option<UserCity>,
     pub avatar_url: Option<String>,
     pub is_buyer: Option<bool>,
     pub is_seller: Option<bool>,
-    pub seller_handle: String,
+    pub seller_handle: Option<String>,
     pub id_card: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct UpdateProfileRequest {
-    pub name: String,
-    pub city: UserCity,
+    pub name: Option<String>,
+    pub city: Option<UserCity>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -59,12 +60,12 @@ pub struct ConfirmPhoneRequest {
 #[derive(Debug, Serialize)]
 pub struct UserProfilesResponse {
     pub id: Uuid,
-    pub name: String,
-    pub city: UserCity,
+    pub name: Option<String>,
+    pub city: Option<UserCity>,
     pub avatar_url: Option<String>,
     pub is_buyer: bool,
     pub is_seller: bool,
-    pub seller_handle: String,
+    pub seller_handle: Option<String>,
     pub id_card: Option<String>,
     pub kyc_status: UserKycStatus,
     pub created_at: DateTime<Utc>,
@@ -77,7 +78,7 @@ pub struct UpdateProfileResponse {
 
 #[derive(Debug, Serialize)]
 pub struct ChangePhoneResponse {
-    pub code: String,
+    pub message: String,
     pub expires_at: DateTime<Utc>,
 }
 
@@ -89,7 +90,7 @@ pub struct ConfirmPhoneResponse {
 impl From<UserProfiles> for UserProfilesResponse {
     fn from(u: UserProfiles) -> Self {
         Self {
-            id: u.id,
+            id: u.user_id,
             name: u.name,
             city: u.city,
             avatar_url: u.avatar_url,
