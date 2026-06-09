@@ -37,7 +37,8 @@ async fn main() {
         .route("/", get(home))
         .route("/dashboard", get(dashboard))
         // APIs
-        .merge(routes::otp_codes::router())
+        .merge(routes::otp_codes::otp_routes())
+        .merge(routes::buyer_payout_methods::buyer_payout_method_routes())
         .merge(routes::user_profiles::user_profile_routes())
         .nest_service(
             "/static",

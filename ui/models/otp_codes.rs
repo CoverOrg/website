@@ -22,24 +22,6 @@ pub struct OtpCodesRequest {
     pub purpose: OtpPurpose,
 }
 
-#[derive(Debug, Serialize)]
-pub struct OtpCodesResponse {
-    pub id: Uuid,
-    pub phone: String,
-    pub purpose: OtpPurpose,
-    pub expires_at: DateTime<Utc>,
-    pub attempts: i16,
-    pub created_at: DateTime<Utc>,
-}
-
-// ----------------------------------------
-
-#[derive(Debug, Deserialize)]
-pub struct SendOtpRequest {
-    pub phone: String,
-    pub purpose: OtpPurpose,
-}
-
 #[derive(Debug, Deserialize)]
 pub struct VerifyOtpRequest {
     pub phone: String,
@@ -48,7 +30,7 @@ pub struct VerifyOtpRequest {
 }
 
 #[derive(Debug, Serialize)]
-pub struct SendOtpResponse {
+pub struct OtpCodesResponse {
     pub code: i32,
     pub expires_at: DateTime<Utc>,
 }
@@ -59,4 +41,13 @@ pub struct VerifyOtpResponse {
     pub expires_token: String,
     pub expires_at: DateTime<Utc>,
     pub user: UsersResponse,
+}
+
+impl From<OtpCodes> for OtpCodesResponse {
+    fn from(o: OtpCodes) -> Self {
+        Self {
+            code: o.code,
+            expires_at: o.expires_at,
+        }
+    }
 }

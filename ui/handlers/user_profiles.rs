@@ -28,8 +28,8 @@ pub async fn create_user_profile(
             created_at,
             updated_at
         )
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW(), NOW())
-            RETURNING *
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW(), NOW())
+        RETURNING *
         ",
     )
     .bind(request.user_id)
