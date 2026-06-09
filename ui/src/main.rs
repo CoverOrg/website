@@ -38,8 +38,11 @@ async fn main() {
         .route("/dashboard", get(dashboard))
         // APIs
         .merge(routes::otp_codes::otp_routes())
-        .merge(routes::buyer_payout_methods::buyer_payout_method_routes())
         .merge(routes::user_profiles::user_profile_routes())
+        .merge(routes::refresh_tokens::refresh_token_routes())
+        .merge(routes::buyer_payout_methods::buyer_payout_method_routes())
+        .merge(routes::seller_payout_methods::seller_payout_method_routes())
+        .merge(routes::kyc_documents::kyc_documents_routes())
         .nest_service(
             "/static",
             ServeDir::new(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),

@@ -10,6 +10,7 @@ pub async fn buyer_payout_methods(
     Json(request): Json<BuyerPayoutMethodsRequest>,
 ) -> Result<Json<BuyerPayoutMethodsResponse>, String> {
     let id = Uuid::now_v7();
+
     let buyer_payout = sqlx::query_as::<_, BuyerPayoutMethods>(
         "
         INSERT INTO buyer_payout_methods

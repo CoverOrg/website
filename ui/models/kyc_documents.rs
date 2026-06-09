@@ -33,3 +33,17 @@ pub struct KycDocumentsResponse {
     pub submitted_at: DateTime<Utc>,
     pub reviewed_at: Option<DateTime<Utc>>,
 }
+
+impl From<KycDocuments> for KycDocumentsResponse {
+    fn from(k: KycDocuments) -> Self {
+        Self {
+            id: k.id,
+            doc_type: k.doc_type,
+            file_url: k.file_url,
+            status: k.status,
+            reviewer_note: k.reviewer_note,
+            submitted_at: k.submitted_at,
+            reviewed_at: k.reviewed_at,
+        }
+    }
+}

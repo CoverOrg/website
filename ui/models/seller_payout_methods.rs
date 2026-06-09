@@ -42,3 +42,19 @@ pub struct SellerPayoutMethodsResponse {
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
+
+impl From<SellerPayoutMethods> for SellerPayoutMethodsResponse {
+    fn from(s: SellerPayoutMethods) -> Self {
+        Self {
+            id: s.id,
+            method_type: s.method_type,
+            account_number: s.account_number,
+            iban: s.iban,
+            account_holder: s.account_holder,
+            bank_name: s.bank_name,
+            is_default: s.is_default,
+            created_at: s.created_at,
+            updated_at: s.updated_at,
+        }
+    }
+}
