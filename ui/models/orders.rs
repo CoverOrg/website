@@ -82,3 +82,38 @@ pub struct OrdersResponse {
     pub delivered_at: Option<DateTime<Utc>>,
     pub released_at: Option<DateTime<Utc>>,
 }
+
+impl From<Orders> for OrdersResponse {
+    fn from(o: Orders) -> Self {
+        Self {
+            id: o.id,
+            order_number: o.order_number,
+            buyer_id: o.buyer_id,
+            seller_id: o.seller_id,
+            status: o.status,
+            product_name: o.product_name,
+            product_link: o.product_link,
+            product_image_url: o.product_image_url,
+            product_amount: o.product_amount,
+            delivery_charges: o.delivery_charges,
+            cover_fee: o.cover_fee,
+            total_amount: o.total_amount,
+            seller_payout: o.seller_payout,
+            currency: o.currency,
+            seller_name: o.seller_name,
+            seller_whatsapp: o.seller_whatsapp,
+            seller_handle: o.seller_handle,
+            delivery_qr_token: o.delivery_qr_token,
+            last_seller_notified_at: o.last_seller_notified_at,
+            delivery_address: o.delivery_address,
+            referred_by: o.referred_by,
+            created_at: o.created_at,
+            updated_at: o.updated_at,
+            paid_at: o.paid_at,
+            confirmed_at: o.confirmed_at,
+            shipped_at: o.shipped_at,
+            delivered_at: o.delivered_at,
+            released_at: o.released_at,
+        }
+    }
+}

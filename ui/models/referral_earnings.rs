@@ -27,3 +27,18 @@ pub struct ReferralEarningsResponse {
     pub paid_out_at: Option<DateTime<Utc>>,
     pub created_at: DateTime<Utc>,
 }
+
+impl From<ReferralEarnings> for ReferralEarningsResponse {
+    fn from(r: ReferralEarnings) -> Self {
+        Self {
+            id: r.id,
+            referrer_id: r.referrer_id,
+            order_id: r.order_id,
+            cover_fee: r.cover_fee,
+            earning_amount: r.earning_amount,
+            status: r.status,
+            paid_out_at: Some(r.paid_out_at),
+            created_at: r.created_at,
+        }
+    }
+}

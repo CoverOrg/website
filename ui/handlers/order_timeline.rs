@@ -1,6 +1,5 @@
-use crate::models::order_timeline::{OrderTimelineRequest, OrderTimelineResponse};
+use crate::models::order_timeline::{OrderTimeline, OrderTimelineRequest, OrderTimelineResponse};
 use axum::{Json, extract::State};
-use chrono::Utc;
 use sqlx::{Pool, Postgres};
 use uuid::Uuid;
 
@@ -9,9 +8,8 @@ pub async fn create_order_timeline(
     Json(request): Json<OrderTimelineRequest>,
 ) -> Result<Json<OrderTimelineResponse>, String> {
     let id = Uuid::now_v7();
-    let now = Utc::now();
 
-    sqlx::query(
+    let order = sqlx::query_as::<_, OrderTimeline>(
         "
         INSERT INTO order_timeline
         (
@@ -23,11 +21,8 @@ pub async fn create_order_timeline(
             actor_hint,
             created_at,
         )
-        VALUES
-        (
-            $1, $2, $3, $4,
-            $5, $6, $7
-        )
+        VALUES ($1, $2, $3, $4, $5, $6, NOW())
+        RETURNING *
         ",
     )
     .bind(id)
@@ -36,20 +31,9 @@ pub async fn create_order_timeline(
     .bind(&request.note)
     .bind(&request.actor_id)
     .bind(&request.actor_hint)
-    .bind(now)
-    .execute(&pool)
+    .fetch_one(&pool)
     .await
     .map_err(|e| e.to_string())?;
 
-    let response = OrderTimelineResponse {
-        id,
-        order_id: request.order_id,
-        status: request.status,
-        note: request.note,
-        actor_id: request.actor_id,
-        actor_hint: request.actor_hint,
-        created_at: now,
-    };
-
-    Ok(Json(response))
+    Ok(Json(OrderTimelineResponse::from(order)))
 }

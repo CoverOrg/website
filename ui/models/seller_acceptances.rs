@@ -55,3 +55,24 @@ pub struct SellerAcceptancesResponse {
     pub rejection_reason: Option<String>,
     pub decision_at: DateTime<Utc>,
 }
+
+impl From<SellerAcceptances> for SellerAcceptancesResponse {
+    fn from(s: SellerAcceptances) -> Self {
+        Self {
+            id: s.id,
+            user_id: s.user_id,
+            order_id: s.order_id,
+            seller_name: s.seller_name,
+            payout_method: s.payout_method,
+            payout_account: s.payout_account,
+            iban: s.iban,
+            payout_holder: s.payout_holder,
+            bank_name: s.bank_name,
+            tracking_id: s.tracking_id,
+            courier: s.courier,
+            decision: s.decision,
+            rejection_reason: s.rejection_reason,
+            decision_at: s.decision_at,
+        }
+    }
+}

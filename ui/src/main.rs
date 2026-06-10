@@ -43,6 +43,16 @@ async fn main() {
         .merge(routes::buyer_payout_methods::buyer_payout_method_routes())
         .merge(routes::seller_payout_methods::seller_payout_method_routes())
         .merge(routes::kyc_documents::kyc_documents_routes())
+        .merge(routes::orders::order_routes())
+        .merge(routes::seller_acceptances::seller_acceptances_routes())
+        .merge(routes::payment_proofs::payment_proof_routes())
+        .merge(routes::shipments::shipment_routes())
+        .merge(routes::delivery_confirmations::delivery_confirmation_routes())
+        .merge(routes::disputes::dispute_routes())
+        .merge(routes::order_timeline::order_timeline_routes())
+        .merge(routes::notifications::notification_routes())
+        .merge(routes::referral_applications::referral_application_routes())
+        .merge(routes::referral_earnings::referral_earning_routes())
         .nest_service(
             "/static",
             ServeDir::new(concat!(env!("CARGO_MANIFEST_DIR"), "/static")),

@@ -31,3 +31,16 @@ pub struct PaymentProofsResponse {
     pub screenshot_url: String,
     pub submitted_at: DateTime<Utc>,
 }
+
+impl From<PaymentProofs> for PaymentProofsResponse {
+    fn from(p: PaymentProofs) -> Self {
+        Self {
+            id: p.id,
+            order_id: p.order_id,
+            transaction_id: p.transaction_id,
+            method_type: p.method_type,
+            screenshot_url: p.screenshot_url,
+            submitted_at: p.submitted_at,
+        }
+    }
+}

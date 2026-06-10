@@ -61,3 +61,27 @@ pub struct ReferralApplicationsResponse {
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
+
+impl From<ReferralApplications> for ReferralApplicationsResponse {
+    fn from(r: ReferralApplications) -> Self {
+        Self {
+            id: r.id,
+            user_id: r.user_id,
+            full_name: r.full_name,
+            whatsapp: r.whatsapp,
+            referral_method: r.referral_method,
+            estimated_reach: r.estimated_reach,
+            payout_method: r.payout_method,
+            payout_account: r.payout_account,
+            iban: r.iban,
+            payout_holder: r.payout_holder,
+            bank_name: r.bank_name,
+            referral_code: r.referral_code,
+            status: r.status,
+            rejection_reason: r.rejection_reason,
+            reviewed_at: r.reviewed_at,
+            created_at: r.created_at,
+            updated_at: r.updated_at,
+        }
+    }
+}

@@ -5,7 +5,7 @@ use axum::{Json, extract::State};
 use sqlx::{Pool, Postgres};
 use uuid::Uuid;
 
-pub async fn buyer_payout_methods(
+pub async fn create_buyer_payout_methods(
     State(pool): State<Pool<Postgres>>,
     Json(request): Json<BuyerPayoutMethodsRequest>,
 ) -> Result<Json<BuyerPayoutMethodsResponse>, String> {

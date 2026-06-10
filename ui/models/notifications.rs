@@ -64,3 +64,17 @@ pub struct ListNotificationsResponse {
     pub data: Vec<NotificationItems>,
     pub unread_count: i64,
 }
+
+impl From<Notifications> for NotificationsResponse {
+    fn from(n: Notifications) -> Self {
+        Self {
+            id: n.id,
+            user_id: n.user_id,
+            order_id: n.order_id,
+            notification_type: n.notification_type,
+            message: n.message,
+            is_read: n.is_read,
+            created_at: n.created_at,
+        }
+    }
+}

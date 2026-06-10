@@ -1,6 +1,5 @@
-use crate::models::payment_proofs::{PaymentProofsRequest, PaymentProofsResponse};
+use crate::models::payment_proofs::{PaymentProofs, PaymentProofsRequest, PaymentProofsResponse};
 use axum::{Json, extract::State};
-use chrono::Utc;
 use sqlx::{Pool, Postgres};
 use uuid::Uuid;
 
@@ -9,9 +8,8 @@ pub async fn create_payment_proofs(
     Json(request): Json<PaymentProofsRequest>,
 ) -> Result<Json<PaymentProofsResponse>, String> {
     let id = Uuid::now_v7();
-    let now = Utc::now();
 
-    sqlx::query(
+    let payment = sqlx::query_as::<_, PaymentProofs>(
         "
         INSERT INTO payment_proofs
         (
@@ -22,11 +20,8 @@ pub async fn create_payment_proofs(
             screenshot_url,
             submitted_at
         )
-        VALUES
-        (
-            $1, $2, $3,
-            $4, $5, $6
-        )
+        VALUES ($1, $2, $3, $4, NOW(), NOW())
+        RETURNING *
         ",
     )
     .bind(id)
@@ -34,20 +29,9 @@ pub async fn create_payment_proofs(
     .bind(&request.method_type)
     .bind(Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap())
     .bind(&request.screenshot_url)
-    .bind(now)
-    .bind(now)
-    .execute(&pool)
+    .fetch_one(&pool)
     .await
     .map_err(|e| e.to_string())?;
 
-    let response = PaymentProofsResponse {
-        id,
-        order_id: request.order_id,
-        transaction_id: Uuid::parse_str("019e458c-23cc-7591-ad6c-25930e2ef0d8").unwrap(),
-        method_type: request.method_type,
-        screenshot_url: request.screenshot_url,
-        submitted_at: now,
-    };
-
-    Ok(Json(response))
+    Ok(Json(PaymentProofsResponse::from(payment)))
 }

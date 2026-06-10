@@ -58,3 +58,17 @@ pub struct OrderTimelineResponse {
     pub actor_hint: ActorType,
     pub created_at: DateTime<Utc>,
 }
+
+impl From<OrderTimeline> for OrderTimelineResponse {
+    fn from(o: OrderTimeline) -> Self {
+        Self {
+            id: o.id,
+            order_id: o.order_id,
+            status: o.status,
+            note: o.note,
+            actor_id: o.actor_id,
+            actor_hint: o.actor_hint,
+            created_at: o.created_at,
+        }
+    }
+}

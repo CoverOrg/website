@@ -1,8 +1,7 @@
 use crate::models::delivery_confirmations::{
-    DeliveryConfirmationsRequest, DeliveryConfirmationsResponse,
+    DeliveryConfirmations, DeliveryConfirmationsRequest, DeliveryConfirmationsResponse,
 };
 use axum::{Json, extract::State};
-use chrono::Utc;
 use sqlx::{Pool, Postgres};
 use uuid::Uuid;
 
@@ -11,9 +10,8 @@ pub async fn create_delivery_confirmation(
     Json(request): Json<DeliveryConfirmationsRequest>,
 ) -> Result<Json<DeliveryConfirmationsResponse>, String> {
     let id = Uuid::now_v7();
-    let now = Utc::now();
 
-    sqlx::query(
+    let delivery = sqlx::query_as::<_, DeliveryConfirmations>(
         "
         INSERT INTO delivery_confirmations
         (
@@ -24,30 +22,17 @@ pub async fn create_delivery_confirmation(
             qr_scanned_at,
             confirmed_at,
         )
-        VALUES
-        (
-            $1, $2, $3,
-            $4, $5, $6
-        )
+        VALUES ($1, $2, $3, $4, NOW(), NOW())
+        RETURNING *
         ",
     )
     .bind(id)
     .bind(&request.order_id)
     .bind(&request.video_url)
     .bind(&request.notes)
-    .bind(now)
-    .execute(&pool)
+    .fetch_one(&pool)
     .await
     .map_err(|e| e.to_string())?;
 
-    let response = DeliveryConfirmationsResponse {
-        id,
-        order_id: request.order_id,
-        video_url: request.video_url,
-        notes: request.notes,
-        qr_scanned_at: now,
-        confirmed_at: now,
-    };
-
-    Ok(Json(response))
+    Ok(Json(DeliveryConfirmationsResponse::from(delivery)))
 }

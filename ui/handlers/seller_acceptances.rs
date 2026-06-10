@@ -1,6 +1,7 @@
-use crate::models::seller_acceptances::{SellerAcceptancesRequest, SellerAcceptancesResponse};
+use crate::models::seller_acceptances::{
+    SellerAcceptances, SellerAcceptancesRequest, SellerAcceptancesResponse,
+};
 use axum::{Json, extract::State};
-use chrono::Utc;
 use sqlx::{Pool, Postgres};
 use uuid::Uuid;
 
@@ -9,9 +10,8 @@ pub async fn create_seller_acceptances(
     Json(request): Json<SellerAcceptancesRequest>,
 ) -> Result<Json<SellerAcceptancesResponse>, String> {
     let id = Uuid::now_v7();
-    let now = Utc::now();
 
-    sqlx::query(
+    let seller = sqlx::query_as::<_, SellerAcceptances>(
         "
         INSERT INTO seller_acceptances
         (
@@ -35,8 +35,9 @@ pub async fn create_seller_acceptances(
             $1,  $2,  $3,  $4,
             $5,  $6,  $7,  $8,
             $9,  $10, $11, $12,
-            $13, $14
+            $13, NOW()
         )
+        RETURNING *
         ",
     )
     .bind(id)
@@ -52,27 +53,9 @@ pub async fn create_seller_acceptances(
     .bind(&request.courier)
     .bind(&request.decision)
     .bind(&request.rejection_reason)
-    .bind(now)
-    .execute(&pool)
+    .fetch_one(&pool)
     .await
     .map_err(|e| e.to_string())?;
 
-    let response = SellerAcceptancesResponse {
-        id,
-        user_id: request.user_id,
-        order_id: request.order_id,
-        seller_name: request.seller_name,
-        payout_method: request.payout_method,
-        payout_account: request.payout_account,
-        iban: request.iban,
-        payout_holder: request.payout_holder,
-        bank_name: request.bank_name,
-        tracking_id: request.tracking_id,
-        courier: request.courier,
-        decision: request.decision,
-        rejection_reason: request.rejection_reason,
-        decision_at: now,
-    };
-
-    Ok(Json(response))
+    Ok(Json(SellerAcceptancesResponse::from(seller)))
 }

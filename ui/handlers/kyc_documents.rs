@@ -25,7 +25,7 @@ pub async fn create_kyc_documents(
             submitted_at,
             reviewed_at
         )
-        VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW())
+        VALUES ($1, $2, $3, $4, $5, $6, NOW(), NULL)
         RETURNING *
         ",
     )

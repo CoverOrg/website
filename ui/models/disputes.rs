@@ -66,3 +66,22 @@ pub struct DisputesResponse {
     pub updated_at: DateTime<Utc>,
     pub resolved_at: Option<DateTime<Utc>>,
 }
+
+impl From<Disputes> for DisputesResponse {
+    fn from(d: Disputes) -> Self {
+        Self {
+            id: d.id,
+            order_id: d.order_id,
+            raised_by: d.raised_by,
+            admin_id: d.admin_id,
+            reason: d.reason,
+            description: d.description,
+            proof_urls: d.proof_urls,
+            status: d.status,
+            resolution_notes: d.resolution_notes,
+            created_at: d.created_at,
+            updated_at: d.updated_at,
+            resolved_at: d.resolved_at,
+        }
+    }
+}
