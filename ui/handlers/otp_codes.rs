@@ -1,9 +1,12 @@
 use crate::models::{
-    otp_codes::{OtpCodes, OtpCodesRequest, OtpCodesResponse, VerifyOtpRequest, VerifyOtpResponse},
+    otp_codes::{
+        Claims, OtpCodes, OtpCodesRequest, OtpCodesResponse, VerifyOtpRequest, VerifyOtpResponse,
+    },
     users::{Users, UsersResponse},
 };
 use axum::{Json, extract::State};
-use chrono::Utc;
+use chrono::{Duration, Utc};
+use jsonwebtoken::{EncodingKey, Header, encode};
 use sqlx::PgPool;
 use uuid::Uuid;
 
@@ -53,6 +56,21 @@ pub async fn send_otp(
     Ok(Json(OtpCodesResponse::from(otp)))
 }
 
+pub fn generate_jwt_token(user_id: Uuid) -> Result<String, jsonwebtoken::errors::Error> {
+    let now = Utc::now();
+    let secret = std::env::var("JWT_SECRET").expect("JWT_SECRET not set");
+    let key = EncodingKey::from_secret(secret.as_bytes());
+
+    let claims = Claims {
+        sub: user_id.to_string(),
+        exp: (now + Duration::minutes(15)).timestamp() as usize,
+        iat: now.timestamp() as usize,
+    };
+    let token = encode(&Header::default(), &claims, &key)?;
+
+    Ok(token)
+}
+
 pub async fn verify_otp(
     State(pool): State<PgPool>,
     Json(request): Json<VerifyOtpRequest>,
@@ -99,9 +117,13 @@ pub async fn verify_otp(
     .await
     .map_err(|e| e.to_string())?;
 
+    let access_token = generate_jwt_token(user.id).map_err(|e| e.to_string())?;
+
+    println!("access token: {}", access_token);
+
     Ok(Json(VerifyOtpResponse {
-        access_token: "generate_jwt_here".to_string(),
-        expires_token: "generate_refresh_here".to_string(),
+        access_token,
+        refresh_token: "generate_refresh_here".to_string(),
         expires_at: now,
         user: UsersResponse::from(user),
     }))
